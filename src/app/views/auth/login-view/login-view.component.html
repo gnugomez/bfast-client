@@ -1,1 +1,95 @@
-<p>login-view works!</p>
+<div
+  class="
+    w-screen
+    h-screen
+    grid
+    lg:grid-cols-2
+    items-center
+    justify-items-center
+  "
+>
+  <img
+    class="absolute top-0 left-0 max-h-screen"
+    src="assets/img/oval-top-left.png"
+    alt=""
+  />
+  <img
+    class="absolute bottom-0 left-0 max-h-screen"
+    src="assets/img/oval-bottom-left.png"
+    alt=""
+  />
+  <img
+    class="absolute top-1/2 transform -translate-y-1/2 right-0 max-h-screen"
+    src="assets/img/oval-right.png"
+    alt=""
+  />
+  <img
+    class="dark:hidden absolute bottom-0 right-0 max-h-screen"
+    src="assets/img/logo-bottom-right.png"
+    alt=""
+  />
+  <img
+    class="hidden dark:block absolute bottom-0 right-0 max-h-screen"
+    src="assets/img/logo-bottom-right-white.png"
+    alt=""
+  />
+  <div class="left flex justify-center items-center relative">
+    <app-card type="open" classes="min-w-[25rem] aspect-w-9 aspect-h-12">
+      <div class="p-4 flex flex-col justify-between">
+        <div class="top">
+          <div class="flex justify-between">
+            <div
+              class="
+                icon
+                w-[4.5rem]
+                h-[4.5rem]
+                rounded-full
+                flex
+                items-center
+                justify-center
+                bg-secondary-gray
+                dark:bg-gray-800
+              "
+            >
+              <img class="dark:hidden" src="assets/img/login_icon.svg" alt="" />
+              <img
+                class="hidden dark:block"
+                src="assets/img/login_icon_white.svg"
+                alt=""
+              />
+            </div>
+            <app-button type="light" size="square-sm"
+              ><i class="fas fa-arrow-left"></i
+            ></app-button>
+          </div>
+          <h1 class="mt-4 mb-8">Iniciar sesión</h1>
+          <form class="grid gap-6">
+            <div class="input-wrapper">
+              <input type="text" placeholder="Tu usuario" />
+            </div>
+            <div class="input-wrapper">
+              <input
+                [type]="!showPass ? 'password' : 'text'"
+                placeholder="Tu contraseña"
+              />
+              <div class="toggle-pass" (click)="togglePass()">
+                <i [class.hidden]="!showPass" class="far fa-eye"></i>
+                <i [class.hidden]="showPass" class="far fa-eye-slash"></i>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="bottom flex flex-col">
+          <app-button type="secondary">Entrar</app-button>
+          <div class="separator">
+            <span>¿NUEV@ AQUI?</span>
+          </div>
+          <app-button type="light">Registro</app-button>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <div class="relative mlg:hidden">
+    <img class="w-72" src="assets/img/login-ilustration.png" alt="" />
+  </div>
+</div>

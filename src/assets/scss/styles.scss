@@ -1,0 +1,12 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  @apply font-montserrat dark:bg-black text-main-dark dark:text-white;
+}
+
+h1 {
+  @apply font-bold text-2xl;
+}

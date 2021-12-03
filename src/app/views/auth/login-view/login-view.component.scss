@@ -1,0 +1,36 @@
+.top {
+  @apply flex flex-col;
+
+  .input-wrapper {
+    @apply grid relative;
+  }
+
+  .toggle-pass {
+    @apply absolute right-0 top-1/2 transform -translate-y-1/2 text-main-gray text-lg cursor-pointer w-7 text-center;
+  }
+
+  input {
+    @apply border-0 border-b-[3px] border-secondary-gray dark:border-gray-700 px-0 py-3 ring-0 focus:border-primary bg-transparent;
+
+    &::placeholder {
+      @apply font-medium;
+    }
+  }
+}
+.separator {
+  @apply py-6 flex items-center justify-center relative;
+
+  span {
+    @apply font-bold text-main-gray dark:text-gray-500 text-sm bg-white dark:bg-gray-900 px-4 relative;
+  }
+
+  &:before {
+    @apply absolute inset-0 bg-secondary-gray dark:bg-gray-700;
+    content: "";
+    height: 3px;
+    width: 90%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

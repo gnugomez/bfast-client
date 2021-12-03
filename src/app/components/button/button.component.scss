@@ -1,0 +1,27 @@
+.btn {
+  @apply block transition-all duration-300 hover:shadow-app cursor-pointer text-center;
+
+  &.btn-size-md {
+    @apply px-4 py-3 border-[3px];
+  }
+
+  &.btn-size-square-sm {
+    @apply w-9 h-9 flex items-center justify-center border-[3px];
+  }
+
+  &.btn-primary {
+    @apply font-bold  hover:border-white hover:bg-white hover:text-main-dark rounded-full bg-primary border-primary text-white;
+  }
+
+  &.btn-secondary {
+    @apply font-bold  hover:border-white dark:hover:border-gray-800 hover:bg-white dark:hover:bg-gray-800 rounded-full bg-secondary-gray dark:bg-gray-700 dark:border-gray-700 border-secondary-gray;
+  }
+
+  &.btn-light {
+    @apply font-bold  border-secondary-gray dark:border-gray-800 bg-transparent hover:border-white dark:hover:bg-gray-800 dark:hover:border-gray-800  rounded-full;
+  }
+
+  &.btn-none {
+    @apply font-bold  border-transparent bg-transparent hover:shadow-none text-main-dark;
+  }
+}
