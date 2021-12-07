@@ -13,7 +13,7 @@
     @apply border-0 border-b-[3px] border-secondary-gray dark:border-gray-700 px-0 py-3 ring-0 focus:border-primary bg-transparent;
 
     &::placeholder {
-      @apply font-medium text-main-dimed;
+      @apply font-medium text-main-dimed dark:text-gray-400;
     }
   }
 }

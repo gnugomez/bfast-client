@@ -14,3 +14,7 @@ h1 {
 button {
   @apply outline-none focus:ring-[3px] ring-primary rounded-full;
 }
+
+img.ghost-image {
+  @apply select-none pointer-events-none;
+}
