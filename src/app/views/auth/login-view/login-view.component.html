@@ -2,6 +2,8 @@
   class="
     w-screen
     h-screen
+    relative
+    min-h-[50rem]
     grid
     lg:grid-cols-2
     items-center
@@ -35,7 +37,7 @@
   />
   <div class="left flex justify-center items-center relative">
     <app-card type="open" classes="min-w-[25rem] aspect-w-9 aspect-h-12">
-      <div class="p-4 flex flex-col justify-between">
+      <form class="p-4 flex flex-col justify-between">
         <div class="top">
           <div class="flex justify-between">
             <div
@@ -58,12 +60,12 @@
                 alt=""
               />
             </div>
-            <app-button type="light" size="square-sm"
+            <app-button variant="light" size="square-sm"
               ><i class="fas fa-arrow-left"></i
             ></app-button>
           </div>
           <h1 class="mt-4 mb-8">Iniciar sesión</h1>
-          <form class="grid gap-6">
+          <div class="grid gap-6">
             <div class="input-wrapper">
               <input type="text" placeholder="Tu usuario" />
             </div>
@@ -77,16 +79,20 @@
                 <i [class.hidden]="showPass" class="far fa-eye-slash"></i>
               </div>
             </div>
-          </form>
+          </div>
         </div>
         <div class="bottom flex flex-col">
-          <app-button type="secondary">Entrar</app-button>
+          <button class="app-button" variant="secondary" type="submit">
+            Entrar
+          </button>
           <div class="separator">
             <span>¿NUEV@ AQUI?</span>
           </div>
-          <app-button type="light">Registro</app-button>
+          <app-button variant="light" routerLink="/auth/register"
+            >Registro</app-button
+          >
         </div>
-      </div>
+      </form>
     </app-card>
   </div>
   <div class="relative mlg:hidden">

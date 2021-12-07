@@ -35,6 +35,7 @@ module.exports = {
         },
         main: {
           dark: "#222222",
+          dimed: "#666666",
           gray: "#7B7B7B",
         },
       },

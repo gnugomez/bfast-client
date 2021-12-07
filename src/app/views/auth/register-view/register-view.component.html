@@ -1,1 +1,87 @@
-<p>register-view works!</p>
+<div class="w-screen h-screen relative min-h-[50rem] grid lg:grid-cols-2">
+  <img
+    class="absolute top-0 left-0 max-h-screen"
+    src="assets/img/oval-top-left.png"
+    alt=""
+  />
+  <img
+    class="absolute bottom-0 left-0 max-h-screen"
+    src="assets/img/oval-bottom-left.png"
+    alt=""
+  />
+  <img
+    class="absolute top-1/2 transform -translate-y-1/2 right-0 max-h-screen"
+    src="assets/img/oval-right-red.png"
+    alt=""
+  />
+  <img
+    class="dark:hidden absolute bottom-0 left-0 max-h-screen"
+    src="assets/img/logo-bottom-left.png"
+    alt=""
+  />
+  <img
+    class="hidden dark:block absolute bottom-0 left-0 max-h-screen"
+    src="assets/img/logo-bottom-left-white.png"
+    alt=""
+  />
+  <div class="relative mlg:hidden flex items-end justify-center">
+    <img src="assets/img/register-ilustration.png" alt="" />
+  </div>
+  <div class="right flex justify-center items-center relative">
+    <app-card type="open" classes="min-w-[25rem] aspect-w-9 aspect-h-12">
+      <form class="p-4 flex flex-col justify-between">
+        <div class="top">
+          <div class="flex justify-between">
+            <div
+              class="
+                icon
+                w-[4.5rem]
+                h-[4.5rem]
+                rounded-full
+                flex
+                items-center
+                justify-center
+                bg-secondary-gray
+                dark:bg-gray-800
+              "
+            >
+              <img class="dark:hidden" src="assets/img/login_icon.svg" alt="" />
+              <img
+                class="hidden dark:block"
+                src="assets/img/login_icon_white.svg"
+                alt=""
+              />
+            </div>
+            <app-button variant="light" size="square-sm"
+              ><i class="fas fa-arrow-left"></i
+            ></app-button>
+          </div>
+          <h1 class="mt-4 mb-2">¡Bienvenido!</h1>
+          <span class="text-sm mb-8"
+            >Vamos a configurar tu cuenta de bfast</span
+          >
+          <div class="grid gap-6">
+            <div class="input-wrapper">
+              <input type="text" placeholder="Dirección de email" />
+              <span class="text-xs mt-2 text-main-dimed"
+                >Al hacer click en “Regístrarte ahora” aceptas la política de
+                privacidad y los términos de uso estipulados.</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="bottom flex flex-col">
+          <span class="text-main-dimed text-sm mb-3 font-bold"
+            >¿Ya tienes cuenta?
+            <a class="underline" routerLink="/auth/login"
+              >Iniciar sesión</a
+            ></span
+          >
+          <app-button variant="secondary" type="submit"
+            >Regístrarte ahora</app-button
+          >
+        </div>
+      </form>
+    </app-card>
+  </div>
+</div>
