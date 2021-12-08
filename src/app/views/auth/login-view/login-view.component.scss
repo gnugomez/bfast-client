@@ -1,3 +1,23 @@
+form {
+  &.ng-submitted.ng-invalid {
+    input {
+      &.ng-invalid {
+        @apply border-red-500 dark:border-red-500;
+      }
+
+      &.ng-invalid ~ .toggle-pass {
+        @apply text-red-500;
+      }
+
+      & ~ .errors {
+        @apply opacity-100;
+      }
+    }
+    button[ng-reflect-disabled="true"] {
+      @apply opacity-50 pointer-events-none;
+    }
+  }
+}
 .top {
   @apply flex flex-col;
 
@@ -9,14 +29,48 @@
     @apply absolute right-0 top-1/2 transform -translate-y-1/2 text-main-gray text-lg cursor-pointer w-7 text-center;
   }
 
+  .invalid-login {
+    @apply relative bg-red-500 py-4 px-4 rounded-md text-xs  w-full text-center text-white font-bold overflow-hidden transition-all duration-500 ease-in-out;
+    span {
+      @apply absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-full transition-all duration-500 ease-in-out;
+    }
+  }
+
+  .invalid-login:not(.open) {
+    @apply h-0 p-0;
+    span {
+      @apply opacity-0;
+    }
+  }
+
   input {
     @apply border-0 border-b-[3px] border-secondary-gray dark:border-gray-700 px-0 py-3 ring-0 focus:border-primary bg-transparent;
+
+    &.ng-touched.ng-invalid {
+      @apply border-red-500 dark:border-red-500;
+    }
+
+    & ~ .errors {
+      @apply absolute bottom-0 transform translate-y-full flex flex-col opacity-0;
+      span {
+        @apply text-red-500 font-bold p-1 py-2 text-xs;
+      }
+    }
+
+    &.ng-touched.ng-invalid ~ .toggle-pass {
+      @apply text-red-500;
+    }
+
+    &.ng-touched ~ .errors {
+      @apply opacity-100;
+    }
 
     &::placeholder {
       @apply font-medium text-main-dimed dark:text-gray-400;
     }
   }
 }
+
 .separator {
   @apply py-6 flex items-center justify-center relative;
 

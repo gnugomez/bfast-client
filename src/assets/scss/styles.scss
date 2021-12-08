@@ -11,10 +11,16 @@ h1 {
   @apply font-bold text-2xl;
 }
 
-button {
-  @apply outline-none focus:ring-[3px] ring-primary rounded-full;
+button,
+app-button {
+  @apply rounded-full;
 }
 
 img.ghost-image {
   @apply select-none pointer-events-none;
+}
+
+*[tabindex],
+button {
+  @apply outline-none ring-primary ring-opacity-40 transition-all duration-300 focus-within:ring-4;
 }

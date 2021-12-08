@@ -45,7 +45,12 @@
   />
   <div class="left flex justify-center items-center relative">
     <app-card type="open" classes="min-w-[25rem] aspect-w-9 aspect-h-12">
-      <form class="p-4 flex flex-col justify-between">
+      <form
+        #formEl
+        [formGroup]="loginForm"
+        (ngSubmit)="submitForm()"
+        class="p-4 flex flex-col justify-between"
+      >
         <div class="top">
           <div class="flex justify-between">
             <div
@@ -79,13 +84,39 @@
           <h1 class="mt-4 mb-8">Iniciar sesión</h1>
           <div class="grid gap-6">
             <div class="input-wrapper">
-              <input type="text" placeholder="Tu usuario" />
+              <input
+                type="text"
+                name="username"
+                formControlName="username"
+                placeholder="Tu usuario"
+              />
+              <div *ngIf="loginForm.get('username')?.errors" class="errors">
+                <span *ngIf="loginForm.get('username')?.errors?.invalidLogin">
+                  El nombre de usuario o la contraseña no son válidos
+                </span>
+                <span *ngIf="loginForm.get('username')?.errors?.required">
+                  El usuario es requerido
+                </span>
+                <span *ngIf="loginForm.get('username')?.errors?.minlength">
+                  El usuario debe tener al menos 3 caracteres
+                </span>
+              </div>
             </div>
             <div class="input-wrapper">
               <input
                 [type]="!showPass ? 'password' : 'text'"
+                name="password"
+                formControlName="password"
                 placeholder="Tu contraseña"
               />
+              <div *ngIf="loginForm.get('password')?.errors" class="errors">
+                <span *ngIf="loginForm.get('password')?.errors?.invalidLogin">
+                  El nombre de usuario o la contraseña no son válidos
+                </span>
+                <span *ngIf="loginForm.get('password')?.errors?.required">
+                  La contraseña es requerida
+                </span>
+              </div>
               <div class="toggle-pass" (click)="togglePass()">
                 <i [class.hidden]="!showPass" class="far fa-eye"></i>
                 <i [class.hidden]="showPass" class="far fa-eye-slash"></i>
@@ -94,7 +125,13 @@
           </div>
         </div>
         <div class="bottom flex flex-col">
-          <button class="app-button" variant="secondary" type="submit">
+          <button
+            class="app-button"
+            [loading]="loading"
+            variant="secondary"
+            type="submit"
+            [disabled]="!loginForm.valid"
+          >
             Entrar
           </button>
           <div class="separator">

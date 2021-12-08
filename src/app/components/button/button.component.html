@@ -1,5 +1,14 @@
 <a
   [target]="target"
-  [class]="classes + ' btn ' + 'btn-' + variant + ' ' + 'btn-size-' + size"
-  ><ng-content></ng-content
-></a>
+  [class]="
+    classes +
+    ' btn ' +
+    'btn-' +
+    variant +
+    ' ' +
+    'btn-size-' +
+    size +
+    (loading ? ' loading' : '')
+  "
+  ><span><ng-content></ng-content></span>
+</a>

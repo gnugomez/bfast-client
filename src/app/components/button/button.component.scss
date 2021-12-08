@@ -10,15 +10,45 @@
   }
 
   &.btn-primary {
-    @apply font-bold  hover:border-white hover:bg-white hover:text-main-dark rounded-full bg-primary border-primary text-white;
+    @apply font-bold rounded-full bg-primary border-primary text-white;
+
+    &:hover,
+    &:focus-within {
+      @apply bg-white border-white text-main-dark;
+    }
+  }
+
+  &.loading {
+    @apply relative flex items-center justify-center;
+    &::after {
+      @apply animate-spin;
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      border-top-color: rgba(255, 255, 255, 0.2);
+    }
+    & > * {
+      @apply opacity-0;
+    }
   }
 
   &.btn-secondary {
-    @apply font-bold  hover:border-white dark:hover:border-gray-800 hover:bg-white dark:hover:bg-gray-800 rounded-full bg-secondary-gray dark:bg-gray-700 dark:border-gray-700 border-secondary-gray;
+    @apply font-bold rounded-full bg-secondary-gray dark:bg-gray-700 dark:border-gray-700 border-secondary-gray;
+    &:hover,
+    &:focus-within {
+      @apply bg-white border-white dark:border-gray-800 dark:bg-gray-800 dark:text-white text-main-dark;
+    }
   }
 
   &.btn-light {
-    @apply font-bold  border-secondary-gray dark:border-gray-800 bg-transparent hover:border-white dark:hover:bg-gray-800 dark:hover:border-gray-800  rounded-full;
+    @apply font-bold  border-secondary-gray dark:border-gray-800 bg-transparent rounded-full;
+    &:hover,
+    &:focus {
+      @apply dark:bg-gray-800 dark:border-gray-800 border-white;
+    }
   }
 
   &.btn-none {
