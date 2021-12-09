@@ -8,10 +8,11 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { TokenService } from './token.service';
+import { environment } from '../../../environments/environment';
 
-const OAUTH_CLIENT = '7';
-const OAUTH_SECRET = 'fgR9yU3il8h1XR42QDdzBuYUtwqqdCPdC2gZa7RP';
-const API_URL = 'http://localhost:3000/';
+const OAUTH_CLIENT = environment.OAUTH_CLIENT;
+const OAUTH_SECRET = environment.OAUTH_SECRET;
+const API_URL = environment.API_URL;
 
 const HTTP_OPTIONS = {
   headers: new HttpHeaders({

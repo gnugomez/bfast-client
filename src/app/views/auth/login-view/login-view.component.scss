@@ -13,13 +13,13 @@ form {
         @apply opacity-100;
       }
     }
-    button[ng-reflect-disabled="true"] {
-      @apply opacity-50 pointer-events-none;
-    }
+  }
+  button[ng-reflect-disabled="true"] {
+    @apply opacity-50 pointer-events-none;
   }
 }
 .top {
-  @apply flex flex-col;
+  @apply flex flex-col pb-12;
 
   .input-wrapper {
     @apply grid relative;

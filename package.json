@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "config": "ts-node ./scripts/setenv.ts",
+    "start": "npm run config -- --environment=dev && ng serve",
+    "build": "npm run config -- --environment=prod && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -32,7 +33,7 @@
     "@tailwindcss/line-clamp": "latest",
     "@tailwindcss/typography": "latest",
     "@types/jasmine": "~3.8.0",
-    "@types/node": "^12.11.1",
+    "dotenv": "^10.0.0",
     "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -40,6 +41,8 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "tailwindcss": "latest",
-    "typescript": "~4.3.5"
+    "ts-node": "^10.4.0",
+    "typescript": "~4.3.5",
+    "yargs": "^17.3.0"
   }
 }

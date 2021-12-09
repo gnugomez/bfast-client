@@ -1,6 +1,10 @@
 .btn {
   @apply block transition-all duration-300 hover:shadow-app cursor-pointer text-center;
 
+  span {
+    @apply flex items-center justify-center;
+  }
+
   &.btn-size-md {
     @apply px-4 py-3 border-[3px];
   }
@@ -21,14 +25,16 @@
   &.loading {
     @apply relative flex items-center justify-center;
     &::after {
-      @apply animate-spin;
+      @apply animate-spin border-4 dark:border-white border-main-dark;
       content: "";
       position: absolute;
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      border: 3px solid #fff;
-      border-top-color: rgba(255, 255, 255, 0.2);
+      border-top-color: rgba(34, 34, 34, 0.2);
+      @media (prefers-color-scheme: dark) {
+        border-top-color: rgba(255, 255, 255, 0.2);
+      }
     }
     & > * {
       @apply opacity-0;

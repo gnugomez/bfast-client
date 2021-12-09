@@ -20,7 +20,9 @@ export class LoginViewComponent implements OnInit {
 
   constructor(private auth: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.loginForm);
+  }
 
   public togglePass(): void {
     this.showPass = !this.showPass;
@@ -34,14 +36,13 @@ export class LoginViewComponent implements OnInit {
           console.log(res);
           setTimeout(() => {
             this.loading = false;
-          }, 1000);
+          }, 500);
         },
         (err) => {
-          this.loginForm.get('username')?.setErrors({ invalidLogin: true });
-          this.loginForm.get('password')?.setErrors({ invalidLogin: true });
+          this.loginForm.setErrors({ invalidLogin: true });
           setTimeout(() => {
             this.loading = false;
-          }, 1000);
+          }, 500);
         }
       );
     }

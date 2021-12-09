@@ -44,7 +44,7 @@
     alt=""
   />
   <div class="left flex justify-center items-center relative">
-    <app-card type="open" classes="min-w-[25rem] aspect-w-9 aspect-h-12">
+    <app-card type="open" classes="min-w-[25rem] min-h-[30rem]">
       <form
         #formEl
         [formGroup]="loginForm"
@@ -81,8 +81,14 @@
               ><i class="fas fa-arrow-left"></i
             ></app-button>
           </div>
-          <h1 class="mt-4 mb-8">Iniciar sesión</h1>
-          <div class="grid gap-6">
+          <h1 class="mt-4 mb-3">Iniciar sesión</h1>
+          <div
+            class="invalid-login"
+            [class.open]="loginForm?.errors?.invalidLogin"
+          >
+            <span>El nombre de usuario o la contraseña no son válidos.</span>
+          </div>
+          <div class="grid gap-6 mt-3">
             <div class="input-wrapper">
               <input
                 type="text"
@@ -130,7 +136,7 @@
             [loading]="loading"
             variant="secondary"
             type="submit"
-            [disabled]="!loginForm.valid"
+            [disabled]="loginForm.invalid"
           >
             Entrar
           </button>
