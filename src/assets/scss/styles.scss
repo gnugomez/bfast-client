@@ -1,6 +1,21 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+/* purgecss start ignore */
+@tailwind base;
+/* purgecss end ignore */
+
+/* purgecss start ignore */
+@tailwind components;
+/* purgecss end ignore */
+
+/* purgecss start ignore */
+@tailwind utilities;
+/* purgecss end ignore */
+
+/* purgecss start ignore */
+@tailwind variants;
+/* purgecss end ignore */
 /* You can add global styles to this file, and also import other style files */
 
 body {
@@ -23,4 +38,13 @@ img.ghost-image {
 *[tabindex],
 button {
   @apply outline-none ring-primary ring-opacity-40 transition-all duration-300 focus-within:ring-4;
+}
+.toggle-pass {
+  @apply -translate-y-1/2 absolute right-0 top-1/2 text-main-gray text-lg cursor-pointer w-7 text-center;
+}
+input ~ .errors {
+  @apply transform w-full absolute bottom-0 translate-y-full flex flex-col opacity-0;
+  span {
+    @apply text-red-500 font-bold p-1 py-2 text-xs;
+  }
 }

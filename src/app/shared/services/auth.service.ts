@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { TokenService } from './token.service';
-import { environment } from '../../../environments/environment';
+import { environment } from 'src/environments/environment';
 
 const OAUTH_CLIENT = environment.OAUTH_CLIENT;
 const OAUTH_SECRET = environment.OAUTH_SECRET;
