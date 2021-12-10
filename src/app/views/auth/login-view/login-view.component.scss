@@ -25,13 +25,6 @@ form {
     @apply grid relative;
   }
 
-  .invalid-login {
-    @apply relative bg-red-500 py-4 px-4 rounded-md text-xs  w-full text-center text-white font-bold overflow-hidden transition-all duration-500 ease-in-out;
-    span {
-      @apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-full transition-all duration-500 ease-in-out;
-    }
-  }
-
   .invalid-login:not(.open) {
     @apply h-0 p-0;
     span {
