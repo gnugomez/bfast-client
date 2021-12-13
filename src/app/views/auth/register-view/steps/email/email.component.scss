@@ -17,3 +17,20 @@
     }
   }
 }
+
+form .input-wrapper {
+  input {
+    &.ng-touched.ng-invalid ~ .message {
+      @apply opacity-0;
+    }
+  }
+}
+form {
+  &.ng-submitted.ng-invalid {
+    input {
+      &.ng-invalid ~ .message {
+        @apply opacity-0;
+      }
+    }
+  }
+}

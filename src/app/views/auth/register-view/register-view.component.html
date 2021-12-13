@@ -36,64 +36,33 @@
     <img class="ghost-image" src="assets/img/register-ilustration.png" alt="" />
   </div>
   <div class="right flex justify-center items-center relative">
-    <app-card type="open" classes="min-w-[25rem] aspect-w-9 aspect-h-12">
-      <form class="p-4 flex flex-col justify-between">
-        <div class="top">
-          <div class="flex justify-between">
-            <div
-              class="
-                icon
-                w-[4.5rem]
-                h-[4.5rem]
-                rounded-full
-                flex
-                items-center
-                justify-center
-                bg-secondary-gray
-                dark:bg-gray-800
-              "
-            >
-              <img
-                class="dark:hidden ghost-image"
-                src="assets/img/login_icon.svg"
-                alt=""
-              />
-              <img
-                class="hidden dark:block ghost-image"
-                src="assets/img/login_icon_white.svg"
-                alt=""
-              />
-            </div>
-            <app-button variant="light" size="square-sm"
-              ><i class="fas fa-arrow-left"></i
-            ></app-button>
-          </div>
-          <h1 class="mt-4 mb-2">¡Bienvenido!</h1>
-          <span class="text-sm mb-8"
-            >Vamos a configurar tu cuenta de bfast</span
-          >
-          <div class="grid gap-6">
-            <div class="input-wrapper">
-              <input type="text" placeholder="Dirección de email" />
-              <span class="text-xs mt-2 text-main-dimed"
-                >Al hacer click en “Regístrarte ahora” aceptas la política de
-                privacidad y los términos de uso estipulados.</span
-              >
-            </div>
-          </div>
-        </div>
-        <div class="bottom flex flex-col">
-          <span class="text-main-dimed text-sm mb-3 font-bold"
-            >¿Ya tienes cuenta?
-            <a class="underline" routerLink="/auth/login"
-              >Iniciar sesión</a
-            ></span
-          >
-          <button class="app-button" variant="secondary" type="submit">
-            Regístrarte ahora
-          </button>
-        </div>
-      </form>
+    <app-card
+      type="open"
+      classes="min-w-[25rem] max-w-[25rem] min-h-[35rem] grid relative"
+    >
+      <app-progress
+        [value]="(currentStep / totalSteps) * 100"
+        class="
+          px-4
+          w-full
+          absolute
+          -top-7
+          left-1/2
+          -translate-x-1/2 -translate-y-full
+        "
+      ></app-progress>
+      <register-email
+        *ngIf="currentStep === 1"
+        (nextStep)="nextStep()"
+        class="grid"
+        @fadeRight
+      ></register-email>
+      <register-name
+        *ngIf="currentStep === 2"
+        (nextStep)="nextStep()"
+        class="grid"
+        @fadeRight
+      ></register-name>
     </app-card>
   </div>
 </div>

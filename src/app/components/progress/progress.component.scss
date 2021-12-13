@@ -1,0 +1,7 @@
+.progress {
+  @apply bg-main-gray bg-opacity-30 rounded-full h-2;
+
+  .bullet {
+    @apply bg-primary rounded-full h-full transition-all duration-500 ease-in-out;
+  }
+}

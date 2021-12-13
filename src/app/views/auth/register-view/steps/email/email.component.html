@@ -1,0 +1,84 @@
+<form
+  [formGroup]="emailForm"
+  (ngSubmit)="submitForm()"
+  class="p-4 flex flex-col justify-between"
+>
+  <div class="top">
+    <div class="flex justify-between">
+      <div
+        class="
+          icon
+          w-[4.5rem]
+          h-[4.5rem]
+          rounded-full
+          flex
+          items-center
+          justify-center
+          bg-secondary-gray
+          dark:bg-gray-800
+        "
+      >
+        <img
+          class="dark:hidden ghost-image"
+          src="assets/img/login_icon.svg"
+          alt=""
+        />
+        <img
+          class="hidden dark:block ghost-image"
+          src="assets/img/login_icon_white.svg"
+          alt=""
+        />
+      </div>
+      <app-button variant="light" size="square-sm"
+        ><i class="fas fa-arrow-left"></i
+      ></app-button>
+    </div>
+    <h1 class="mt-4 mb-2">¡Bienvenido!</h1>
+    <span class="text-sm mb-8">Vamos a configurar tu cuenta de bfast</span>
+    <div class="grid gap-6">
+      <div class="input-wrapper">
+        <input
+          type="text"
+          placeholder="Dirección de email"
+          formControlName="email"
+        />
+        <span
+          class="
+            message
+            text-xs
+            pt-2
+            text-main-dimed
+            absolute
+            bottom-0
+            translate-y-full
+          "
+          >Al hacer click en “Regístrarte ahora” aceptas la política de
+          privacidad y los términos de uso estipulados.</span
+        >
+        <div *ngIf="emailForm.get('email')?.errors" class="errors">
+          <span *ngIf="emailForm.get('email')?.errors?.required">
+            La dirección de email es requerida
+          </span>
+          <span *ngIf="emailForm.get('email')?.errors?.email">
+            La dirección de email que has introducido no es válida
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom flex flex-col">
+    <span class="text-main-dimed text-sm mb-3 font-bold"
+      >¿Ya tienes cuenta?
+      <a class="underline" routerLink="/auth/login">Iniciar sesión</a></span
+    >
+    <button
+      class="app-button"
+      [loading]="loading"
+      variant="secondary"
+      type="submit"
+      [disabled]="emailForm.invalid"
+    >
+      Regístrarte ahora
+    </button>
+  </div>
+</form>

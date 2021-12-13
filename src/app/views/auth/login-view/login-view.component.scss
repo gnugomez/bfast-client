@@ -48,7 +48,7 @@ form {
     }
 
     &::placeholder {
-      @apply font-medium text-main-dimed dark:text-gray-400;
+      @apply font-bold text-sm uppercase text-main-dimed dark:text-gray-400;
     }
   }
 }
