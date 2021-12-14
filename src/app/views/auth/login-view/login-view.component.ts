@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth.service';
@@ -6,6 +7,20 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   selector: 'app-login-view',
   templateUrl: './login-view.component.html',
   styleUrls: ['./login-view.component.scss'],
+  animations: [
+    trigger('fadeRight', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateX(30px)' }),
+        animate(
+          '400ms ease-in-out',
+          style({ opacity: 1, transform: 'translateY(0)' })
+        ),
+      ]),
+      transition(':leave', [
+        animate('300ms', style({ opacity: 0, transform: 'translateX(30px)' })),
+      ]),
+    ]),
+  ],
 })
 export class LoginViewComponent implements OnInit {
   public showPass = false;
@@ -20,9 +35,7 @@ export class LoginViewComponent implements OnInit {
 
   constructor(private auth: AuthService) {}
 
-  ngOnInit(): void {
-    console.log(this.loginForm);
-  }
+  ngOnInit(): void {}
 
   public togglePass(): void {
     this.showPass = !this.showPass;

@@ -7,11 +7,22 @@ import { RegisterViewComponent } from './register-view/register-view.component';
 import { ButtonModule } from 'src/app/components/button/button.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ProgressModule } from 'src/app/components/progress/progress.module';
+import { EmailComponent } from './register-view/steps/email/email.component';
+import { NameComponent } from './register-view/steps/name/name.component';
+import { PasswordComponent } from './register-view/steps/password/password.component';
+import { OrganizationComponent } from './register-view/steps/organization/organization.component';
 
 const views = [LoginViewComponent, RegisterViewComponent];
-const components = [CardModule, ButtonModule];
+const components = [CardModule, ButtonModule, ProgressModule];
 @NgModule({
-  declarations: [...views],
+  declarations: [
+    ...views,
+    EmailComponent,
+    NameComponent,
+    PasswordComponent,
+    OrganizationComponent,
+  ],
   imports: [
     CommonModule,
     AuthRoutingModule,

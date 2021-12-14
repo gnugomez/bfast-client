@@ -7,16 +7,16 @@
     grid
     lg:grid-cols-2
     items-center
-    justify-items-center
+    sm:justify-items-center
   "
 >
   <img
-    class="absolute top-0 left-0 max-h-screen ghost-image"
+    class="absolute top-0 left-0 max-h-screen ghost-image msm:hidden"
     src="assets/img/oval-top-left.png"
     alt=""
   />
   <img
-    class="absolute bottom-0 left-0 max-h-screen ghost-image"
+    class="absolute bottom-0 left-0 max-h-screen ghost-image msm:hidden"
     src="assets/img/oval-bottom-left.png"
     alt=""
   />
@@ -29,6 +29,7 @@
       right-0
       max-h-screen
       ghost-image
+      msm:hidden
     "
     src="assets/img/oval-right.png"
     alt=""
@@ -43,13 +44,17 @@
     src="assets/img/logo-bottom-right-white.png"
     alt=""
   />
-  <div class="left flex justify-center items-center relative">
-    <app-card type="open" classes="min-w-[25rem] min-h-[30rem]">
+  <div class="left sm:justify-center items-center">
+    <app-card
+      type="open"
+      classes="sm:min-w-[25rem] min-h-[30rem] grid relative msm:!bg-transparent msm:!border-transparent msm:!shadow-none"
+    >
       <form
         #formEl
         [formGroup]="loginForm"
         (ngSubmit)="submitForm()"
         class="p-4 flex flex-col justify-between"
+        @fadeRight
       >
         <div class="top">
           <div class="flex justify-between">
@@ -95,6 +100,7 @@
                 name="username"
                 formControlName="username"
                 placeholder="Tu usuario"
+                autofocus
               />
               <div *ngIf="loginForm.get('username')?.errors" class="errors">
                 <span *ngIf="loginForm.get('username')?.errors?.invalidLogin">
@@ -132,11 +138,11 @@
         </div>
         <div class="bottom flex flex-col">
           <button
-            class="app-button"
+            app-button
             [loading]="loading"
             variant="secondary"
             type="submit"
-            [disabled]="loginForm.invalid"
+            class="apparence-none"
           >
             Entrar
           </button>
