@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -7,8 +7,9 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   templateUrl: './email.component.html',
   styleUrls: ['./email.component.scss'],
 })
-export class EmailComponent {
+export class EmailComponent implements OnInit {
   @Output() public nextStep: EventEmitter<void> = new EventEmitter();
+  @Input() public registerForm?: FormGroup;
 
   public showPass = false;
   public emailForm = new FormGroup({
@@ -18,8 +19,19 @@ export class EmailComponent {
 
   constructor(private auth: AuthService) {}
 
+  ngOnInit(): void {
+    this.emailForm.valueChanges.subscribe(() => {
+      this.registerForm?.patchValue(this.emailForm.value);
+    });
+    this.emailForm.patchValue(this.registerForm?.value);
+  }
+
   public togglePass(): void {
     this.showPass = !this.showPass;
+  }
+
+  public goBack() {
+    history.back();
   }
 
   public submitForm(): void {

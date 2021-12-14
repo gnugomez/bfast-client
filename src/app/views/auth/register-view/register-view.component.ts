@@ -1,5 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-view',
@@ -8,15 +9,15 @@ import { Component, OnInit } from '@angular/core';
   animations: [
     trigger('fadeRight', [
       transition(':enter', [
-        style({ opacity: 0, transform: 'translateX(20px)' }),
+        style({ opacity: 0, transform: 'translateX(30px)' }),
         animate(
-          '600ms ease-in-out',
+          '400ms ease-in-out',
           style({ opacity: 1, transform: 'translateY(0)' })
         ),
       ]),
       transition(':leave', [
         style({ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }),
-        animate('200ms', style({ opacity: 0, transform: 'translateX(-20px)' })),
+        animate('200ms', style({ opacity: 0, transform: 'translateX(-30px)' })),
       ]),
     ]),
   ],
@@ -24,6 +25,18 @@ import { Component, OnInit } from '@angular/core';
 export class RegisterViewComponent implements OnInit {
   public currentStep = 1;
   public totalSteps = 4;
+
+  public registerForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    name: new FormControl('', [Validators.required]),
+    surname: new FormControl('', [Validators.required]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.pattern(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+      ),
+    ]),
+  });
 
   constructor() {}
 
