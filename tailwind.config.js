@@ -43,7 +43,7 @@ module.exports = {
         montserrat: ["Montserrat", "sans-serif"],
       },
       boxShadow: {
-        app: "rgb(0 0 0 / 13%) 0px 4px 10px, rgb(0 0 0 / 5%) 0px 0px 3px",
+        app: "rgba(0, 0, 0, 0.13) 0px 4px 10px, rgba(0, 0, 0, 0.05) 0px 0px 3px",
       },
     },
   },

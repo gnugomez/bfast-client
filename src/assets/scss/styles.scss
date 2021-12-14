@@ -91,6 +91,8 @@ form {
 }
 
 button[app-button] {
+  @apply hover:shadow-app;
+
   &[ng-reflect-disabled="true"],
   &[disabled],
   &:disabled {
