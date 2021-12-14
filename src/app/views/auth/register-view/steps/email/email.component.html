@@ -29,7 +29,7 @@
           alt=""
         />
       </div>
-      <app-button variant="light" size="square-sm"
+      <app-button (click)="goBack()" variant="light" size="square-sm"
         ><i class="fas fa-arrow-left"></i
       ></app-button>
     </div>
@@ -41,6 +41,7 @@
           type="text"
           placeholder="Dirección de email"
           formControlName="email"
+          autofocus
         />
         <span
           class="

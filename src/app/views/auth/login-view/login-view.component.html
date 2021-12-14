@@ -96,6 +96,7 @@
                 name="username"
                 formControlName="username"
                 placeholder="Tu usuario"
+                autofocus
               />
               <div *ngIf="loginForm.get('username')?.errors" class="errors">
                 <span *ngIf="loginForm.get('username')?.errors?.invalidLogin">

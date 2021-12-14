@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class NameComponent {
   @Output() public nextStep: EventEmitter<void> = new EventEmitter();
+  @Output() public prevStep: EventEmitter<void> = new EventEmitter();
+  @Input() public registerForm?: FormGroup;
 
   public showPass = false;
   public nameForm = new FormGroup({
@@ -18,6 +20,17 @@ export class NameComponent {
   public loading = false;
 
   constructor(private auth: AuthService) {}
+
+  ngOnInit(): void {
+    this.nameForm.valueChanges.subscribe(() => {
+      this.registerForm?.patchValue(this.nameForm.value);
+    });
+    this.nameForm.patchValue(this.registerForm?.value);
+  }
+
+  public goBack() {
+    this.prevStep.emit();
+  }
 
   public togglePass(): void {
     this.showPass = !this.showPass;

@@ -10,14 +10,14 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   animations: [
     trigger('fadeRight', [
       transition(':enter', [
-        style({ opacity: 0, transform: 'translateX(20px)' }),
+        style({ opacity: 0, transform: 'translateX(30px)' }),
         animate(
-          '500ms ease-in-out',
+          '400ms ease-in-out',
           style({ opacity: 1, transform: 'translateY(0)' })
         ),
       ]),
       transition(':leave', [
-        animate('300ms', style({ opacity: 0, transform: 'translateX(20px)' })),
+        animate('300ms', style({ opacity: 0, transform: 'translateX(30px)' })),
       ]),
     ]),
   ],

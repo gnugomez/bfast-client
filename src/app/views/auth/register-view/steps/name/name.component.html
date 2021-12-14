@@ -20,16 +20,16 @@
       >
         <img
           class="dark:hidden ghost-image"
-          src="assets/img/login_icon.svg"
+          src="assets/img/username_icon.svg"
           alt=""
         />
         <img
           class="hidden dark:block ghost-image"
-          src="assets/img/login_icon_white.svg"
+          src="assets/img/username_icon_white.svg"
           alt=""
         />
       </div>
-      <app-button variant="light" size="square-sm"
+      <app-button (click)="goBack()" variant="light" size="square-sm"
         ><i class="fas fa-arrow-left"></i
       ></app-button>
     </div>
@@ -37,7 +37,12 @@
     <span class="text-sm mb-8">¿Cómo te llamas ?</span>
     <div class="grid gap-6">
       <div class="input-wrapper">
-        <input type="text" placeholder="Nombre(s)" formControlName="name" />
+        <input
+          type="text"
+          placeholder="Nombre(s)"
+          formControlName="name"
+          autofocus
+        />
         <div *ngIf="nameForm.get('name')?.errors" class="errors">
           <span *ngIf="nameForm.get('name')?.errors?.required">
             Tu nombre(s) es requerido
