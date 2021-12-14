@@ -12,8 +12,6 @@ export class ButtonComponent implements OnInit {
   @Input() link = '';
   @Input() target = '_self';
   @Input() classes = '';
-  @HostBinding('attr.disabled') disabledAttribute = Input();
-  disabled = false;
 
   constructor() {}
 

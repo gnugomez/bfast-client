@@ -47,7 +47,7 @@
   <div class="left sm:justify-center items-center">
     <app-card
       type="open"
-      classes="sm:min-w-[25rem] min-h-[30rem] grid relative msm:!bg-transparent msm:!border-transparent"
+      classes="sm:min-w-[25rem] min-h-[30rem] grid relative msm:!bg-transparent msm:!border-transparent msm:!shadow-none"
     >
       <form
         #formEl
@@ -142,7 +142,6 @@
             [loading]="loading"
             variant="secondary"
             type="submit"
-            [disabled]="loginForm.invalid"
           >
             Entrar
           </button>

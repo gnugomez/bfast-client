@@ -72,13 +72,7 @@
       >¿Ya tienes cuenta?
       <a class="underline" routerLink="/auth/login">Iniciar sesión</a></span
     >
-    <button
-      app-button
-      [loading]="loading"
-      variant="secondary"
-      type="submit"
-      [disabled]="emailForm.invalid"
-    >
+    <button app-button [loading]="loading" variant="secondary" type="submit">
       Regístrarte ahora
     </button>
   </div>
