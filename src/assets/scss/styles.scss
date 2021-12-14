@@ -90,7 +90,7 @@ form {
   }
 }
 
-button.app-button {
+button[app-button] {
   &[ng-reflect-disabled="true"],
   &[disabled],
   &:disabled {
