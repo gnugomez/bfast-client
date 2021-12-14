@@ -1,11 +1,11 @@
 <div class="w-screen h-screen relative min-h-[50rem] grid lg:grid-cols-2">
   <img
-    class="absolute top-0 left-0 max-h-screen ghost-image"
+    class="absolute top-0 left-0 max-h-screen ghost-image msm:hidden"
     src="assets/img/oval-top-left.png"
     alt=""
   />
   <img
-    class="absolute bottom-0 left-0 max-h-screen ghost-image"
+    class="absolute bottom-0 left-0 max-h-screen ghost-image msm:hidden"
     src="assets/img/oval-bottom-left.png"
     alt=""
   />
@@ -18,6 +18,7 @@
       right-0
       max-h-screen
       ghost-image
+      msm:hidden
     "
     src="assets/img/oval-right-red.png"
     alt=""
@@ -35,10 +36,10 @@
   <div class="relative mlg:hidden flex items-end justify-center">
     <img class="ghost-image" src="assets/img/register-ilustration.png" alt="" />
   </div>
-  <div class="right flex justify-center items-center relative">
+  <div class="right grid sm:justify-center items-center relative">
     <app-card
       type="open"
-      classes="min-w-[25rem] max-w-[25rem] min-h-[35rem] grid relative"
+      classes="sm:min-w-[25rem] max-w-[25rem] min-h-[35rem] grid relative msm:!bg-transparent msm:!border-transparent"
     >
       <app-progress
         [value]="(currentStep / totalSteps) * 100"

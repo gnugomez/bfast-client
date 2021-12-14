@@ -54,11 +54,11 @@ form {
   @apply py-6 flex items-center justify-center relative;
 
   span {
-    @apply font-bold text-main-gray dark:text-gray-500 text-sm bg-white dark:bg-gray-900 px-4 relative;
+    @apply font-bold text-main-gray dark:text-gray-500 text-sm bg-white dark:bg-gray-900 msm:bg-transparent px-4 relative;
   }
 
   &:before {
-    @apply absolute inset-0 bg-secondary-gray dark:bg-gray-700;
+    @apply absolute inset-0 bg-secondary-gray dark:bg-gray-700 msm:bg-transparent;
     content: "";
     height: 3px;
     width: 90%;
