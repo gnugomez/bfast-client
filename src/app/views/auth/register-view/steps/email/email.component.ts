@@ -17,7 +17,7 @@ export class EmailComponent implements OnInit {
   });
   public loading = false;
 
-  constructor(private auth: AuthService) {}
+  constructor(auth: AuthService) {}
 
   ngOnInit(): void {
     this.emailForm.valueChanges.subscribe(() => {
