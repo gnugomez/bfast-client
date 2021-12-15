@@ -46,7 +46,7 @@ export class LoginViewComponent implements OnInit {
       this.loading = true;
       this.auth.login(this.loginForm.value).subscribe(
         (res) => {
-          console.log(res);
+          
           setTimeout(() => {
             this.loading = false;
           }, 500);

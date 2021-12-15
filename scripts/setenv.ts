@@ -27,9 +27,9 @@ targetPaths.forEach((path) => {
     { recursive: true },
     function (err: any) {
       if (err) {
-        console.log(err);
+        
       }
-      console.log(`Wrote variables to ${path}`);
+      
     }
   );
 });
