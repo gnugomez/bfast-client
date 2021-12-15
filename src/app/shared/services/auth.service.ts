@@ -34,7 +34,7 @@ export class AuthService {
   }
 
   private static log(message: string): any {
-    console.log(message);
+    
   }
 
   login(loginData: any): Observable<any> {
