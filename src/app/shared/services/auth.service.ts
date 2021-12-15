@@ -27,7 +27,7 @@ const HTTP_OPTIONS = {
 export class AuthService {
   redirectUrl = '';
 
-  constructor(private http: HttpClient, private tokenService: TokenService) {}
+  constructor(http: HttpClient, tokenService: TokenService) {}
 
   private static handleError(error: HttpErrorResponse): any {
     return throwError(error);
