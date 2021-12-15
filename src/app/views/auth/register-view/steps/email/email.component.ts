@@ -30,7 +30,7 @@ export class EmailComponent implements OnInit {
     this.showPass = !this.showPass;
   }
 
-  public goBack() {
+  public goBack(): void  {
     history.back();
   }
 
