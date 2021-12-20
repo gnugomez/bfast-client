@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   templateUrl: './email.component.html',
   styleUrls: ['./email.component.scss'],
 })
-export class EmailComponent implements OnInit {
+export class RegisterEmailComponent implements OnInit {
   @Output() public nextStep: EventEmitter<void> = new EventEmitter();
   @Input() public registerForm?: FormGroup;
 

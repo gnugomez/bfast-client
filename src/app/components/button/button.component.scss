@@ -9,6 +9,10 @@
     @apply px-4 py-3 border-[3px];
   }
 
+  &.btn-size-sm {
+    @apply px-2 h-9 flex items-center justify-center border-[3px];
+  }
+
   &.btn-size-square-sm {
     @apply w-9 h-9 flex items-center justify-center border-[3px];
   }

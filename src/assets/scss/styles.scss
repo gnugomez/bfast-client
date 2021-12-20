@@ -114,3 +114,15 @@ button[app-button] {
 .icon {
   animation: fadeRight 0.8s;
 }
+
+.outer-wrapper {
+  @apply grid;
+
+  router-outlet {
+    @apply hidden;
+
+    & ~ * {
+      @apply grid;
+    }
+  }
+}
