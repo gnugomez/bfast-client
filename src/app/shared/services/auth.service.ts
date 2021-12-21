@@ -9,6 +9,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { TokenService } from './token.service';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 const OAUTH_CLIENT = environment.OAUTH_CLIENT;
 const OAUTH_SECRET = environment.OAUTH_SECRET;
@@ -27,7 +28,11 @@ const HTTP_OPTIONS = {
 export class AuthService {
   redirectUrl = '';
 
-  constructor(private http: HttpClient, private tokenService: TokenService) {}
+  constructor(
+    private http: HttpClient,
+    private tokenService: TokenService,
+    private router: Router
+  ) {}
 
   private static handleError(error: HttpErrorResponse): any {
     return throwError(error);
@@ -90,5 +95,9 @@ export class AuthService {
     return this.http
       .get<any>(API_URL + 'secret')
       .pipe(catchError(AuthService.handleError));
+  }
+
+  isLoggedIn(): boolean {
+    return this.tokenService.getToken() ? true : false;
   }
 }
