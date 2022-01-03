@@ -34,7 +34,7 @@
     "@tailwindcss/typography": "latest",
     "@types/jasmine": "~3.10.2",
     "dotenv": "^10.0.0",
-    "jasmine-core": "~3.10.1",
+    "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.1.0",
