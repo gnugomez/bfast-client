@@ -28,7 +28,7 @@ export class NameComponent {
     this.nameForm.patchValue(this.registerForm?.value);
   }
 
-  public goBack() {
+  public goBack(): void  {
     this.prevStep.emit();
   }
 

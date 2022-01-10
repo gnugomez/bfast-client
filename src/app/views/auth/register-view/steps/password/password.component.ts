@@ -37,7 +37,7 @@ export class PasswordComponent {
     this.showPass = !this.showPass;
   }
 
-  public goBack() {
+  public goBack(): void  {
     this.prevStep.emit();
   }
 

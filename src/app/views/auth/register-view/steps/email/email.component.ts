@@ -30,7 +30,7 @@ export class RegisterEmailComponent implements OnInit {
     this.showPass = !this.showPass;
   }
 
-  public goBack() {
+  public goBack(): void  {
     history.back();
   }
 
