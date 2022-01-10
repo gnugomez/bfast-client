@@ -19,7 +19,7 @@ export class NameComponent {
   });
   public loading = false;
 
-  constructor(private auth: AuthService) {}
+  constructor(auth: AuthService) {}
 
   ngOnInit(): void {
     this.nameForm.valueChanges.subscribe(() => {

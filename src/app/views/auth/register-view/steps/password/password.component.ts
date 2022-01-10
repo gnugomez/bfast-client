@@ -24,7 +24,7 @@ export class PasswordComponent {
   });
   public loading = false;
 
-  constructor(private auth: AuthService) {}
+  constructor(auth: AuthService) {}
 
   ngOnInit(): void {
     this.passwordForm.valueChanges.subscribe(() => {

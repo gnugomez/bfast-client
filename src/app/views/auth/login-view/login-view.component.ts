@@ -34,7 +34,7 @@ export class LoginViewComponent implements OnInit {
   });
   public loading = false;
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(auth: AuthService, router: Router) {}
 
   ngOnInit(): void {}
 
