@@ -1,6 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
@@ -33,7 +34,7 @@ export class LoginViewComponent implements OnInit {
   });
   public loading = false;
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -46,7 +47,7 @@ export class LoginViewComponent implements OnInit {
       this.loading = true;
       this.auth.login(this.loginForm.value).subscribe(
         (res) => {
-          console.log(res);
+          this.router.navigate(['/']);
           setTimeout(() => {
             this.loading = false;
           }, 500);
