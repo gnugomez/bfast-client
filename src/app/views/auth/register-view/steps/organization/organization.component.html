@@ -1,1 +1,79 @@
-<p>organization works!</p>
+<form
+  [formGroup]="organizationForm"
+  (ngSubmit)="submitForm()"
+  class="p-4 flex flex-col justify-between"
+>
+  <div class="top">
+    <div class="flex justify-between">
+      <div
+        class="
+          icon
+          w-[4.5rem]
+          h-[4.5rem]
+          rounded-full
+          flex
+          items-center
+          justify-center
+          bg-secondary-gray
+          dark:bg-gray-800
+        "
+      >
+        <img
+          class="dark:hidden ghost-image"
+          src="assets/img/config_icon.svg"
+          alt=""
+        />
+        <img
+          class="hidden dark:block ghost-image"
+          src="assets/img/config_icon_white.svg"
+          alt=""
+        />
+      </div>
+      <app-button
+        (click)="skip()"
+        variant="light"
+        size="sm"
+        class="text-sm text-main-gray"
+        ><span class="mr-2">Saltar</span> <i class="fas fa-arrow-right"></i
+      ></app-button>
+    </div>
+    <h1 class="mt-4 mb-2">Ya está casi todo</h1>
+    <span class="text-sm mb-8"
+      >Estas a un paso de empezar a disfrutar de bfast, solo necesitamos una
+      cosa más</span
+    >
+    <div class="grid gap-6">
+      <div class="input-wrapper">
+        <input
+          type="text"
+          placeholder="Nombre de la Organización"
+          formControlName="name"
+          autofocus
+        />
+        <span
+          class="
+            message
+            text-xs
+            pt-2
+            text-main-dimed
+            absolute
+            bottom-0
+            translate-y-full
+          "
+          >Crea tu primera organización y empieza a añadir expacios de trabajo y
+          miembros a ella.</span
+        >
+        <div *ngIf="organizationForm.get('name')?.errors" class="errors">
+          <span *ngIf="organizationForm.get('name')?.errors?.required">
+            El nombre de la organización es requerido
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom flex flex-col">
+    <button app-button [loading]="loading" variant="secondary" type="submit">
+      Listo
+    </button>
+  </div>
+</form>

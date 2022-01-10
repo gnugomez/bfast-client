@@ -1,6 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-register-view',
@@ -33,12 +34,12 @@ export class RegisterViewComponent implements OnInit {
     password: new FormControl('', [
       Validators.required,
       Validators.pattern(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/
       ),
     ]),
   });
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 

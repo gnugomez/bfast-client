@@ -29,7 +29,11 @@
           alt=""
         />
       </div>
-      <app-button (click)="goBack()" variant="light" size="square-sm"
+      <app-button
+        (click)="goBack()"
+        variant="light"
+        size="square-sm"
+        class="text-main-gray"
         ><i class="fas fa-arrow-left"></i
       ></app-button>
     </div>
@@ -68,12 +72,12 @@
     </div>
   </div>
   <div class="bottom flex flex-col">
-    <span class="text-main-dimed text-sm mb-3 font-bold"
+    <span class="text-main-dimed text-sm mb-3 pl-4 font-bold"
       >¿Ya tienes cuenta?
       <a class="underline" routerLink="/auth/login">Iniciar sesión</a></span
     >
     <button app-button [loading]="loading" variant="secondary" type="submit">
-      Regístrarte ahora
+      Empezar
     </button>
   </div>
 </form>

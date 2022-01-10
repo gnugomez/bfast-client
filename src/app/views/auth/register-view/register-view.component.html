@@ -74,6 +74,13 @@
         class="grid"
         @fadeRight
       ></register-password>
+      <register-organization
+        *ngIf="currentStep === 4"
+        (nextStep)="nextStep()"
+        (prevStep)="prevStep()"
+        class="grid"
+        @fadeRight
+      ></register-organization>
     </app-card>
   </div>
 </div>
