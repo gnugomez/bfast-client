@@ -30,7 +30,7 @@ export class OrganizationComponent implements OnInit {
     this.showPass = !this.showPass;
   }
 
-  public skip() {
+  public skip(): void  {
     this.nextStep.emit();
   }
 
