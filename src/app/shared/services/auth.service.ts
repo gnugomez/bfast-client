@@ -29,9 +29,9 @@ export class AuthService {
   redirectUrl = '';
 
   constructor(
-    private http: HttpClient,
-    private tokenService: TokenService,
-    private router: Router
+    http: HttpClient,
+    tokenService: TokenService,
+    router: Router
   ) {}
 
   private static handleError(error: HttpErrorResponse): any {

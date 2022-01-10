@@ -39,7 +39,7 @@ export class RegisterViewComponent implements OnInit {
     ]),
   });
 
-  constructor(private router: Router) {}
+  constructor(router: Router) {}
 
   ngOnInit(): void {}
 

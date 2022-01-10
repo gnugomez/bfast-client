@@ -14,7 +14,7 @@ import { TokenService } from '../services/token.service';
   providedIn: 'root',
 })
 export class LoggedGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(authService: AuthService, router: Router) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
