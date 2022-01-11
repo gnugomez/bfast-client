@@ -37,15 +37,23 @@ export class PasswordComponent {
     this.showPass = !this.showPass;
   }
 
-  public goBack(): void  {
+  public goBack(): void {
     this.prevStep.emit();
   }
 
   public submitForm(): void {
     if (this.passwordForm.valid) {
-      this.loading = true;
+      this.auth.register(this.registerForm?.value).subscribe(
+        (res) => {
+          this.loading = false;
+          this.nextStep.emit();
+        },
+        (err) => {
+          this.loading = false;
+        }
+      );
 
-      this.nextStep.emit();
+      this.loading = true;
     }
   }
 }

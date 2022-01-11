@@ -10,16 +10,7 @@
     alt=""
   />
   <img
-    class="
-      absolute
-      top-1/2
-      transform
-      -translate-y-1/2
-      right-0
-      max-h-screen
-      ghost-image
-      msm:hidden
-    "
+    class="absolute top-1/2 transform -translate-y-1/2 right-0 max-h-screen ghost-image msm:hidden"
     src="assets/img/oval-right-red.png"
     alt=""
   />
@@ -43,14 +34,7 @@
     >
       <app-progress
         [value]="(currentStep / totalSteps) * 100"
-        class="
-          px-4
-          w-full
-          absolute
-          -top-7
-          left-1/2
-          -translate-x-1/2 -translate-y-full
-        "
+        class="px-4 w-full absolute -top-7 left-1/2 -translate-x-1/2 -translate-y-full"
       ></app-progress>
       <register-email
         *ngIf="currentStep === 1"
@@ -71,6 +55,7 @@
         *ngIf="currentStep === 3"
         (nextStep)="nextStep()"
         (prevStep)="prevStep()"
+        [registerForm]="registerForm"
         class="grid"
         @fadeRight
       ></register-password>
