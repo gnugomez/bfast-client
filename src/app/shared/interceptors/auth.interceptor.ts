@@ -9,9 +9,9 @@ import {
 } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { throwError } from 'rxjs';
-import { TokenService } from '../../services/token.service';
+import { TokenService } from '../services/token.service';
 import { catchError, map } from 'rxjs/operators';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../services/auth.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -53,7 +53,6 @@ export class AuthInterceptor implements HttpInterceptor {
         return event;
       }),
       catchError((error: HttpErrorResponse) => {
-        console.log(error.error.error);
         if (error.status === 401) {
           if (error.error.error === 'invalid_token') {
             this.authService

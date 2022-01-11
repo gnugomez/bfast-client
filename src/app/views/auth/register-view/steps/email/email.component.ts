@@ -30,7 +30,7 @@ export class RegisterEmailComponent implements OnInit {
     this.showPass = !this.showPass;
   }
 
-  public goBack(): void  {
+  public goBack(): void {
     history.back();
   }
 
@@ -38,7 +38,23 @@ export class RegisterEmailComponent implements OnInit {
     if (this.emailForm.valid) {
       this.loading = true;
 
-      this.nextStep.emit();
+      this.auth.register(this.registerForm?.value).subscribe(
+        (res) => {
+          this.loading = false;
+          this.nextStep.emit();
+        },
+        (err) => {
+          if (err.error.errors.email) {
+            this.emailForm.get('email')?.setErrors({ emailTaken: true });
+
+            setTimeout(() => {
+              this.loading = false;
+            }, 500);
+          } else {
+            this.nextStep.emit();
+          }
+        }
+      );
     }
   }
 }

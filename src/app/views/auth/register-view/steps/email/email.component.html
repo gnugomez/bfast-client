@@ -6,17 +6,7 @@
   <div class="top">
     <div class="flex justify-between">
       <div
-        class="
-          icon
-          w-[4.5rem]
-          h-[4.5rem]
-          rounded-full
-          flex
-          items-center
-          justify-center
-          bg-secondary-gray
-          dark:bg-gray-800
-        "
+        class="icon w-[4.5rem] h-[4.5rem] rounded-full flex items-center justify-center bg-secondary-gray dark:bg-gray-800"
       >
         <img
           class="dark:hidden ghost-image"
@@ -48,15 +38,7 @@
           autofocus
         />
         <span
-          class="
-            message
-            text-xs
-            pt-2
-            text-main-dimed
-            absolute
-            bottom-0
-            translate-y-full
-          "
+          class="message text-xs pt-2 text-main-dimed absolute bottom-0 translate-y-full"
           >Al hacer click en “Regístrarte ahora” aceptas la política de
           privacidad y los términos de uso estipulados.</span
         >
@@ -66,6 +48,9 @@
           </span>
           <span *ngIf="emailForm.get('email')?.errors?.email">
             La dirección de email que has introducido no es válida
+          </span>
+          <span *ngIf="emailForm.get('email')?.errors?.emailTaken">
+            La dirección de email que has introducido ya está en uso
           </span>
         </div>
       </div>

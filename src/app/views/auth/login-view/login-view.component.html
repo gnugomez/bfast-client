@@ -1,14 +1,5 @@
 <div
-  class="
-    w-screen
-    h-screen
-    relative
-    min-h-[50rem]
-    grid
-    lg:grid-cols-2
-    items-center
-    sm:justify-items-center
-  "
+  class="w-screen h-screen relative min-h-[50rem] grid lg:grid-cols-2 items-center sm:justify-items-center"
 >
   <img
     class="absolute top-0 left-0 max-h-screen ghost-image msm:hidden"
@@ -21,16 +12,7 @@
     alt=""
   />
   <img
-    class="
-      absolute
-      top-1/2
-      transform
-      -translate-y-1/2
-      right-0
-      max-h-screen
-      ghost-image
-      msm:hidden
-    "
+    class="absolute top-1/2 transform -translate-y-1/2 right-0 max-h-screen ghost-image msm:hidden"
     src="assets/img/oval-right.png"
     alt=""
   />
@@ -59,17 +41,7 @@
         <div class="top">
           <div class="flex justify-between">
             <div
-              class="
-                icon
-                w-[4.5rem]
-                h-[4.5rem]
-                rounded-full
-                flex
-                items-center
-                justify-center
-                bg-secondary-gray
-                dark:bg-gray-800
-              "
+              class="icon w-[4.5rem] h-[4.5rem] rounded-full flex items-center justify-center bg-secondary-gray dark:bg-gray-800"
             >
               <img
                 class="dark:hidden ghost-image"
@@ -103,9 +75,6 @@
                 autofocus
               />
               <div *ngIf="loginForm.get('username')?.errors" class="errors">
-                <span *ngIf="loginForm.get('username')?.errors?.invalidLogin">
-                  El nombre de usuario o la contraseña no son válidos
-                </span>
                 <span *ngIf="loginForm.get('username')?.errors?.required">
                   El usuario es requerido
                 </span>
