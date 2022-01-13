@@ -24,12 +24,12 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/bfast-client",
-            "index": "src/index.html",
+            "index": "src/static/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": "src/static/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": ["src/static/favicon.ico", "src/assets"],
             "styles": ["src/assets/scss/styles.scss"],
             "scripts": []
           },
@@ -88,7 +88,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": "src/static/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",

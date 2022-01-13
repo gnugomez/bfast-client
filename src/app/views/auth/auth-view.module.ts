@@ -31,4 +31,4 @@ const components = [CardModule, ButtonModule, ProgressModule];
     ...components,
   ],
 })
-export class AuthModule {}
+export class AuthViewModule {}
