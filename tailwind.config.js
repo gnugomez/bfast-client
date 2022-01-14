@@ -26,13 +26,16 @@ module.exports = {
     extend: {
       colors: {
         primary: "#3EA4F4",
-        secondary: {
-          gray: "#F3F3F3",
-        },
         main: {
-          dark: "#222222",
-          dimed: "#666666",
-          gray: "#7B7B7B",
+          dark: {
+            DEFAULT: "#222222",
+            dimed: "#666666",
+          },
+          gray: {
+            DEFAULT: "#7B7B7B",
+            dimed: "#F3F3F3",
+            relaxed: "#F9F9F9",
+          },
         },
       },
       borderRadius: {

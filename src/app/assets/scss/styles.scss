@@ -69,7 +69,7 @@ form {
   }
   .input-wrapper {
     input {
-      @apply border-0 border-b-[3px] border-secondary-gray dark:border-gray-700 px-0 py-3 ring-0 focus:border-primary bg-transparent;
+      @apply border-0 border-b-[3px] border-main-gray-dimed dark:border-gray-700 px-0 py-3 ring-0 focus:border-primary bg-transparent;
 
       &.ng-touched.ng-invalid {
         @apply border-red-500 dark:border-red-500 #{!important};
@@ -84,7 +84,7 @@ form {
       }
 
       &::placeholder {
-        @apply font-medium text-main-dimed dark:text-gray-400;
+        @apply font-medium text-main-dark-dimed dark:text-gray-400;
       }
     }
   }

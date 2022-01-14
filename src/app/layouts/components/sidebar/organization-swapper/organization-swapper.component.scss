@@ -1,0 +1,27 @@
+.selector {
+  @apply border-2 hover:shadow-xl border-main-gray-dimed rounded-xl transition-all duration-300;
+
+  .item {
+    @apply cursor-pointer overflow-hidden relative transition-all duration-300 max-h-20;
+
+    span {
+      @apply text-ellipsis overflow-hidden whitespace-nowrap w-full block px-3 py-4;
+    }
+  }
+
+  &:not(.open) {
+    .item {
+      &:not(.active) {
+        @apply max-h-[0px] opacity-0;
+      }
+    }
+  }
+
+  &.open {
+    @apply shadow-xl border-transparent;
+
+    .item {
+      @apply hover:bg-main-gray-relaxed;
+    }
+  }
+}

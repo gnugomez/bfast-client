@@ -46,7 +46,7 @@
   }
 
   &.btn-secondary {
-    @apply font-bold rounded-full bg-secondary-gray dark:bg-gray-700 dark:border-gray-700 border-secondary-gray;
+    @apply font-bold rounded-full bg-main-gray-dimed dark:bg-gray-700 dark:border-gray-700 border-main-gray-dimed;
     &:hover,
     &:focus-within {
       @apply bg-white border-white dark:border-gray-800 dark:bg-gray-800 dark:text-white text-main-dark;
@@ -54,7 +54,7 @@
   }
 
   &.btn-light {
-    @apply font-bold  border-secondary-gray dark:border-gray-800 bg-white bg-opacity-50 dark:bg-transparent dark:bg-opacity-50 rounded-full;
+    @apply font-bold  border-main-gray-dimed dark:border-gray-800 bg-white bg-opacity-50 dark:bg-transparent dark:bg-opacity-50 rounded-full;
     &:hover,
     &:focus {
       @apply dark:bg-gray-800 dark:border-gray-800 border-white;

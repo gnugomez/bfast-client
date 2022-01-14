@@ -1,0 +1,10 @@
+.sidebar-container {
+  @apply flex flex-col gap-4 bg-white h-full border-r border-main-gray-dimed py-5;
+
+  .top {
+    @apply px-5 flex justify-start;
+  }
+  app-organization-swapper {
+    @apply px-5;
+  }
+}

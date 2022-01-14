@@ -1,0 +1,4 @@
+.default-layout-container {
+  @apply grid min-h-screen;
+  grid-template-columns: 20rem 1fr;
+}
