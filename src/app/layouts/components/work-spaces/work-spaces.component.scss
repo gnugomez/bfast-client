@@ -1,0 +1,36 @@
+.title {
+  @apply px-4 text-xs font-semibold text-main-gray py-2;
+}
+.wrapper {
+  @apply flex flex-col;
+
+  .item {
+    @apply cursor-pointer flex items-center gap-4 px-4 py-[1.15rem];
+
+    .bullet {
+      @apply w-1 h-1 rounded-full bg-transparent transition-all duration-300;
+    }
+
+    .span {
+      @apply font-semibold;
+    }
+
+    .name {
+      @apply text-sm font-medium whitespace-nowrap overflow-hidden text-ellipsis flex-[2];
+    }
+
+    &:hover,
+    &.active {
+      @apply bg-main-gray-relaxed;
+    }
+
+    &.active {
+      span {
+        @apply text-primary;
+      }
+      .bullet {
+        @apply bg-primary;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <div [class.open]="isOpen" class="selector" (click)="toggleDropdown()">
+    <div
+      *ngFor="let organization of organizations; let i = index"
+      class="item"
+      [class.active]="organization === activeOrganization"
+      (click)="selectOrganization(organization)"
+    >
+      <span>{{ organization.name }}</span>
+      <hero-icon *ngIf="i === 0" name="chevron-down" class="icon"></hero-icon>
+    </div>
+    <div class="item">
+      <span>+ Nueva</span>
+    </div>
+  </div>
+</div>

@@ -34,7 +34,11 @@ export class OrganizationSwapperComponent implements OnInit {
     this.isOpen = !this.isOpen;
   }
 
+  // selects the organization and puts it the first in the list
   public selectOrganization(organization: { id: number; name: string }) {
     this.activeOrganization = organization;
+    this.organizations.unshift(
+      this.organizations.splice(this.organizations.indexOf(organization), 1)[0]
+    );
   }
 }

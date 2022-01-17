@@ -1,0 +1,39 @@
+.wrapper {
+  @apply h-14 w-full flex items-center relative;
+
+  .selector {
+    @apply bg-white absolute top-0 max-w-full ring-2 hover:ring-0 hover:shadow-app ring-main-gray-dimed rounded-xl overflow-hidden transition-all duration-300 box-content;
+
+    .item {
+      @apply cursor-pointer overflow-hidden relative transition-all duration-300 max-h-20 flex items-center gap-2 px-3;
+
+      span {
+        @apply text-ellipsis overflow-hidden whitespace-nowrap w-full block py-4;
+      }
+
+      .icon {
+        @apply w-6 transition-all duration-300;
+      }
+    }
+
+    &:not(.open) {
+      .item {
+        &:not(.active) {
+          @apply max-h-[0px] opacity-0;
+        }
+      }
+    }
+
+    &.open {
+      @apply shadow-app ring-0;
+
+      .item {
+        @apply hover:bg-main-gray-relaxed;
+
+        .icon {
+          @apply rotate-180;
+        }
+      }
+    }
+  }
+}

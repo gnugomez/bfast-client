@@ -1,5 +1,5 @@
 .sidebar-container {
-  @apply flex flex-col gap-4 bg-white h-full border-r border-main-gray-dimed py-5;
+  @apply flex flex-col gap-5 bg-white border-r border-main-gray-dimed py-5 h-screen overflow-y-auto sticky top-0;
 
   .top {
     @apply px-5 flex justify-start;

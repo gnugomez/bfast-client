@@ -1,0 +1,33 @@
+.menu {
+  @apply flex flex-col;
+
+  .item {
+    @apply cursor-pointer flex items-center gap-4 px-4 py-[1.15rem];
+
+    .bullet {
+      @apply w-1 h-1 rounded-full bg-transparent transition-all duration-300;
+    }
+
+    .icon {
+      @apply w-5 h-5 p-[0.18rem] rounded-[0.25rem] bg-main-gray-dimed text-main-dark transition-all duration-300;
+    }
+
+    span {
+      @apply text-sm font-medium whitespace-nowrap overflow-hidden text-ellipsis flex-[2];
+    }
+
+    &:hover,
+    &.active {
+      @apply bg-main-gray-relaxed;
+    }
+
+    &.active {
+      .icon {
+        @apply bg-primary text-white;
+      }
+      .bullet {
+        @apply bg-primary;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<div *ngFor="let item of menuItems" class="menu">
+  <a
+    [routerLink]="item.link"
+    routerLinkActive="active"
+    class="item"
+    [title]="item.name"
+  >
+    <div class="bullet"></div>
+    <hero-icon [name]="item.icon" class="icon"></hero-icon>
+    <span>{{ item.name }}</span>
+  </a>
+</div>
