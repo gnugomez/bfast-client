@@ -30,7 +30,7 @@ form {
   }
 
   input {
-    @apply border-0 border-b-[3px] border-main-gray-dimed dark:border-gray-700 px-0 py-3 ring-0 focus:border-primary bg-transparent;
+    @apply border-0 border-b-[3px] border-main-gray-dimed dark:border-dark-700 px-0 py-3 ring-0 focus:border-primary bg-transparent;
 
     &.ng-touched.ng-invalid {
       @apply border-red-500 dark:border-red-500;
@@ -54,11 +54,11 @@ form {
   @apply py-6 flex items-center justify-center relative;
 
   span {
-    @apply font-bold text-main-gray dark:text-gray-500 text-sm bg-white dark:bg-gray-900 msm:bg-transparent px-4 relative;
+    @apply font-bold text-main-gray dark:text-dark-100 text-sm bg-white dark:bg-dark-900 msm:bg-transparent px-4 relative;
   }
 
   &:before {
-    @apply absolute inset-0 bg-main-gray-dimed dark:bg-gray-700 msm:bg-transparent;
+    @apply absolute inset-0 bg-main-gray-dimed dark:bg-dark-700 msm:bg-transparent;
     content: "";
     height: 3px;
     width: 90%;

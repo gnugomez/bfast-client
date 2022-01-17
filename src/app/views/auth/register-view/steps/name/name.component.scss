@@ -10,7 +10,7 @@
   }
 
   input {
-    @apply border-0 border-b-[3px] border-main-gray-dimed dark:border-gray-700 px-0 py-3 ring-0 focus:border-primary bg-transparent;
+    @apply border-0 border-b-[3px] border-main-gray-dimed dark:border-dark-700 px-0 py-3 ring-0 focus:border-primary bg-transparent;
 
     &::placeholder {
       @apply font-bold text-sm uppercase text-main-dark-dimed dark:text-gray-400;
