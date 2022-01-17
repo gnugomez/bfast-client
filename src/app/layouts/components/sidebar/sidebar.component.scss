@@ -1,8 +1,12 @@
 .sidebar-container {
-  @apply flex flex-col gap-5 bg-white border-r border-main-gray-dimed py-5 h-screen overflow-y-auto sticky top-0;
+  @apply flex flex-col gap-5 bg-white dark:bg-dark-900 border-r border-main-gray-dimed dark:border-dark-700 py-5 h-screen overflow-y-auto sticky top-0;
 
   .top {
     @apply px-5 flex justify-start;
+
+    img {
+      @apply filter dark:invert;
+    }
   }
   app-organization-swapper {
     @apply px-5;

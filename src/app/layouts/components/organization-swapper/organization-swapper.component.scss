@@ -2,7 +2,7 @@
   @apply h-14 w-full flex items-center relative;
 
   .selector {
-    @apply bg-white absolute top-0 max-w-full ring-2 hover:ring-0 hover:shadow-app ring-main-gray-dimed rounded-xl overflow-hidden transition-all duration-300 box-content;
+    @apply bg-white dark:bg-dark-700 absolute top-0 max-w-full border-2 hover:ring-0 hover:shadow-app border-main-gray-dimed dark:border-dark-400 rounded-xl overflow-hidden transition-all duration-300 box-content;
 
     .item {
       @apply cursor-pointer overflow-hidden relative transition-all duration-300 max-h-20 flex items-center gap-2 px-3;
@@ -28,7 +28,7 @@
       @apply shadow-app ring-0;
 
       .item {
-        @apply hover:bg-main-gray-relaxed;
+        @apply hover:bg-main-gray-relaxed dark:hover:bg-dark-300;
 
         .icon {
           @apply rotate-180;
