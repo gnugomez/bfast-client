@@ -1,0 +1,13 @@
+.search-wrapper {
+  @apply flex items-center gap-2 px-2 py-0.5 rounded-full;
+  @apply border-2 border-light-400 bg-white dark:bg-black dark:border-dark-500;
+  @apply text-gray-400;
+
+  .icon {
+    @apply w-5 h-5 text-current;
+  }
+
+  input {
+    @apply border-0 ring-0 p-1 bg-transparent placeholder:text-current;
+  }
+}

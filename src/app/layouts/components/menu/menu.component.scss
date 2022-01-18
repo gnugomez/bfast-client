@@ -17,6 +17,7 @@
     }
 
     &:hover,
+    &:focus,
     &.active {
       @apply bg-light-500 dark:bg-dark-700;
     }

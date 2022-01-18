@@ -43,13 +43,13 @@ export class RegisterViewComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public nextStep(): void  {
+  public nextStep(): void {
     if (this.currentStep < this.totalSteps) {
       this.currentStep++;
     }
   }
 
-  public prevStep(): void  {
+  public prevStep(): void {
     if (this.currentStep > 1) {
       this.currentStep--;
     }

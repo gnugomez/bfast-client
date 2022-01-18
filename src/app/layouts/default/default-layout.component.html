@@ -1,6 +1,10 @@
 <div class="default-layout-container">
   <app-sidebar></app-sidebar>
-  <main class="content">
-    <router-outlet></router-outlet>
-  </main>
+  <div class="content-wrapper">
+    <app-topbar></app-topbar>
+    <main class="content">
+      <router-outlet></router-outlet>
+      <div class="h-[300vh]"></div>
+    </main>
+  </div>
 </div>

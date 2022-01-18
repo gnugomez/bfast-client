@@ -1,4 +1,8 @@
 .default-layout-container {
   @apply grid min-h-screen;
-  grid-template-columns: 18rem 1fr;
+  grid-template-columns: 19rem 1fr;
+
+  main.content {
+    @apply px-5;
+  }
 }

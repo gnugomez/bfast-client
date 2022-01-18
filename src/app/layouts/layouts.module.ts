@@ -6,6 +6,11 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import { OrganizationSwapperComponent } from './components/organization-swapper/organization-swapper.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { WorkSpacesComponent } from './components/work-spaces/work-spaces.component';
+import { SearchComponent } from './components/search/search.component';
+import { CoinsComponent } from './components/coins/coins.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
+import { UserComponent } from './components/user/user.component';
 import {
   HeroIconModule,
   menuAlt2,
@@ -13,9 +18,10 @@ import {
   chartPie,
   clock,
   chevronDown,
+  search,
+  cash,
   HeroIconOptions,
 } from 'ng-heroicon';
-import { WorkSpacesComponent } from './components/work-spaces/work-spaces.component';
 
 const icons = {
   menuAlt2,
@@ -23,6 +29,8 @@ const icons = {
   chartPie,
   clock,
   chevronDown,
+  search,
+  cash,
 };
 
 const iconsOptions: HeroIconOptions = {
@@ -39,6 +47,10 @@ const components = [
   OrganizationSwapperComponent,
   MenuComponent,
   WorkSpacesComponent,
+  SearchComponent,
+  CoinsComponent,
+  NotificationsComponent,
+  UserComponent,
 ];
 const layouts = [DefaultLayoutComponent];
 

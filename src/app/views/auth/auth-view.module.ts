@@ -12,9 +12,11 @@ import { RegisterEmailComponent } from './register-view/steps/email/email.compon
 import { NameComponent } from './register-view/steps/name/name.component';
 import { PasswordComponent } from './register-view/steps/password/password.component';
 import { OrganizationComponent } from './register-view/steps/organization/organization.component';
+import { HeroIconModule, arrowSmLeft, arrowSmRight } from 'ng-heroicon';
 
 const views = [LoginViewComponent, RegisterViewComponent];
 const components = [CardModule, ButtonModule, ProgressModule];
+const icons = { arrowSmLeft, arrowSmRight };
 @NgModule({
   declarations: [
     ...views,
@@ -28,6 +30,7 @@ const components = [CardModule, ButtonModule, ProgressModule];
     AuthRoutingModule,
     ReactiveFormsModule,
     SharedModule,
+    HeroIconModule.withIcons(icons),
     ...components,
   ],
 })

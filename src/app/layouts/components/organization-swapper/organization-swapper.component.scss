@@ -2,7 +2,7 @@
   @apply h-14 w-full flex items-center relative;
 
   .selector {
-    @apply bg-light-200 dark:bg-dark-900 absolute top-0 max-w-full border-2 hover:ring-0 hover:shadow-app border-light-700 dark:border-dark-400 rounded-xl overflow-hidden transition-all duration-300 box-content;
+    @apply bg-light-200 dark:bg-dark-900 absolute top-0 max-w-full border-2 hover:shadow-app border-light-700 dark:border-dark-400 rounded-xl overflow-hidden transition-all duration-300 box-content;
 
     .item {
       @apply cursor-pointer overflow-hidden relative transition-all duration-300 max-h-20 flex items-center gap-2 px-3;
@@ -25,10 +25,13 @@
     }
 
     &.open {
-      @apply shadow-app ring-0;
+      @apply shadow-app;
 
       .item {
-        @apply hover:bg-light-500 dark:hover:bg-dark-300;
+        &:hover,
+        &:focus {
+          @apply bg-light-500 dark:bg-dark-300;
+        }
 
         .icon {
           @apply rotate-180;
