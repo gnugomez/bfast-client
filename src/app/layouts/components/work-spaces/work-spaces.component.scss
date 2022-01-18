@@ -2,7 +2,7 @@
   @apply px-4 text-xs font-semibold text-main-gray py-2;
 }
 .wrapper {
-  @apply flex flex-col;
+  @apply flex flex-col overflow-y-auto;
 
   .item {
     @apply cursor-pointer flex items-center gap-4 px-4 py-[1.15rem];
@@ -21,7 +21,7 @@
 
     &:hover,
     &.active {
-      @apply bg-main-gray-relaxed dark:bg-dark-700;
+      @apply bg-light-500 dark:bg-dark-700;
     }
 
     &.active {

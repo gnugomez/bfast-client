@@ -17,6 +17,9 @@
 @tailwind variants;
 /* purgecss end ignore */
 /* You can add global styles to this file, and also import other style files */
+@import "scrollbar";
+@import "headings";
+@import "forms";
 
 * {
   @apply outline-none;
@@ -24,10 +27,6 @@
 
 body {
   @apply font-montserrat dark:bg-black text-main-dark dark:text-white;
-}
-
-h1 {
-  @apply font-bold text-2xl;
 }
 
 button,
@@ -44,52 +43,6 @@ button {
   @apply outline-none ring-primary ring-opacity-40 transition-all duration-300 focus-within:ring-4;
 }
 
-input ~ .errors {
-  @apply transform w-full absolute bottom-0 translate-y-full flex flex-col opacity-0;
-  span {
-    @apply text-red-500 font-bold p-1 py-2 text-xs italic;
-  }
-}
-
-form {
-  &.ng-submitted.ng-invalid {
-    input {
-      &.ng-invalid {
-        @apply border-red-500 dark:border-red-500 #{!important};
-      }
-
-      &.ng-invalid ~ .toggle-pass {
-        @apply text-red-500;
-      }
-
-      & ~ .errors {
-        @apply opacity-100;
-      }
-    }
-  }
-  .input-wrapper {
-    input {
-      @apply border-0 border-b-[3px] border-main-gray-dimed dark:border-gray-700 px-0 py-3 ring-0 focus:border-primary bg-transparent;
-
-      &.ng-touched.ng-invalid {
-        @apply border-red-500 dark:border-red-500 #{!important};
-      }
-
-      &.ng-touched.ng-invalid ~ .toggle-pass {
-        @apply text-red-500;
-      }
-
-      &.ng-touched ~ .errors {
-        @apply opacity-100;
-      }
-
-      &::placeholder {
-        @apply font-medium text-main-dark-dimed dark:text-gray-400;
-      }
-    }
-  }
-}
-
 button[app-button] {
   @apply hover:shadow-app;
 
@@ -97,6 +50,18 @@ button[app-button] {
   &[disabled],
   &:disabled {
     @apply opacity-50 pointer-events-none;
+  }
+}
+
+.outer-wrapper {
+  @apply grid;
+
+  router-outlet {
+    @apply hidden;
+
+    & ~ * {
+      @apply grid;
+    }
   }
 }
 
@@ -111,18 +76,6 @@ button[app-button] {
   }
 }
 
-.icon {
+.auth-icon {
   animation: fadeRight 0.8s;
-}
-
-.outer-wrapper {
-  @apply grid;
-
-  router-outlet {
-    @apply hidden;
-
-    & ~ * {
-      @apply grid;
-    }
-  }
 }

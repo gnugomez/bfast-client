@@ -1,6 +1,10 @@
 <h3 class="title">Espacios de trabajo</h3>
-<div *ngFor="let item of workspaces" class="wrapper">
-  <a [routerLink]="'/workspace/' + item.id" class="item" [title]="item.name"
+<div class="wrapper">
+  <a
+    *ngFor="let item of workspaces"
+    [routerLink]="'/workspace/' + item.id"
+    class="item"
+    [title]="item.name"
     ><span>#</span>
     <div class="name">{{ item.name }}</div>
   </a>

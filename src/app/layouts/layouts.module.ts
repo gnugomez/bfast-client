@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DefaultLayoutComponent } from './default/default-layout.component';
-import { AuthLayoutComponent } from './auth/auth-layout.component';
 import { RouterModule } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
@@ -41,7 +40,7 @@ const components = [
   MenuComponent,
   WorkSpacesComponent,
 ];
-const layouts = [DefaultLayoutComponent, AuthLayoutComponent];
+const layouts = [DefaultLayoutComponent];
 
 @NgModule({
   declarations: [...layouts, ...components],

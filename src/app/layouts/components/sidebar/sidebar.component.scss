@@ -1,5 +1,5 @@
 .sidebar-container {
-  @apply flex flex-col gap-5 bg-white dark:bg-dark-900 border-r border-main-gray-dimed dark:border-dark-700 py-5 h-screen overflow-y-auto sticky top-0;
+  @apply flex flex-col gap-5 bg-light-200 dark:bg-dark-900 py-5 h-screen sticky top-0;
 
   .top {
     @apply px-5 flex justify-start;
@@ -10,5 +10,9 @@
   }
   app-organization-swapper {
     @apply px-5;
+  }
+
+  app-work-spaces {
+    @apply flex-[2] overflow-y-hidden relative flex flex-col;
   }
 }
