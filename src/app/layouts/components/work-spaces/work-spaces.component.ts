@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import items from './workSpaces';
 
 @Component({
-  selector: 'app-work-spaces',
+  selector: 'layout-work-spaces',
   templateUrl: './work-spaces.component.html',
   styleUrls: ['./work-spaces.component.scss'],
 })

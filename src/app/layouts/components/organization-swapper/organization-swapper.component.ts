@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-organization-swapper',
+  selector: 'layout-organization-swapper',
   templateUrl: './organization-swapper.component.html',
   styleUrls: ['./organization-swapper.component.scss'],
 })

@@ -8,11 +8,11 @@
       @apply filter dark:invert;
     }
   }
-  app-organization-swapper {
+  layout-organization-swapper {
     @apply px-5;
   }
 
-  app-work-spaces {
+  layout-work-spaces {
     @apply flex-[2] overflow-y-hidden relative flex flex-col;
   }
 }
