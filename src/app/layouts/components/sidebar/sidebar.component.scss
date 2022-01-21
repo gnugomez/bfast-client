@@ -1,5 +1,5 @@
 .sidebar-container {
-  @apply flex flex-col gap-5 bg-light-200 dark:bg-dark-900 py-5 h-screen sticky top-0;
+  @apply flex flex-col gap-5 bg-light-200 dark:bg-dark-900 pb-5 h-screen sticky top-0;
 
   @screen mlg {
     @apply fixed w-screen z-20 max-w-xs transition-all duration-200;
@@ -17,15 +17,16 @@
     }
   }
 
-  .top {
-    @apply px-5 flex justify-between;
-
-    img {
-      @apply filter dark:invert;
-    }
-  }
-  layout-organization-swapper {
+  .top-wrapper {
     @apply px-5;
+
+    .top {
+      @apply flex justify-between items-center h-20;
+
+      img {
+        @apply filter dark:invert;
+      }
+    }
   }
 
   layout-work-spaces {

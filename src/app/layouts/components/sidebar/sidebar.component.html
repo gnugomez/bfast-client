@@ -3,17 +3,20 @@
   class="sidebar-container"
   [class.open]="isOpen"
 >
-  <div class="top">
-    <img src="assets/img/bfast-app-logo.svg" alt="" />
-    <app-button
-      size="square-sm"
-      variant="light"
-      class="sidebar-toggler"
-      (click)="close()"
-      ><hero-icon name="x"></hero-icon
-    ></app-button>
+  <div class="top-wrapper">
+    <div class="top">
+      <img src="assets/img/bfast-app-logo.svg" alt="" />
+      <app-button
+        size="square-sm"
+        variant="light"
+        class="sidebar-toggler"
+        (click)="close()"
+        ><hero-icon name="x"></hero-icon
+      ></app-button>
+    </div>
+    <layout-organization-swapper></layout-organization-swapper>
   </div>
-  <layout-organization-swapper></layout-organization-swapper>
+
   <layout-menu></layout-menu>
   <layout-work-spaces></layout-work-spaces>
 </div>
