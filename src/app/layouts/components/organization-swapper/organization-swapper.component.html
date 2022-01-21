@@ -1,5 +1,6 @@
 <div class="wrapper">
   <div
+    (clrOutsideClick)="closeDropdown()"
     [class.open]="isOpen"
     class="selector"
     (click)="toggleDropdown()"

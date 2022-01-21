@@ -34,6 +34,10 @@ export class OrganizationSwapperComponent implements OnInit {
     this.isOpen = !this.isOpen;
   }
 
+  public closeDropdown() {
+    this.isOpen = false;
+  }
+
   // selects the organization and puts it the first in the list
   public selectOrganization(organization: { id: number; name: string }) {
     this.activeOrganization = organization;
