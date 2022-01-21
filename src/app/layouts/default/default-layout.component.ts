@@ -6,7 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./default-layout.component.scss'],
 })
 export class DefaultLayoutComponent implements OnInit {
+  public sidebarIsOpen = false;
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  public openSidebar(): void {
+    this.sidebarIsOpen = true;
+  }
+
+  public closeSidebar(): void {
+    this.sidebarIsOpen = false;
+  }
 }

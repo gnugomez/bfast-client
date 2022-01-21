@@ -1,9 +1,19 @@
-<div class="sidebar-container">
+<div
+  (clrOutsideClick)="clickOutsideClose($event)"
+  class="sidebar-container"
+  [class.open]="isOpen"
+>
   <div class="top">
     <img src="assets/img/bfast-app-logo.svg" alt="" />
+    <app-button
+      size="square-sm"
+      variant="light"
+      class="sidebar-toggler"
+      (click)="close()"
+      ><hero-icon name="x"></hero-icon
+    ></app-button>
   </div>
   <layout-organization-swapper></layout-organization-swapper>
-  <layout-search class="px-4 lg:hidden"></layout-search>
   <layout-menu></layout-menu>
   <layout-work-spaces></layout-work-spaces>
 </div>

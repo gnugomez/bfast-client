@@ -3,19 +3,19 @@
   @apply sticky top-0;
   @apply flex h-20;
 
+  .sidebar-toggler {
+    @apply lg:hidden;
+
+    hero-icon {
+      @apply w-4 h-4;
+    }
+  }
+
   .right {
     @apply flex items-center gap-5 ml-auto;
 
     & > * {
       @apply h-full flex items-center;
-    }
-  }
-
-  .logo {
-    @apply md:hidden;
-
-    img {
-      @apply filter dark:invert;
     }
   }
 }

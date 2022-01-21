@@ -2,15 +2,23 @@
   @apply flex flex-col gap-5 bg-light-200 dark:bg-dark-900 py-5 h-screen sticky top-0;
 
   @screen mlg {
-    @apply fixed w-[70vw] z-20 max-w-xs;
+    @apply fixed w-screen z-20 max-w-xs transition-all duration-200;
 
     &:not(.open) {
       @apply -translate-x-full;
     }
   }
 
+  .sidebar-toggler {
+    @apply lg:hidden;
+
+    hero-icon {
+      @apply w-4 h-4;
+    }
+  }
+
   .top {
-    @apply px-5 flex justify-start;
+    @apply px-5 flex justify-between;
 
     img {
       @apply filter dark:invert;

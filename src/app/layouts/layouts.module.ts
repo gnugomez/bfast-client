@@ -14,6 +14,7 @@ import { UserComponent } from './components/user/user.component';
 import {
   HeroIconModule,
   menuAlt2,
+  menuAlt1,
   shoppingBag,
   chartPie,
   clock,
@@ -23,10 +24,15 @@ import {
   HeroIconOptions,
   bell,
   menu,
+  x,
 } from 'ng-heroicon';
+import { ButtonComponent } from '../components/button/button.component';
+import { ButtonModule } from '../components/button/button.module';
+import { OutsideClickModule } from '../shared/directives/outside-click/outside-click.module';
 
 const icons = {
   menuAlt2,
+  menuAlt1,
   shoppingBag,
   chartPie,
   clock,
@@ -35,6 +41,7 @@ const icons = {
   cash,
   bell,
   menu,
+  x,
 };
 
 const iconsOptions: HeroIconOptions = {
@@ -63,6 +70,8 @@ const layouts = [DefaultLayoutComponent];
   imports: [
     RouterModule,
     CommonModule,
+    ButtonModule,
+    OutsideClickModule,
     HeroIconModule.withIcons(icons, iconsOptions),
   ],
 })

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'layout-topbar',
@@ -6,7 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./topbar.component.scss'],
 })
 export class TopbarComponent implements OnInit {
+  @Output() openSidebar = new EventEmitter();
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  public toggle(): void {
+    this.openSidebar.emit();
+  }
 }

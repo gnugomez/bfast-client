@@ -1,10 +1,14 @@
 <div class="topbar-wrapper">
-  <div class="logo">
-    <img src="assets/img/bfast-app-logo.svg" alt="" />
-  </div>
+  <app-button
+    size="square-sm"
+    variant="light"
+    class="sidebar-toggler"
+    (click)="toggle()"
+    ><hero-icon name="menu-alt-1"></hero-icon
+  ></app-button>
   <layout-search></layout-search>
   <div class="right">
-    <layout-coins></layout-coins>
+    <layout-coins class="mlg:!hidden"></layout-coins>
     <layout-notifications></layout-notifications>
     <layout-user></layout-user>
   </div>

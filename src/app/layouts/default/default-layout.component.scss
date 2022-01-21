@@ -9,4 +9,12 @@
   main.content {
     @apply px-5;
   }
+
+  .content-wrapper {
+    @apply transition-[filter] duration-200;
+
+    &.blurred {
+      @apply filter blur-sm;
+    }
+  }
 }

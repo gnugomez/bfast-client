@@ -1,7 +1,10 @@
 <div class="default-layout-container">
-  <layout-sidebar></layout-sidebar>
-  <div class="content-wrapper">
-    <layout-topbar></layout-topbar>
+  <layout-sidebar
+    [isOpen]="sidebarIsOpen"
+    (closeSidebar)="closeSidebar()"
+  ></layout-sidebar>
+  <div class="content-wrapper" [class.blurred]="sidebarIsOpen">
+    <layout-topbar (openSidebar)="openSidebar()"></layout-topbar>
     <main class="content">
       <router-outlet></router-outlet>
       <div class="h-[300vh]"></div>
