@@ -3,11 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { DefaultLayoutComponent } from '../layouts/default/default-layout.component';
 import { AuthGuard } from '../shared/guards/auth.guard';
 import { LoggedGuard } from '../shared/guards/logged.guard';
-import { HistoryViewComponent } from '../views/history-view/history-view.component';
-import { MetricsViewComponent } from '../views/metrics-view/metrics-view.component';
-import { NotFoundViewComponent } from '../views/not-found/not-found-view.component';
-import { OverviewViewComponent } from '../views/overview/overview-view.component';
-import { ShopViewComponent } from '../views/shop-view/shop-view.component';
+import { HistoryViewComponent } from '../pages/history-view/history-view.component';
+import { MetricsViewComponent } from '../pages/metrics-view/metrics-view.component';
+import { NotFoundViewComponent } from '../pages/not-found/not-found-view.component';
+import { OverviewViewComponent } from '../pages/overview/overview-view.component';
+import { ShopViewComponent } from '../pages/shop-view/shop-view.component';
 
 const routes: Routes = [
   {
@@ -19,7 +19,7 @@ const routes: Routes = [
     path: 'auth',
     canActivate: [LoggedGuard],
     loadChildren: () =>
-      import('../views/auth/auth-view.module').then((m) => m.AuthViewModule),
+      import('../pages/auth/auth-view.module').then((m) => m.AuthViewModule),
   },
   {
     path: '',
