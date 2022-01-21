@@ -1,0 +1,15 @@
+.notifications-wrapper {
+  @apply flex items-center gap-2 relative;
+  @apply cursor-pointer;
+
+  .icon {
+    @apply w-5 text-current;
+  }
+
+  span {
+    @apply text-xs font-medium bg-primary p-1.5 leading-[8px] rounded-full text-white;
+    @apply translate-x-1/2 -translate-y-1/2 scale-75;
+    @apply absolute top-0 right-0;
+    @apply flex items-center justify-center;
+  }
+}

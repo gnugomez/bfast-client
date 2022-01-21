@@ -1,0 +1,13 @@
+.user-wrapper {
+  @apply flex items-center gap-2 rounded-full h-full pr-1 pl-2;
+  @apply cursor-pointer;
+  @apply bg-light-400 dark:bg-dark-400;
+
+  .icon {
+    @apply w-3 text-current;
+  }
+
+  .user-picture {
+    @apply w-8 h-8 rounded-full bg-white dark:bg-black;
+  }
+}

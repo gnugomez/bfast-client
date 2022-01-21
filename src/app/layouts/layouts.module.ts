@@ -21,6 +21,8 @@ import {
   search,
   cash,
   HeroIconOptions,
+  bell,
+  menu,
 } from 'ng-heroicon';
 
 const icons = {
@@ -31,6 +33,8 @@ const icons = {
   chevronDown,
   search,
   cash,
+  bell,
+  menu,
 };
 
 const iconsOptions: HeroIconOptions = {
