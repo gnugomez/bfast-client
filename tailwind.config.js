@@ -5,7 +5,7 @@ process.env.TAILWIND_MODE = guessProductionMode() ? "build" : "watch";
 
 module.exports = {
   content: [
-    "./src/app/views/**/**/*.{html,ts,css,scss,sass,less,styl}",
+    "./src/app/pages/**/**/*.{html,ts,css,scss,sass,less,styl}",
     "./src/app/layouts/**/**/*.{html,ts,css,scss,sass,less,styl}",
     "./src/app/components/**/**/*.{html,ts,css,scss,sass,less,styl}",
   ],
