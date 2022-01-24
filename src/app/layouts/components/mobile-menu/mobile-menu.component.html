@@ -6,8 +6,9 @@
     class="item"
     [title]="item.name"
   >
-    <div class="bullet"></div>
     <hero-icon [name]="item.icon" class="icon"></hero-icon>
-    <span>{{ item.name }}</span>
+    <div class="name">
+      <span>{{ item.name }}</span>
+    </div>
   </a>
 </div>

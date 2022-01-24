@@ -1,0 +1,31 @@
+.menu {
+  @apply fixed bottom-0 z-20 inset-x-0 py-3 px-5 bg-light-200/80 backdrop-filter backdrop-blur-sm backdrop-saturate-200;
+  @apply flex justify-between;
+
+  .item {
+    @apply flex items-center justify-center transition-all duration-200 rounded-full ease-in-out;
+
+    .icon {
+      @apply w-11 h-11 p-3;
+    }
+
+    .name {
+      @apply max-w-0 overflow-hidden transition-all duration-500 ease-in-out;
+
+      span {
+        @apply pr-4 opacity-0 text-white transition-all duration-200;
+      }
+    }
+
+    &.active {
+      @apply bg-primary text-white;
+      .name {
+        @apply max-w-[6rem];
+
+        span {
+          @apply opacity-100;
+        }
+      }
+    }
+  }
+}

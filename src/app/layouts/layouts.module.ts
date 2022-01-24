@@ -25,10 +25,12 @@ import {
   bell,
   menu,
   x,
+  home,
 } from 'ng-heroicon';
 import { ButtonComponent } from '../components/button/button.component';
 import { ButtonModule } from '../components/button/button.module';
 import { OutsideClickModule } from '../shared/directives/outside-click/outside-click.module';
+import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.component';
 
 const icons = {
   menuAlt2,
@@ -42,6 +44,7 @@ const icons = {
   bell,
   menu,
   x,
+  home,
 };
 
 const iconsOptions: HeroIconOptions = {
@@ -62,6 +65,7 @@ const components = [
   CoinsComponent,
   NotificationsComponent,
   UserComponent,
+  MobileMenuComponent,
 ];
 const layouts = [DefaultLayoutComponent];
 

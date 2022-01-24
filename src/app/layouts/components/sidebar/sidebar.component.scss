@@ -2,7 +2,7 @@
   @apply flex flex-col gap-5 bg-light-200 dark:bg-dark-900 pb-5 h-screen sticky top-0;
 
   @screen mlg {
-    @apply fixed w-screen z-20 max-w-xs transition-all duration-200;
+    @apply fixed w-screen z-50 max-w-xs transition-all duration-200;
 
     &:not(.open) {
       @apply -translate-x-full;
