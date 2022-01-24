@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import items from '../menu/menuItems';
+import items from './menuItems';
 
 @Component({
   selector: 'layout-mobile-menu',
