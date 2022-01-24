@@ -2,7 +2,7 @@
   @apply h-14 w-full flex items-center relative z-10;
 
   .selector {
-    @apply bg-light-200 dark:bg-dark-900 absolute top-0 inset-x-0 max-w-full border-[3px] border-main-gray-dimed dark:border-dark-800 rounded-xl overflow-hidden transition-all duration-300 box-content;
+    @apply bg-light-200 dark:bg-dark-900 absolute top-0 inset-x-0 max-w-full border-[3px] border-main-gray-dimed dark:border-dark-800 rounded-2xl overflow-hidden transition-all duration-300 box-content;
 
     &:hover,
     &:focus-within,

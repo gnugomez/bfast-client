@@ -3,7 +3,11 @@
   @apply flex justify-between;
 
   .item {
-    @apply flex items-center justify-center transition-all duration-300 rounded-lg ease-in-out shadow-none;
+    @apply flex items-center justify-center transition-all duration-300 rounded-xl ease-in-out shadow-none transform;
+
+    &:active {
+      @apply scale-90;
+    }
 
     .icon {
       @apply w-10 h-10 p-2.5;

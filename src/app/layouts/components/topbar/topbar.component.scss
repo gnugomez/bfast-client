@@ -1,15 +1,7 @@
 .topbar-container {
   @apply bg-white/70 dark:bg-black/70 backdrop-filter backdrop-blur-sm backdrop-saturate-150 p-5;
-  @apply sticky top-0;
+  @apply sm:sticky top-0;
   @apply flex items-center h-20;
-
-  .sidebar-toggler {
-    @apply lg:hidden;
-
-    hero-icon {
-      @apply w-4 h-4;
-    }
-  }
 
   .right {
     @apply flex items-center gap-5 ml-auto h-full;
@@ -23,5 +15,13 @@
 @screen mlg {
   layout-search {
     @apply hidden;
+  }
+}
+
+.sidebar-toggler {
+  @apply h-20 px-5 flex items-center lg:hidden fixed top-0 left-0;
+
+  hero-icon {
+    @apply w-4 h-4;
   }
 }
