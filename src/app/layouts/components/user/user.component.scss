@@ -11,3 +11,16 @@
     @apply w-8 h-8 rounded-full bg-white dark:bg-black;
   }
 }
+
+.submenu-wrapper {
+  @apply absolute right-0 w-56 mt-2 origin-top-right border-[3px] rounded-xl shadow-lg outline-none;
+  @apply bg-white dark:bg-dark-900 border-gray-200 dark:border-dark-300 divide-y-2 divide-gray-100 dark:divide-dark-200;
+
+  .item {
+    @apply flex justify-between w-full px-4 py-2 text-sm leading-5 text-left cursor-pointer;
+
+    &.active {
+      @apply bg-light-400 dark:bg-dark-400;
+    }
+  }
+}

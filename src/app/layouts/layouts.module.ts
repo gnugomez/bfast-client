@@ -31,6 +31,7 @@ import { ButtonComponent } from '../components/button/button.component';
 import { ButtonModule } from '../components/button/button.module';
 import { OutsideClickModule } from '../shared/directives/outside-click/outside-click.module';
 import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.component';
+import { MenuModule } from 'headlessui-angular';
 
 const icons = {
   menuAlt2,
@@ -76,6 +77,7 @@ const layouts = [DefaultLayoutComponent];
     CommonModule,
     ButtonModule,
     OutsideClickModule,
+    MenuModule,
     HeroIconModule.withIcons(icons, iconsOptions),
   ],
 })

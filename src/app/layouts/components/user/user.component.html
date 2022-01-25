@@ -1,4 +1,34 @@
-<div class="user-wrapper">
-  <hero-icon name="menu" class="icon"></hero-icon>
-  <div class="user-picture"></div>
+<div class="h-full relative" hlMenu>
+  <div tabindex="0" class="user-wrapper" hlMenuButton>
+    <hero-icon name="menu" class="icon"></hero-icon>
+    <div class="user-picture"></div>
+  </div>
+  <div @toggleAnimation *hlMenuItems class="submenu-wrapper">
+    <div class="px-4 py-3">
+      <p class="text-sm leading-5">Signed in as</p>
+      <p class="text-sm font-medium leading-5 truncate">tom@example.com</p>
+    </div>
+    <div class="py-1">
+      <a *hlMenuItem="let item" [class.active]="item.active" class="item">
+        Ajustes de cuenta
+      </a>
+
+      <a *hlMenuItem="let item" [class.active]="item.active" class="item">
+        Soporte
+      </a>
+      <a *hlMenuItem="let item" [class.active]="item.active" class="item">
+        Licencia
+      </a>
+    </div>
+    <div class="py-1">
+      <a
+        *hlMenuItem="let item"
+        [class.active]="item.active"
+        (click)="logout()"
+        class="item"
+      >
+        Cerrar sesión
+      </a>
+    </div>
+  </div>
 </div>
