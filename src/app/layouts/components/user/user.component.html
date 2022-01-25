@@ -5,8 +5,9 @@
   </div>
   <div @toggleAnimation *hlMenuItems class="submenu-wrapper">
     <div class="px-4 py-3">
-      <p class="text-sm leading-5">Signed in as</p>
-      <p class="text-sm font-medium leading-5 truncate">tom@example.com</p>
+      <p class="text-sm leading-5">
+        Bienvenido <span class="truncate">{{ user?.name }}</span> 👋
+      </p>
     </div>
     <div class="py-1">
       <a *hlMenuItem="let item" [class.active]="item.active" class="item">

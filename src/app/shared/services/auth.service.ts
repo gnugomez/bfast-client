@@ -28,17 +28,13 @@ const HTTP_OPTIONS = {
 export class AuthService {
   redirectUrl = '';
 
-  constructor(
-    private http: HttpClient,
-    private tokenService: TokenService,
-    private router: Router
-  ) {}
+  constructor(private http: HttpClient, private tokenService: TokenService) {}
 
   private static handleError(error: HttpErrorResponse): any {
-    return throwError(error);
+    return this.log(error);
   }
 
-  private static log(message: string): any {
+  private static log(message: any): any {
     console.log(message);
   }
 
