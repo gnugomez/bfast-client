@@ -1,5 +1,6 @@
 .sidebar-container {
-  @apply flex flex-col gap-5 bg-light-200 dark:bg-dark-900 pb-5 h-screen sticky top-0;
+  @apply flex flex-col gap-5 bg-white dark:bg-black pb-5 h-screen sticky top-0;
+  @apply border-r border-light-400 dark:border-dark-900;
 
   @screen mlg {
     @apply fixed w-screen z-50 max-w-xs transition-all duration-200;
