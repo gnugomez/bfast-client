@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import toggleAnimation from '../../animations/toggleAnimation';
 
 @Component({
   selector: 'layout-organization-swapper',
   templateUrl: './organization-swapper.component.html',
+  animations: [toggleAnimation],
   styleUrls: ['./organization-swapper.component.scss'],
 })
 export class OrganizationSwapperComponent implements OnInit {

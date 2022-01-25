@@ -1,24 +1,23 @@
-<div class="wrapper">
-  <div
-    (clrOutsideClick)="closeDropdown()"
-    [class.open]="isOpen"
-    class="selector"
-    (click)="toggleDropdown()"
-    tabindex="0"
-  >
-    <div
-      *ngFor="let organization of organizations; let i = index"
-      class="item"
-      [class.active]="organization === activeOrganization"
-      (click)="selectOrganization(organization)"
-      [tabindex]="!isOpen ? -1 : 0"
-      unoutlined
-    >
-      <span>{{ organization.name }}</span>
-      <hero-icon *ngIf="i === 0" name="chevron-down" class="icon"></hero-icon>
-    </div>
+<div class="wrapper" hlMenu>
+  <div hlMenuButton tabindex="0" class="selector">
     <div class="item">
+      <span>{{ activeOrganization.name }}</span>
+      <hero-icon name="chevron-down" class="icon"></hero-icon>
+    </div>
+    <!--     <div class="item">
       <span>+ Nueva</span>
+    </div> -->
+  </div>
+  <div @toggleAnimation *hlMenuItems class="submenu selector">
+    <div *ngFor="let organization of organizations">
+      <div
+        *hlMenuItem="let item"
+        class="item"
+        [class.active]="item.active"
+        (click)="selectOrganization(organization)"
+      >
+        <span>{{ organization.name }}</span>
+      </div>
     </div>
   </div>
 </div>

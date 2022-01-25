@@ -5,12 +5,17 @@
     @apply bg-white dark:bg-black absolute top-0 inset-x-0 max-w-full border-[3px] border-main-gray-dimed dark:border-dark-300 rounded-2xl overflow-hidden transition-all duration-300 box-content;
 
     &:hover,
-    &.open {
-      @apply bg-white dark:bg-dark-900 border-white dark:border-dark-900  dark:text-white text-main-dark shadow-app;
+    &:focus,
+    &.submenu {
+      @apply bg-white dark:bg-dark-800 border-white dark:border-dark-800 dark:text-white text-main-dark shadow-app;
     }
 
     .item {
       @apply cursor-pointer overflow-hidden relative transition-all duration-300 max-h-20 flex items-center gap-2 px-3;
+
+      &.active {
+        @apply bg-light-500 dark:bg-dark-300;
+      }
 
       span {
         @apply text-ellipsis overflow-hidden whitespace-nowrap w-full block py-4;
@@ -21,25 +26,12 @@
       }
     }
 
-    &:not(.open) {
+    /*     &:not(.open) {
       .item {
         &:not(.active) {
           @apply max-h-[0px] opacity-0;
         }
       }
-    }
-
-    &.open {
-      .item {
-        &:hover,
-        &:focus {
-          @apply bg-light-500 dark:bg-dark-300;
-        }
-
-        .icon {
-          @apply rotate-180;
-        }
-      }
-    }
+    } */
   }
 }
