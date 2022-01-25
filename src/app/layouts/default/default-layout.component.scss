@@ -14,7 +14,7 @@
     @apply transition-[filter] duration-200;
 
     @screen mlg {
-      &.blurred {
+      &.collapsed {
         @apply filter blur-sm;
       }
     }

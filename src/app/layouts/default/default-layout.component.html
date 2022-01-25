@@ -3,7 +3,7 @@
     [isOpen]="sidebarIsOpen"
     (closeSidebar)="closeSidebar()"
   ></layout-sidebar>
-  <div class="content-wrapper" [class.blurred]="sidebarIsOpen">
+  <div class="content-wrapper" [class.collapsed]="sidebarIsOpen">
     <layout-topbar (openSidebar)="openSidebar()"></layout-topbar>
     <main class="content">
       <router-outlet></router-outlet>

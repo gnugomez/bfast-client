@@ -2,12 +2,11 @@
   @apply h-14 w-full flex items-center relative z-10;
 
   .selector {
-    @apply bg-white dark:bg-black absolute top-0 inset-x-0 max-w-full border-[3px] border-main-gray-dimed dark:border-dark-800 rounded-2xl overflow-hidden transition-all duration-300 box-content;
+    @apply bg-white dark:bg-black absolute top-0 inset-x-0 max-w-full border-[3px] border-main-gray-dimed dark:border-dark-300 rounded-2xl overflow-hidden transition-all duration-300 box-content;
 
     &:hover,
-    &:focus-within,
     &.open {
-      @apply bg-white dark:bg-dark-800 border-white dark:border-dark-800  dark:text-white text-main-dark shadow-app;
+      @apply bg-white dark:bg-dark-900 border-white dark:border-dark-900  dark:text-white text-main-dark shadow-app;
     }
 
     .item {
