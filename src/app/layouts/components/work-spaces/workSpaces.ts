@@ -1,5 +1,3 @@
-import { HeroIconName } from 'ng-heroicon';
-
 interface MenuItem {
   id: number;
   name: string;

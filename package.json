@@ -23,7 +23,6 @@
     "@ng-icons/heroicons": "^13.3.0",
     "@ngneat/tailwind": "^7.0.3",
     "headlessui-angular": "0.0.5",
-    "ng-heroicon": "^1.0.5",
     "rxjs": "~7.5.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

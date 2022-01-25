@@ -3,6 +3,7 @@
 
   .selector {
     @apply bg-white dark:bg-black absolute top-0 inset-x-0 max-w-full border-[3px] border-main-gray-dimed dark:border-dark-300 rounded-2xl overflow-hidden transition-all duration-300 box-content;
+    @apply appearance-none;
 
     &:hover,
     &:focus,
