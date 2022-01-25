@@ -1,6 +1,6 @@
 .user-wrapper {
-  @apply flex items-center gap-2 rounded-full h-full px-1 sm:pl-2;
-  @apply cursor-pointer;
+  @apply flex items-center gap-2 rounded-full h-full px-1 sm:pl-2 appearance-none;
+  @apply cursor-pointer relative;
   @apply bg-light-400 dark:bg-dark-400;
 
   .icon {
