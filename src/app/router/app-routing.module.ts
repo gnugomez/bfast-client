@@ -3,11 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { DefaultLayoutComponent } from '../layouts/default/default-layout.component';
 import { AuthGuard } from '../shared/guards/auth.guard';
 import { LoggedGuard } from '../shared/guards/logged.guard';
-import { HistoryViewComponent } from '../pages/history-view/history-view.component';
-import { MetricsViewComponent } from '../pages/metrics-view/metrics-view.component';
+import { HistoryViewComponent } from '../pages/history/history-view.component';
+import { MetricsViewComponent } from '../pages/metrics/metrics-view.component';
 import { NotFoundViewComponent } from '../pages/not-found/not-found-view.component';
 import { OverviewViewComponent } from '../pages/overview/overview-view.component';
-import { ShopViewComponent } from '../pages/shop-view/shop-view.component';
+import { ShopViewComponent } from '../pages/shop/shop-view.component';
 
 const routes: Routes = [
   {
