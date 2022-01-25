@@ -12,48 +12,47 @@ import { CoinsComponent } from './components/coins/coins.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { UserComponent } from './components/user/user.component';
 import {
-  HeroIconModule,
-  menuAlt2,
-  menuAlt1,
-  shoppingBag,
-  chartPie,
-  clock,
-  chevronDown,
-  search,
-  cash,
-  HeroIconOptions,
-  bell,
-  menu,
-  x,
-  home,
-} from 'ng-heroicon';
+  HeroMenuAlt2,
+  HeroMenuAlt1,
+  HeroShoppingBag,
+  HeroChartPie,
+  HeroClock,
+  HeroChevronDown,
+  HeroSearch,
+  HeroCash,
+  HeroBell,
+  HeroMenu,
+  HeroX,
+  HeroHome,
+  HeroHomeSolid,
+  HeroShoppingBagSolid,
+  HeroChartPieSolid,
+  HeroClockSolid,
+} from '@ng-icons/heroicons';
 import { ButtonComponent } from '../components/button/button.component';
 import { ButtonModule } from '../components/button/button.module';
 import { OutsideClickModule } from '../shared/directives/outside-click/outside-click.module';
 import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.component';
 import { MenuModule } from 'headlessui-angular';
+import { NgIconsModule } from '@ng-icons/core';
 
 const icons = {
-  menuAlt2,
-  menuAlt1,
-  shoppingBag,
-  chartPie,
-  clock,
-  chevronDown,
-  search,
-  cash,
-  bell,
-  menu,
-  x,
-  home,
-};
-
-const iconsOptions: HeroIconOptions = {
-  /**
-   * Child level options.
-   * Non passed options will use the rootModule options.
-   */
-  defaultHostDisplay: 'block',
+  HeroMenuAlt2,
+  HeroMenuAlt1,
+  HeroShoppingBag,
+  HeroChartPie,
+  HeroClock,
+  HeroChevronDown,
+  HeroSearch,
+  HeroCash,
+  HeroBell,
+  HeroMenu,
+  HeroX,
+  HeroHome,
+  HeroHomeSolid,
+  HeroShoppingBagSolid,
+  HeroChartPieSolid,
+  HeroClockSolid,
 };
 
 const components = [
@@ -78,7 +77,7 @@ const layouts = [DefaultLayoutComponent];
     ButtonModule,
     OutsideClickModule,
     MenuModule,
-    HeroIconModule.withIcons(icons, iconsOptions),
+    NgIconsModule.withIcons(icons),
   ],
 })
 export class LayoutsModule {}

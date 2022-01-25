@@ -10,7 +10,7 @@
     }
 
     .icon {
-      @apply w-10 h-10 p-2.5;
+      @apply w-10 h-10 p-2.5 flex items-center justify-center;
     }
 
     .name {

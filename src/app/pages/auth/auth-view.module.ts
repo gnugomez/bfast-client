@@ -12,11 +12,12 @@ import { RegisterEmailComponent } from './register-view/steps/email/email.compon
 import { NameComponent } from './register-view/steps/name/name.component';
 import { PasswordComponent } from './register-view/steps/password/password.component';
 import { OrganizationComponent } from './register-view/steps/organization/organization.component';
-import { HeroIconModule, arrowSmLeft, arrowSmRight } from 'ng-heroicon';
+import { HeroArrowSmLeft, HeroArrowSmRight } from '@ng-icons/heroicons';
+import { NgIconsModule } from '@ng-icons/core';
 
 const views = [LoginViewComponent, RegisterViewComponent];
 const components = [CardModule, ButtonModule, ProgressModule];
-const icons = { arrowSmLeft, arrowSmRight };
+const icons = { HeroArrowSmLeft, HeroArrowSmRight };
 @NgModule({
   declarations: [
     ...views,
@@ -30,7 +31,7 @@ const icons = { arrowSmLeft, arrowSmRight };
     AuthRoutingModule,
     ReactiveFormsModule,
     SharedModule,
-    HeroIconModule.withIcons(icons),
+    NgIconsModule.withIcons(icons),
     ...components,
   ],
 })
