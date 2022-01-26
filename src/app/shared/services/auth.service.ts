@@ -31,7 +31,7 @@ export class AuthService {
   constructor(private http: HttpClient, private tokenService: TokenService) {}
 
   private static handleError(error: HttpErrorResponse): any {
-    return this.log(error);
+    return throwError(() => error);
   }
 
   private static log(message: any): any {

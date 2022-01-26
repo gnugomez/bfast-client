@@ -38,12 +38,8 @@ export class RegisterEmailComponent implements OnInit {
     if (this.emailForm.valid) {
       this.loading = true;
 
-      this.auth.register(this.registerForm?.value).subscribe(
-        (res) => {
-          this.loading = false;
-          this.nextStep.emit();
-        },
-        (err) => {
+      this.auth.register(this.registerForm?.value).subscribe({
+        error: (err) => {
           if (err.error.errors.email) {
             this.emailForm.get('email')?.setErrors({ emailTaken: true });
 
@@ -53,8 +49,8 @@ export class RegisterEmailComponent implements OnInit {
           } else {
             this.nextStep.emit();
           }
-        }
-      );
+        },
+      });
     }
   }
 }
