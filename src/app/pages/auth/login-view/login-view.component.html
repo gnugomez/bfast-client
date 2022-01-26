@@ -98,8 +98,11 @@
                 </span>
               </div>
               <div class="toggle-pass" (click)="togglePass()">
-                <i [class.hidden]="!showPass" class="far fa-eye"></i>
-                <i [class.hidden]="showPass" class="far fa-eye-slash"></i>
+                <ng-icon [class.!hidden]="!showPass" name="hero-eye"></ng-icon>
+                <ng-icon
+                  [class.!hidden]="showPass"
+                  name="hero-eye-off"
+                ></ng-icon>
               </div>
             </div>
           </div>

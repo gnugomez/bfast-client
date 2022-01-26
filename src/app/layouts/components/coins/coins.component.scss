@@ -1,10 +1,10 @@
 .coins-wrapper {
-  @apply flex items-center gap-2;
+  @apply flex items-center gap-2 h-full;
   @apply text-gray-500 dark:text-gray-300;
   @apply cursor-pointer;
 
   .icon {
-    @apply w-5 text-current;
+    @apply text-current text-xl;
   }
 
   span {

@@ -4,7 +4,7 @@
   @apply bg-light-400 dark:bg-dark-400;
 
   .icon {
-    @apply w-3 text-current msm:hidden;
+    @apply text-current msm:hidden text-xs;
   }
 
   .user-picture {

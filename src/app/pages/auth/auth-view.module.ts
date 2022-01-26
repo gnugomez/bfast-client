@@ -12,12 +12,17 @@ import { RegisterEmailComponent } from './register-view/steps/email/email.compon
 import { NameComponent } from './register-view/steps/name/name.component';
 import { PasswordComponent } from './register-view/steps/password/password.component';
 import { OrganizationComponent } from './register-view/steps/organization/organization.component';
-import { HeroArrowSmLeft, HeroArrowSmRight } from '@ng-icons/heroicons';
+import {
+  HeroArrowSmLeft,
+  HeroArrowSmRight,
+  HeroEye,
+  HeroEyeOff,
+} from '@ng-icons/heroicons';
 import { NgIconsModule } from '@ng-icons/core';
 
 const views = [LoginViewComponent, RegisterViewComponent];
 const components = [CardModule, ButtonModule, ProgressModule];
-const icons = { HeroArrowSmLeft, HeroArrowSmRight };
+const icons = { HeroArrowSmLeft, HeroArrowSmRight, HeroEye, HeroEyeOff };
 @NgModule({
   declarations: [
     ...views,

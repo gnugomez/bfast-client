@@ -1,9 +1,9 @@
 .notifications-wrapper {
-  @apply flex items-center gap-2 relative;
+  @apply flex items-center gap-2 relative px-2 h-full;
   @apply cursor-pointer;
 
   .icon {
-    @apply w-5 text-current;
+    @apply text-current text-xl;
   }
 
   span {
