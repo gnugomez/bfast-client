@@ -4,7 +4,7 @@
   @apply text-gray-400;
 
   .icon {
-    @apply w-5 h-5 text-current;
+    @apply w-5 h-5 text-current flex items-center justify-center;
   }
 
   input {
