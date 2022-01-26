@@ -10,6 +10,7 @@
 
     .icon {
       @apply w-5 h-5 p-[0.18rem] rounded-[0.25rem] bg-light-800 dark:bg-dark-400 text-main-dark dark:text-white transition-all duration-300;
+      @apply flex items-center justify-center;
     }
 
     span {
