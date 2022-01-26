@@ -3,9 +3,9 @@
     <ng-icon name="hero-menu" class="icon"></ng-icon>
     <div class="user-picture"></div>
   </div>
-  <div @toggleAnimation *hlMenuItems class="submenu-wrapper">
+  <div @toggleAnimation *hlMenuItems class="submenu-wrapper" unoutlined>
     <div class="px-4 py-3">
-      <p class="text-sm leading-5">
+      <p class="text-sm leading-5 flex gap-2">
         Bienvenido, <span class="truncate">{{ user?.name }}</span> 👋
       </p>
     </div>
