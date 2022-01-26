@@ -2,7 +2,7 @@
   @apply h-14 w-full flex items-center relative z-10;
 
   .selector {
-    @apply bg-white dark:bg-black absolute top-0 inset-x-0 max-w-full border-[3px] border-main-gray-dimed dark:border-dark-300 rounded-2xl overflow-hidden transition-all duration-300 box-content;
+    @apply origin-top bg-white dark:bg-black absolute top-0 inset-x-0 max-w-full border-[3px] border-main-gray-dimed dark:border-dark-300 rounded-2xl overflow-hidden transition-all duration-300 box-content;
     @apply appearance-none;
 
     &:hover,
@@ -23,7 +23,7 @@
       }
 
       .icon {
-        @apply w-6 transition-all duration-300;
+        @apply transition-all duration-300;
       }
     }
 
