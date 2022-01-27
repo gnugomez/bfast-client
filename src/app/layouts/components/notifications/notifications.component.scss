@@ -2,6 +2,10 @@
   @apply h-full sm:relative;
   @apply cursor-pointer;
 
+  .box {
+    @apply relative flex items-center justify-center h-10 w-10 rounded-full appearance-none;
+  }
+
   .icon {
     @apply text-current text-xl;
   }
