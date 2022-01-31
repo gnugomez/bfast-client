@@ -1,0 +1,11 @@
+::-webkit-scrollbar {
+  @apply w-4;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white dark:bg-black rounded-md border-[3px] border-solid border-main-gray-dimed dark:border-dark-700;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-main-gray-dimed dark:bg-dark-700 rounded-md;
+}

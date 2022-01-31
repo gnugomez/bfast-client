@@ -1,0 +1,13 @@
+.coins-wrapper {
+  @apply flex items-center gap-2 h-full;
+  @apply text-gray-500 dark:text-gray-300;
+  @apply cursor-pointer;
+
+  .icon {
+    @apply text-current text-xl;
+  }
+
+  span {
+    @apply text-sm font-medium;
+  }
+}

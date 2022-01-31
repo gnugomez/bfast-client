@@ -1,1 +1,14 @@
-<router-outlet></router-outlet>
+<div class="default-layout-container">
+  <layout-sidebar
+    [isOpen]="sidebarIsOpen"
+    (closeSidebar)="closeSidebar()"
+  ></layout-sidebar>
+  <div class="content-wrapper" [class.collapsed]="sidebarIsOpen">
+    <layout-topbar (openSidebar)="openSidebar()"></layout-topbar>
+    <main class="content">
+      <router-outlet></router-outlet>
+      <div class="h-[300vh]"></div>
+    </main>
+    <layout-mobile-menu class="sm:hidden"></layout-mobile-menu>
+  </div>
+</div>

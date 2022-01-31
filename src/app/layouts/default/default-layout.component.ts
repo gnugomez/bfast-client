@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-default-layout',
+  selector: 'layout-default',
   templateUrl: './default-layout.component.html',
-  styleUrls: ['./default-layout.component.scss']
+  styleUrls: ['./default-layout.component.scss'],
 })
 export class DefaultLayoutComponent implements OnInit {
+  public sidebarIsOpen = false;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  public openSidebar(): void {
+    this.sidebarIsOpen = true;
   }
 
+  public closeSidebar(): void {
+    this.sidebarIsOpen = false;
+  }
 }

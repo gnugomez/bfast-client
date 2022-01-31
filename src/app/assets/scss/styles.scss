@@ -1,0 +1,82 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+/* purgecss start ignore */
+@tailwind base;
+/* purgecss end ignore */
+
+/* purgecss start ignore */
+@tailwind components;
+/* purgecss end ignore */
+
+/* purgecss start ignore */
+@tailwind utilities;
+/* purgecss end ignore */
+
+/* purgecss start ignore */
+@tailwind variants;
+/* purgecss end ignore */
+/* You can add global styles to this file, and also import other style files */
+@import "scrollbar";
+@import "headings";
+@import "forms";
+
+* {
+  @apply outline-none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  @apply font-montserrat dark:bg-black text-main-dark dark:text-white;
+}
+
+button,
+app-button {
+  @apply rounded-full;
+}
+
+img.ghost-image {
+  @apply select-none pointer-events-none;
+}
+
+*[tabindex]:not([unoutlined]),
+button {
+  @apply outline-none ring-primary ring-opacity-40 transition-all duration-300 focus-within:ring-4;
+}
+
+button[app-button] {
+  @apply hover:shadow-app;
+
+  &[ng-reflect-disabled="true"],
+  &[disabled],
+  &:disabled {
+    @apply opacity-50 pointer-events-none;
+  }
+}
+
+.outer-wrapper {
+  @apply grid;
+
+  router-outlet {
+    @apply hidden;
+
+    & ~ * {
+      @apply grid;
+    }
+  }
+}
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.auth-icon {
+  animation: fadeRight 0.8s;
+}

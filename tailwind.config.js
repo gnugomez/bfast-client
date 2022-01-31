@@ -4,7 +4,11 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 process.env.TAILWIND_MODE = guessProductionMode() ? "build" : "watch";
 
 module.exports = {
-  content: ["./src/app/views/**/**/*.{html,ts,css,scss,sass,less,styl}"],
+  content: [
+    "./src/app/pages/**/**/*.{html,ts,css,scss,sass,less,styl}",
+    "./src/app/layouts/**/**/*.{html,ts,css,scss,sass,less,styl}",
+    "./src/app/components/**/**/*.{html,ts,css,scss,sass,less,styl}",
+  ],
   darkMode: "media", // or 'media' or 'class'
   theme: {
     screens: {
@@ -26,13 +30,40 @@ module.exports = {
     extend: {
       colors: {
         primary: "#3EA4F4",
-        secondary: {
-          gray: "#F3F3F3",
-        },
         main: {
-          dark: "#222222",
-          dimed: "#666666",
-          gray: "#7B7B7B",
+          dark: {
+            DEFAULT: "#222222",
+            dimed: "#666666",
+          },
+          gray: {
+            DEFAULT: "#7B7B7B",
+            dimed: "#F3F3F3",
+            relaxed: "#F9F9F9",
+          },
+        },
+        light: {
+          50: "#fdfdfd",
+          100: "#fcfcfc",
+          200: "#fafafa",
+          300: "#f8f9fa",
+          400: "#f6f6f6",
+          500: "#f2f2f2",
+          600: "#f1f3f5",
+          700: "#e9ecef",
+          800: "#dee2e6",
+          900: "#dde1e3",
+        },
+        dark: {
+          50: "#4a4a4a",
+          100: "#3c3c3c",
+          200: "#323232",
+          300: "#2d2d2d",
+          400: "#222222",
+          500: "#1f1f1f",
+          600: "#1c1c1e",
+          700: "#1b1b1b",
+          800: "#181818",
+          900: "#0f0f0f",
         },
       },
       borderRadius: {

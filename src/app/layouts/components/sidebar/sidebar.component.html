@@ -1,1 +1,22 @@
-<p>sidebar works!</p>
+<div
+  (clrOutsideClick)="clickOutsideClose($event)"
+  class="sidebar-container"
+  [class.open]="isOpen"
+>
+  <div class="top-wrapper">
+    <div class="top">
+      <img src="assets/img/bfast-app-logo.svg" alt="" />
+      <app-button
+        size="square-sm"
+        variant="light"
+        class="sidebar-toggler"
+        (click)="close()"
+        ><ng-icon name="hero-x"></ng-icon
+      ></app-button>
+    </div>
+    <layout-organization-swapper></layout-organization-swapper>
+  </div>
+
+  <layout-menu class="msm:hidden"></layout-menu>
+  <layout-work-spaces></layout-work-spaces>
+</div>

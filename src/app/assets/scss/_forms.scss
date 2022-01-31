@@ -1,0 +1,45 @@
+input ~ .errors {
+  @apply transform w-full absolute bottom-0 translate-y-full flex flex-col opacity-0;
+  span {
+    @apply text-red-500 font-bold p-1 py-2 text-xs italic;
+  }
+}
+
+form {
+  &.ng-submitted.ng-invalid {
+    input {
+      &.ng-invalid {
+        @apply border-red-500 dark:border-red-500 #{!important};
+      }
+
+      &.ng-invalid ~ .toggle-pass {
+        @apply text-red-500;
+      }
+
+      & ~ .errors {
+        @apply opacity-100;
+      }
+    }
+  }
+  .input-wrapper {
+    input {
+      @apply border-0 border-b-[3px] border-main-gray-dimed dark:border-gray-700 px-0 py-3 ring-0 focus:border-primary bg-transparent;
+
+      &.ng-touched.ng-invalid {
+        @apply border-red-500 dark:border-red-500 #{!important};
+      }
+
+      &.ng-touched.ng-invalid ~ .toggle-pass {
+        @apply text-red-500;
+      }
+
+      &.ng-touched ~ .errors {
+        @apply opacity-100;
+      }
+
+      &::placeholder {
+        @apply font-medium text-main-dark-dimed dark:text-gray-400;
+      }
+    }
+  }
+}

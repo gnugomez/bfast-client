@@ -1,8 +1,8 @@
 .wrapper {
-  @apply w-full h-full rounded-5xl border-4 border-gray-100 transition-all duration-300 ease-in-out bg-white dark:bg-gray-900 dark:border-gray-800;
+  @apply w-full h-full rounded-5xl border-4 border-gray-100 transition-all duration-300 ease-in-out bg-white dark:bg-dark-900 dark:border-dark-800;
 
   &:hover,
   &.open {
-    @apply border-white dark:border-gray-900 shadow-2xl;
+    @apply border-white dark:border-dark-900 shadow-2xl;
   }
 }

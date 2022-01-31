@@ -1,0 +1,36 @@
+.sidebar-container {
+  @apply flex flex-col gap-5 bg-white dark:bg-black pb-5 h-screen sticky top-0;
+  @apply border-r border-light-400 dark:border-dark-900;
+
+  @screen mlg {
+    @apply fixed w-screen z-50 max-w-xs transition-all duration-200;
+
+    &:not(.open) {
+      @apply -translate-x-full;
+    }
+  }
+
+  .sidebar-toggler {
+    @apply lg:hidden;
+
+    ng-icon {
+      @apply text-lg;
+    }
+  }
+
+  .top-wrapper {
+    @apply px-5;
+
+    .top {
+      @apply flex justify-between items-center h-20;
+
+      img {
+        @apply filter dark:invert;
+      }
+    }
+  }
+
+  layout-work-spaces {
+    @apply flex-[2] overflow-y-hidden relative flex flex-col;
+  }
+}

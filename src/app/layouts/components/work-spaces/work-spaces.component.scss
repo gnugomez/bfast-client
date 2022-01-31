@@ -1,0 +1,40 @@
+.title {
+  @apply px-4 text-xs font-semibold text-main-gray py-2;
+}
+.wrapper {
+  @apply flex flex-col overflow-y-auto;
+
+  .item {
+    @apply cursor-pointer flex items-center gap-4 px-4 py-[1.15rem];
+
+    .bullet {
+      @apply w-1 h-1 rounded-full bg-transparent transition-all duration-300;
+    }
+
+    .span {
+      @apply font-semibold;
+    }
+
+    .name {
+      @apply text-sm font-medium whitespace-nowrap overflow-hidden text-ellipsis flex-[2];
+    }
+
+    &:hover,
+    &:focus {
+      @apply bg-light-300/50 dark:bg-dark-900/50;
+    }
+
+    &.active {
+      @apply bg-light-300 dark:bg-dark-900;
+    }
+
+    &.active {
+      span {
+        @apply text-primary;
+      }
+      .bullet {
+        @apply bg-primary;
+      }
+    }
+  }
+}

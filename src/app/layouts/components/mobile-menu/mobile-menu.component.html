@@ -1,0 +1,24 @@
+<div class="menu">
+  <a
+    *ngFor="let item of menuItems"
+    [routerLink]="item.link"
+    routerLinkActive="active"
+    #rla="routerLinkActive"
+    class="item"
+    [title]="item.name"
+  >
+    <ng-icon
+      *ngIf="rla.isActive"
+      [name]="item.icon.solid"
+      class="icon"
+    ></ng-icon>
+    <ng-icon
+      *ngIf="!rla.isActive"
+      [name]="item.icon.outlined"
+      class="icon"
+    ></ng-icon>
+    <div class="name">
+      <span>{{ item.name }}</span>
+    </div>
+  </a>
+</div>

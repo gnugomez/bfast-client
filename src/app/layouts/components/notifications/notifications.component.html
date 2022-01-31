@@ -1,0 +1,27 @@
+<div class="notifications-wrapper" hlMenu>
+  <div tabindex="0" class="box" hlMenuButton>
+    <ng-icon name="hero-bell" class="icon"></ng-icon>
+    <span class="bullet"></span>
+  </div>
+  <div @toggleAnimation *hlMenuItems class="submenu-wrapper" unoutlined>
+    <div class="px-4 py-3 flex justify-between items-center">
+      <span class="font-bold text-sm">Notificaciones</span>
+      <div class="clear-all">Borrar todo</div>
+    </div>
+    <div class="py-1">
+      <a *hlMenuItem="let item" [class.active]="item.active" class="item">
+        <b>bfast 🤗:</b> Bienvenido a esta nuestra comunidad un placer conocerte
+      </a>
+
+      <a *hlMenuItem="let item" [class.active]="item.active" class="item">
+        Notificacion 2
+      </a>
+      <a *hlMenuItem="let item" [class.active]="item.active" class="item">
+        Notificacion 2dsadsadadsadasdasdas dsa dasd asdas asd
+      </a>
+    </div>
+    <div class="py-1">
+      <a class="all item"> Ver todo </a>
+    </div>
+  </div>
+</div>

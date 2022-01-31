@@ -1,0 +1,38 @@
+.menu {
+  @apply flex flex-col;
+
+  .item {
+    @apply cursor-pointer flex items-center gap-4 px-4 py-[1.15rem];
+
+    .bullet {
+      @apply w-1 h-1 rounded-full bg-transparent transition-all duration-300;
+    }
+
+    .icon {
+      @apply w-5 h-5 p-[0.18rem] rounded-[0.25rem] bg-light-800 dark:bg-dark-400 text-main-dark dark:text-white transition-all duration-300;
+      @apply flex items-center justify-center;
+    }
+
+    span {
+      @apply text-sm font-medium whitespace-nowrap overflow-hidden text-ellipsis flex-[2];
+    }
+
+    &:hover,
+    &:focus {
+      @apply bg-light-300/50 dark:bg-dark-900/50;
+    }
+
+    &.active {
+      @apply bg-light-300 dark:bg-dark-900;
+    }
+
+    &.active {
+      .icon {
+        @apply bg-primary text-white;
+      }
+      .bullet {
+        @apply bg-primary;
+      }
+    }
+  }
+}

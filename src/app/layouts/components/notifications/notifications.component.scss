@@ -1,0 +1,44 @@
+.notifications-wrapper {
+  @apply h-full sm:relative;
+  @apply cursor-pointer;
+
+  .box {
+    @apply relative flex items-center justify-center h-10 w-10 rounded-full appearance-none;
+  }
+
+  .icon {
+    @apply text-current text-xl;
+  }
+
+  .clear-all {
+    @apply text-xs text-primary;
+  }
+
+  span.bullet {
+    @apply text-xs font-medium bg-primary leading-[8px] rounded-full text-white;
+    @apply translate-x-1/2 -translate-y-1/2 scale-75;
+    @apply absolute top-3 right-3;
+    @apply h-2 w-2;
+  }
+}
+
+.submenu-wrapper {
+  @apply absolute right-0 sm:w-80 mt-2 origin-top-right rounded-xl shadow-app outline-none overflow-hidden;
+  @apply bg-white dark:bg-dark-900 divide-y divide-gray-100 dark:divide-dark-200;
+
+  @screen msm {
+    @apply right-5 left-5;
+  }
+
+  .item {
+    @apply block w-full px-4 py-4 text-sm leading-5 cursor-pointer truncate;
+
+    &.all {
+      @apply py-1 text-center opacity-50;
+    }
+
+    &.active:not(.all) {
+      @apply bg-light-400 dark:bg-dark-400;
+    }
+  }
+}

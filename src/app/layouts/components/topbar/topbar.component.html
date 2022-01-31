@@ -1,1 +1,11 @@
-<p>topbar works!</p>
+<div class="topbar-container">
+  <layout-search></layout-search>
+  <div class="right">
+    <layout-coins class="mlg:!hidden"></layout-coins>
+    <layout-notifications></layout-notifications>
+    <layout-user></layout-user>
+  </div>
+</div>
+<div class="sidebar-toggler" (click)="toggle()">
+  <ng-icon name="hero-menu-alt-2"></ng-icon>
+</div>

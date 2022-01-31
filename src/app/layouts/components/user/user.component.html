@@ -1,0 +1,35 @@
+<div class="h-full relative" hlMenu>
+  <div tabindex="0" class="user-wrapper" hlMenuButton>
+    <ng-icon name="hero-menu" class="icon"></ng-icon>
+    <div class="user-picture"></div>
+  </div>
+  <div @toggleAnimation *hlMenuItems class="submenu-wrapper" unoutlined>
+    <div class="px-4 py-3">
+      <p class="text-sm leading-5 flex gap-2">
+        Bienvenido, <span class="truncate">{{ user?.name }}</span> 👋
+      </p>
+    </div>
+    <div class="py-1">
+      <a *hlMenuItem="let item" [class.active]="item.active" class="item">
+        Ajustes de cuenta
+      </a>
+
+      <a *hlMenuItem="let item" [class.active]="item.active" class="item">
+        Soporte
+      </a>
+      <a *hlMenuItem="let item" [class.active]="item.active" class="item">
+        Licencia
+      </a>
+    </div>
+    <div class="py-1">
+      <a
+        *hlMenuItem="let item"
+        [class.active]="item.active"
+        (click)="logout()"
+        class="item"
+      >
+        Cerrar sesión
+      </a>
+    </div>
+  </div>
+</div>

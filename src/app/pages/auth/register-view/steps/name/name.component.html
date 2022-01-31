@@ -1,0 +1,60 @@
+<form
+  [formGroup]="nameForm"
+  (ngSubmit)="submitForm()"
+  class="p-4 flex flex-col justify-between"
+>
+  <div class="top">
+    <div class="flex justify-between">
+      <div
+        class="auth-icon w-[4.5rem] h-[4.5rem] rounded-full flex items-center justify-center bg-main-gray-dimed dark:bg-dark-800"
+      >
+        <img
+          class="dark:hidden ghost-image"
+          src="assets/img/username_icon.svg"
+          alt=""
+        />
+        <img
+          class="hidden dark:block ghost-image"
+          src="assets/img/username_icon_white.svg"
+          alt=""
+        />
+      </div>
+      <app-button
+        (click)="goBack()"
+        variant="light"
+        size="square-sm"
+        class="text-main-gray"
+        ><ng-icon name="hero-arrow-sm-left" class="back-icon"></ng-icon
+      ></app-button>
+    </div>
+    <h1 class="mt-4 mb-2">Es un placer conocerte</h1>
+    <span class="text-sm mb-8">¿Cómo te llamas ?</span>
+    <div class="grid gap-6">
+      <div class="input-wrapper">
+        <input type="text" placeholder="Nombre(s)" formControlName="name" />
+        <div *ngIf="nameForm.get('name')?.errors" class="errors">
+          <span *ngIf="nameForm.get('name')?.errors?.required">
+            Tu nombre(s) es requerido
+          </span>
+        </div>
+      </div>
+      <div class="input-wrapper">
+        <input
+          type="text"
+          placeholder="Apellido(s)"
+          formControlName="surname"
+        />
+        <div *ngIf="nameForm.get('surname')?.errors" class="errors">
+          <span *ngIf="nameForm.get('surname')?.errors?.required">
+            El apellido(s) es requerida
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom flex flex-col">
+    <button app-button [loading]="loading" variant="secondary" type="submit">
+      Continuar
+    </button>
+  </div>
+</form>
