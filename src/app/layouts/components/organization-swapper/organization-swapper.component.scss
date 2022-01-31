@@ -11,6 +11,29 @@
       @apply bg-white dark:bg-dark-800 border-white dark:border-dark-800 dark:text-white text-main-dark shadow-app;
     }
 
+    &.submenu {
+      @apply border-none;
+
+      .sub-item {
+        .item {
+          padding-left: calc(0.75rem + 3px);
+          padding-right: calc(0.75rem + 3px);
+        }
+
+        &:last-child {
+          .item {
+            padding-bottom: 3px;
+          }
+        }
+
+        &:first-child {
+          .item {
+            padding-top: 3px;
+          }
+        }
+      }
+    }
+
     .item {
       @apply cursor-pointer overflow-hidden relative transition-all duration-300 max-h-20 flex items-center gap-2 px-3;
 
@@ -26,13 +49,5 @@
         @apply transition-all duration-300;
       }
     }
-
-    /*     &:not(.open) {
-      .item {
-        &:not(.active) {
-          @apply max-h-[0px] opacity-0;
-        }
-      }
-    } */
   }
 }
