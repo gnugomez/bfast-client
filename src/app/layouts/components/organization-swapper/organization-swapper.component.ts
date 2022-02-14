@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Organization } from 'src/app/shared/domain/Organization';
 import { OrganizationService } from 'src/app/shared/services/organization.service';
 import toggleAnimation from '../../animations/toggleAnimation';
@@ -16,14 +17,18 @@ export class OrganizationSwapperComponent implements OnInit {
 
   public isOpen: boolean = false;
 
-  constructor(private organizationService: OrganizationService) {}
-
-  ngOnInit(): void {
+  constructor(private organizationService: OrganizationService) {
     this.organizationService.getOrganizations().subscribe((organizations) => {
       this.organizations = organizations;
-      this.activeOrganization = this.organizations[0];
     });
+    this.organizationService
+      .getActiveOrganization()
+      .subscribe((organization) => {
+        this.activeOrganization = organization;
+      });
   }
+
+  ngOnInit(): void {}
 
   public toggleDropdown() {
     this.isOpen = !this.isOpen;
@@ -35,14 +40,6 @@ export class OrganizationSwapperComponent implements OnInit {
 
   // selects the organization and puts it the first in the list
   public selectOrganization(organization: Organization) {
-    this.activeOrganization = organization;
-    if (this.organizations) {
-      this.organizations.unshift(
-        this.organizations.splice(
-          this.organizations.indexOf(organization),
-          1
-        )[0]
-      );
-    }
+    this.organizationService.setActiveOrganization(organization);
   }
 }
