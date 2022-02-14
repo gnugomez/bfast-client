@@ -43,15 +43,24 @@ export class PasswordComponent {
 
   public submitForm(): void {
     if (this.passwordForm.valid) {
-      this.auth.register(this.registerForm?.value).subscribe(
-        (res) => {
-          this.loading = false;
-          this.nextStep.emit();
+      this.auth.register(this.registerForm?.value).subscribe({
+        next: (res) => {
+          this.auth
+            .login({
+              username: this.registerForm?.value.email,
+              password: this.registerForm?.value.password,
+            })
+            .subscribe({
+              next: (res) => {
+                this.nextStep.emit();
+                this.loading = false;
+              },
+            });
         },
-        (err) => {
+        error: (err) => {
           this.loading = false;
-        }
-      );
+        },
+      });
 
       this.loading = true;
     }

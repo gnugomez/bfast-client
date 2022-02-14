@@ -45,20 +45,20 @@ export class LoginViewComponent implements OnInit {
   public submitForm(): void {
     if (this.loginForm.valid) {
       this.loading = true;
-      this.auth.login(this.loginForm.value).subscribe(
-        (res) => {
+      this.auth.login(this.loginForm.value).subscribe({
+        next: (res) => {
           this.router.navigate(['/']);
           setTimeout(() => {
             this.loading = false;
           }, 500);
         },
-        (err) => {
+        error: (err) => {
           this.loginForm.setErrors({ invalidLogin: true });
           setTimeout(() => {
             this.loading = false;
           }, 500);
-        }
-      );
+        },
+      });
     }
   }
 }

@@ -19,14 +19,6 @@
           alt=""
         />
       </div>
-      <app-button
-        (click)="skip()"
-        variant="light"
-        size="sm"
-        class="text-sm text-main-gray"
-        ><span class="mr-2">Saltar</span>
-        <ng-icon name="hero-arrow-sm-right" class="back-icon"></ng-icon
-      ></app-button>
     </div>
     <h1 class="mt-4 mb-2">Ya está casi todo</h1>
     <span class="text-sm mb-8"
@@ -42,7 +34,7 @@
         />
         <span
           class="message text-xs pt-2 text-main-dark-dimed absolute bottom-0 translate-y-full"
-          >Crea tu primera organización y empieza a añadir expacios de trabajo y
+          >Crea tu primera organización y empieza a añadir espacios de trabajo y
           miembros a ella.</span
         >
         <div *ngIf="organizationForm.get('name')?.errors" class="errors">

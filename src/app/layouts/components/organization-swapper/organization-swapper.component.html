@@ -1,7 +1,9 @@
 <div class="wrapper" hlMenu>
   <div hlMenuButton tabindex="0" class="selector">
     <div class="item">
-      <span>{{ activeOrganization.name }}</span>
+      <span>{{
+        activeOrganization ? activeOrganization.name : "Cargando..."
+      }}</span>
       <ng-icon name="hero-chevron-down" class="icon"></ng-icon>
     </div>
   </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Organization } from 'src/app/shared/domain/Organization';
+import { OrganizationService } from 'src/app/shared/services/organization.service';
 import toggleAnimation from '../../animations/toggleAnimation';
 
 @Component({
@@ -8,29 +10,20 @@ import toggleAnimation from '../../animations/toggleAnimation';
   styleUrls: ['./organization-swapper.component.scss'],
 })
 export class OrganizationSwapperComponent implements OnInit {
-  public organizations = [
-    {
-      id: 1,
-      name: 'Organization 1 dsad sadsdadasdad sd dasdasdas asd a',
-    },
-    {
-      id: 2,
-      name: 'Organization 2',
-    },
-    {
-      id: 3,
-      name: 'Organization 3',
-    },
-  ];
+  public organizations?: Organization[];
 
-  public activeOrganization: { id: number; name: string } =
-    this.organizations[0];
+  public activeOrganization?: Organization;
 
   public isOpen: boolean = false;
 
-  constructor() {}
+  constructor(private organizationService: OrganizationService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.organizationService.getOrganizations().subscribe((organizations) => {
+      this.organizations = organizations;
+      this.activeOrganization = this.organizations[0];
+    });
+  }
 
   public toggleDropdown() {
     this.isOpen = !this.isOpen;
@@ -41,10 +34,15 @@ export class OrganizationSwapperComponent implements OnInit {
   }
 
   // selects the organization and puts it the first in the list
-  public selectOrganization(organization: { id: number; name: string }) {
+  public selectOrganization(organization: Organization) {
     this.activeOrganization = organization;
-    this.organizations.unshift(
-      this.organizations.splice(this.organizations.indexOf(organization), 1)[0]
-    );
+    if (this.organizations) {
+      this.organizations.unshift(
+        this.organizations.splice(
+          this.organizations.indexOf(organization),
+          1
+        )[0]
+      );
+    }
   }
 }
