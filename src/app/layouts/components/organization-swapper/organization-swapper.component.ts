@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
 import { Organization } from 'src/app/shared/domain/Organization';
 import { OrganizationService } from 'src/app/shared/services/organization.service';
 import toggleAnimation from '../../animations/toggleAnimation';

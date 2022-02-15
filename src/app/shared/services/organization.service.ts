@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject, tap } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Organization } from '../domain/Organization';
 
@@ -11,7 +11,7 @@ export class OrganizationService {
   private organizations?: Organization[];
 
   // Subjects
-  private organizations$ = new Subject<Organization[]>();
+  private organizations$ = new BehaviorSubject<Organization[]>([]);
   private activeOrganization$ = new Subject<Organization>();
 
   constructor(private http: HttpClient) {}
@@ -19,17 +19,19 @@ export class OrganizationService {
   public getOrganizations(): Subject<Organization[]> {
     if (!this.organizations) {
       this.http
-        .get<Organization[]>(`${API_URL}/organizations`)
+        .get<Organization[]>(API_URL + 'organizations')
         .subscribe((organizations) => {
           this.organizations$.next(organizations);
           this.organizations = organizations;
 
-          const activeOrganization = this.checkActiveOrganization();
+          if (organizations.length > 0) {
+            const activeOrganization = this.checkActiveOrganization();
 
-          if (activeOrganization) {
-            this.setActiveOrganization(activeOrganization);
-          } else {
-            this.setActiveOrganization(organizations[0]);
+            if (activeOrganization) {
+              this.setActiveOrganization(activeOrganization);
+            } else {
+              this.setActiveOrganization(organizations[0]);
+            }
           }
         });
     }
