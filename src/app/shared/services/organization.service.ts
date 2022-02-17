@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, map, Observable, ReplaySubject, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Organization } from '../domain/Organization';
 
@@ -11,8 +11,8 @@ export class OrganizationService {
   private organizations?: Organization[];
 
   // Subjects
-  private organizations$ = new Subject<Organization[]>();
-  private activeOrganization$ = new Subject<Organization>();
+  private organizations$ = new ReplaySubject<Organization[]>();
+  private activeOrganization$ = new ReplaySubject<Organization>();
 
   constructor(private http: HttpClient) {}
 
@@ -20,6 +20,8 @@ export class OrganizationService {
     params: { forceFetch: boolean } = { forceFetch: false }
   ): Subject<Organization[]> {
     if (!this.organizations || params.forceFetch) {
+      this.organizations$ = new ReplaySubject<Organization[]>();
+
       this.http
         .get<Organization[]>(API_URL + 'organizations')
         .subscribe((organizations) => {
@@ -41,13 +43,9 @@ export class OrganizationService {
   }
 
   public haveOrganizations(): Observable<boolean> {
-    if (this.organizations) {
-      return new BehaviorSubject(this.organizations.length > 0);
-    } else {
-      return this.getOrganizations().pipe(
-        map((organizations) => organizations.length > 0)
-      );
-    }
+    return this.getOrganizations({ forceFetch: true }).pipe(
+      map((organizations) => organizations.length > 0)
+    );
   }
 
   public getActiveOrganization(): Subject<Organization> {

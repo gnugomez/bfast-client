@@ -17,11 +17,9 @@ export class OrganizationSwapperComponent implements OnInit {
   public isOpen: boolean = false;
 
   constructor(private organizationService: OrganizationService) {
-    this.organizationService
-      .getOrganizations({ forceFetch: true })
-      .subscribe((organizations) => {
-        this.organizations = organizations;
-      });
+    this.organizationService.getOrganizations().subscribe((organizations) => {
+      this.organizations = organizations;
+    });
     this.organizationService
       .getActiveOrganization()
       .subscribe((organization) => {
