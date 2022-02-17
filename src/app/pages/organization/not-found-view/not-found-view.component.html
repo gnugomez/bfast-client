@@ -1,0 +1,87 @@
+<div
+  class="w-screen h-screen relative min-h-[50rem] grid items-center sm:justify-items-center"
+>
+  <img
+    class="absolute top-0 left-0 max-h-screen ghost-image msm:hidden"
+    src="assets/img/oval-top-left.png"
+    alt=""
+  />
+  <img
+    class="absolute bottom-0 left-0 max-h-screen ghost-image msm:hidden"
+    src="assets/img/oval-bottom-left.png"
+    alt=""
+  />
+  <img
+    class="absolute top-1/2 transform -translate-y-1/2 right-0 max-h-screen ghost-image msm:hidden"
+    src="assets/img/oval-right.png"
+    alt=""
+  />
+  <div class="sm:justify-center items-center">
+    <app-card
+      type="open"
+      classes="sm:max-w-[25rem] sm:min-w-[25rem] min-h-[35rem] grid relative msm:!bg-transparent msm:!border-transparent msm:!shadow-none"
+    >
+      <form
+        #formEl
+        [formGroup]="organizationForm"
+        (ngSubmit)="submitForm()"
+        class="p-4 flex flex-col justify-between"
+      >
+        <div class="top">
+          <div class="flex justify-between">
+            <div
+              class="auth-icon w-[4.5rem] h-[4.5rem] rounded-full flex items-center justify-center bg-main-gray-dimed dark:bg-dark-800"
+            >
+              <img
+                class="dark:hidden ghost-image"
+                src="assets/img/config_icon.svg"
+                alt=""
+              />
+              <img
+                class="hidden dark:block ghost-image"
+                src="assets/img/config_icon_white.svg"
+                alt=""
+              />
+            </div>
+          </div>
+          <h1 class="mt-4 mb-2">
+            Parece que no perteneces a ninguna organización
+          </h1>
+          <span class="text-sm mb-8"
+            >Estas a un paso de empezar a disfrutar de bfast, crea tu
+            organización o solicita a alguien una invitación.</span
+          >
+          <div class="grid gap-6 mt-3">
+            <div class="input-wrapper">
+              <input
+                type="text"
+                placeholder="Nombre de la Organización"
+                formControlName="name"
+              />
+              <span
+                class="message text-xs pt-2 text-main-dark-dimed absolute bottom-0 translate-y-full"
+                >Crea tu primera organización y empieza a añadir espacios de
+                trabajo y miembros a ella.</span
+              >
+              <div *ngIf="organizationForm.get('name')?.errors" class="errors">
+                <span *ngIf="organizationForm.get('name')?.errors?.required">
+                  El nombre de la organización es requerido
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom flex flex-col">
+          <button
+            app-button
+            [loading]="loading"
+            variant="secondary"
+            type="submit"
+          >
+            Crear
+          </button>
+        </div>
+      </form>
+    </app-card>
+  </div>
+</div>

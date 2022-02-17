@@ -26,16 +26,12 @@ export class NotHaveOrganizationGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    const notHaveOrganization = this.organizationService
-      .getOrganizations()
-      .pipe(map((organizations) => organizations.length === 0));
-
-    return notHaveOrganization.pipe(
-      map((res) => {
-        if (!res) {
+    return this.organizationService.haveOrganizations().pipe(
+      map((haveOrganizations) => {
+        if (haveOrganizations) {
           this.router.navigate(['/404']);
         }
-        return res;
+        return !haveOrganizations;
       })
     );
   }

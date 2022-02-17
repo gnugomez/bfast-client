@@ -10,7 +10,6 @@ import { OverviewViewComponent } from '../pages/overview/overview-view.component
 import { ShopViewComponent } from '../pages/shop/shop-view.component';
 import { HaveOrganizationGuard } from '../shared/guards/have-organization.guard';
 import { NotHaveOrganizationGuard } from '../shared/guards/not-have-organization.guard';
-import { CreateOrganizationComponent } from '../pages/create-organization/create-organization.component';
 
 const routes: Routes = [
   {
@@ -48,9 +47,12 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'organization-not-found',
+    path: 'organization',
     canActivate: [IsLoggedGuard, NotHaveOrganizationGuard],
-    component: CreateOrganizationComponent,
+    loadChildren: () =>
+      import('../pages/organization/organization.module').then(
+        (m) => m.CreateOrganizationModule
+      ),
   },
   {
     path: '404',

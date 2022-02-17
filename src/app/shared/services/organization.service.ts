@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, map, Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Organization } from '../domain/Organization';
 
@@ -11,13 +11,15 @@ export class OrganizationService {
   private organizations?: Organization[];
 
   // Subjects
-  private organizations$ = new BehaviorSubject<Organization[]>([]);
+  private organizations$ = new Subject<Organization[]>();
   private activeOrganization$ = new Subject<Organization>();
 
   constructor(private http: HttpClient) {}
 
-  public getOrganizations(): Subject<Organization[]> {
-    if (!this.organizations) {
+  public getOrganizations(
+    params: { forceFetch: boolean } = { forceFetch: false }
+  ): Subject<Organization[]> {
+    if (!this.organizations || params.forceFetch) {
       this.http
         .get<Organization[]>(API_URL + 'organizations')
         .subscribe((organizations) => {
@@ -36,6 +38,16 @@ export class OrganizationService {
         });
     }
     return this.organizations$;
+  }
+
+  public haveOrganizations(): Observable<boolean> {
+    if (this.organizations) {
+      return new BehaviorSubject(this.organizations.length > 0);
+    } else {
+      return this.getOrganizations().pipe(
+        map((organizations) => organizations.length > 0)
+      );
+    }
   }
 
   public getActiveOrganization(): Subject<Organization> {
@@ -73,5 +85,11 @@ export class OrganizationService {
     } else {
       return null;
     }
+  }
+
+  public createOrganization(
+    organization: Organization
+  ): Observable<Organization> {
+    return this.http.put<Organization>(API_URL + 'organizations', organization);
   }
 }
