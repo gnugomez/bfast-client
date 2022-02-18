@@ -16,7 +16,7 @@ export class NotFoundViewComponent implements OnInit {
   public loading = false;
 
   constructor(
-    private organizationServie: OrganizationService,
+    private organizationService: OrganizationService,
     private router: Router
   ) {}
 
@@ -26,11 +26,11 @@ export class NotFoundViewComponent implements OnInit {
     if (this.organizationForm.valid) {
       this.loading = true;
 
-      this.organizationServie
+      this.organizationService
         .createOrganization(this.organizationForm.value)
         .subscribe({
           next: (res) => {
-            this.organizationServie
+            this.organizationService
               .getOrganizations({ forceFetch: true })
               .subscribe((res) => {
                 this.loading = false;

@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { OrganizationService } from 'src/app/shared/services/organization.service';
 
 @Component({
   selector: 'register-organization',
@@ -17,7 +19,11 @@ export class OrganizationComponent implements OnInit {
   });
   public loading = false;
 
-  constructor(private auth: AuthService) {}
+  constructor(
+    private auth: AuthService,
+    private organizationService: OrganizationService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.organizationForm.valueChanges.subscribe(() => {
@@ -30,7 +36,7 @@ export class OrganizationComponent implements OnInit {
     this.showPass = !this.showPass;
   }
 
-  public skip(): void  {
+  public skip(): void {
     this.nextStep.emit();
   }
 
@@ -38,7 +44,18 @@ export class OrganizationComponent implements OnInit {
     if (this.organizationForm.valid) {
       this.loading = true;
 
-      this.nextStep.emit();
+      this.organizationService
+        .createOrganization(this.organizationForm.value)
+        .subscribe({
+          next: (res) => {
+            this.organizationService
+              .getOrganizations({ forceFetch: true })
+              .subscribe((res) => {
+                this.loading = false;
+                this.router.navigate(['/overview']);
+              });
+          },
+        });
     }
   }
 }

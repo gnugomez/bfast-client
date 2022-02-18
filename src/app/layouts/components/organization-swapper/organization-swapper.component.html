@@ -21,7 +21,12 @@
         <span>{{ organization.name }}</span>
       </div>
       <div *ngIf="last">
-        <div *hlMenuItem="let item" class="item" [class.active]="item.active">
+        <div
+          *hlMenuItem="let item"
+          class="item"
+          [class.active]="item.active"
+          routerLink="/organization/new"
+        >
           <span>+ Nueva</span>
         </div>
       </div>
