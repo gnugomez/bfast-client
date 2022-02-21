@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable, ReplaySubject, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Organization } from '../domain/Organization';
+import { AuthService } from './auth.service';
 
 const API_URL = environment.API_URL;
 
@@ -14,7 +15,12 @@ export class OrganizationService {
   private organizations$ = new ReplaySubject<Organization[]>();
   private activeOrganization$ = new ReplaySubject<Organization>();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {
+    this.authService.listenEvent('logout', () => {
+      this.clearActiveOrganization();
+      this.organizations = undefined;
+    });
+  }
 
   public getOrganizations(
     params: { forceFetch: boolean } = { forceFetch: false }
@@ -85,9 +91,11 @@ export class OrganizationService {
     }
   }
 
-  public createOrganization(
-    organization: Organization
-  ): Observable<Organization> {
-    return this.http.put<Organization>(API_URL + 'organizations', organization);
+  public createOrganization(organization: Organization): Observable<any> {
+    const newOrganization = this.http.put(
+      API_URL + 'organizations',
+      organization
+    );
+    return newOrganization;
   }
 }

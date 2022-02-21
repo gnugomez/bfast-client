@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../domain/User';
+import { AuthService } from './auth.service';
 
 const API_URL = environment.API_URL;
 
@@ -12,9 +13,15 @@ const API_URL = environment.API_URL;
 export class UserService {
   private user?: User;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {
+    this.authService.listenEvent('logout', () => {
+      this.clearUser();
+    });
+  }
 
-  public getMe(): Observable<User> {
+  public getMe(
+    params: { forceFetch: boolean } = { forceFetch: false }
+  ): Observable<User> {
     if (this.user) {
       return new Observable<User>((observer) => {
         observer.next(this.user);
@@ -26,5 +33,9 @@ export class UserService {
         this.user = user;
       })
     );
+  }
+
+  public clearUser(): void {
+    this.user = undefined;
   }
 }

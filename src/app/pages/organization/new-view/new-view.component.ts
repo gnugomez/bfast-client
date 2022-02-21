@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Organization } from 'src/app/shared/domain/Organization';
 import { OrganizationService } from 'src/app/shared/services/organization.service';
 
 @Component({
@@ -34,6 +35,10 @@ export class NewViewComponent implements OnInit {
         .createOrganization(this.organizationForm.value)
         .subscribe({
           next: (res) => {
+            this.organizationService.setActiveOrganization(
+              res.data as Organization
+            );
+
             this.organizationService
               .getOrganizations({ forceFetch: true })
               .subscribe((res) => {

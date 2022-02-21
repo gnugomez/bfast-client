@@ -5,12 +5,12 @@ import {
   HttpParams,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { Observable, Subject, Subscription, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { TokenService } from './token.service';
 import { environment } from 'src/environments/environment';
-import { Router } from '@angular/router';
 import { OrganizationService } from './organization.service';
+import { UserService } from './user.service';
 
 const OAUTH_CLIENT = environment.OAUTH_CLIENT;
 const OAUTH_SECRET = environment.OAUTH_SECRET;
@@ -27,13 +27,11 @@ const HTTP_OPTIONS = {
   providedIn: 'root',
 })
 export class AuthService {
+  private authEvents = new Subject<string>();
+
   redirectUrl = '';
 
-  constructor(
-    private http: HttpClient,
-    private tokenService: TokenService,
-    private organizationService: OrganizationService
-  ) {}
+  constructor(private http: HttpClient, private tokenService: TokenService) {}
 
   private static handleError(error: HttpErrorResponse): any {
     return throwError(() => error);
@@ -83,7 +81,7 @@ export class AuthService {
   logout(): void {
     this.tokenService.removeToken();
     this.tokenService.removeRefreshToken();
-    this.organizationService.clearActiveOrganization();
+    this.triggerEvent('logout');
   }
 
   register(data: any): Observable<any> {
@@ -101,5 +99,21 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     return this.tokenService.getToken() ? true : false;
+  }
+
+  private triggerEvent(event: string): void {
+    this.authEvents.next(event);
+  }
+
+  public listenEvent(name: string, callback: CallableFunction): Subscription {
+    return this.authEvents
+      .pipe(
+        tap((event) => {
+          if (event === name) {
+            callback();
+          }
+        })
+      )
+      .subscribe();
   }
 }
