@@ -4,12 +4,18 @@
       <span>{{
         activeOrganization ? activeOrganization.name : "Cargando..."
       }}</span>
-      <ng-icon name="hero-chevron-down" class="icon"></ng-icon>
+      <div class="icon">
+        <ng-icon name="hero-chevron-down"></ng-icon>
+      </div>
     </div>
   </div>
   <div @toggleAnimation *hlMenuItems class="submenu selector" unoutlined>
     <div
-      *ngFor="let organization of organizations; let last = last"
+      *ngFor="
+        let organization of organizations;
+        let last = last;
+        let first = first
+      "
       class="sub-item"
     >
       <div
@@ -19,15 +25,18 @@
         (click)="selectOrganization(organization)"
       >
         <span>{{ organization.name }}</span>
+        <div class="icon cog" *ngIf="first">
+          <ng-icon name="hero-cog" size="18"></ng-icon>
+        </div>
       </div>
       <div *ngIf="last">
         <div
           *hlMenuItem="let item"
-          class="item"
+          class="item new"
           [class.active]="item.active"
           routerLink="/organization/new"
         >
-          <span>+ Nueva</span>
+          <span>Crear nueva</span>
         </div>
       </div>
     </div>

@@ -28,8 +28,8 @@ import {
   HeroShoppingBagSolid,
   HeroChartPieSolid,
   HeroClockSolid,
+  HeroCog,
 } from '@ng-icons/heroicons';
-import { ButtonComponent } from '../components/button/button.component';
 import { ButtonModule } from '../components/button/button.module';
 import { OutsideClickModule } from '../shared/directives/outside-click/outside-click.module';
 import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.component';
@@ -53,6 +53,7 @@ const icons = {
   HeroShoppingBagSolid,
   HeroChartPieSolid,
   HeroClockSolid,
+  HeroCog,
 };
 
 const components = [
