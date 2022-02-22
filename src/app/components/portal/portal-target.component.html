@@ -1,0 +1,3 @@
+<div class="templates" *ngFor="let template$ of templates$ | async">
+  <ng-container *ngTemplateOutlet="template$; context: context"></ng-container>
+</div>

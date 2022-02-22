@@ -35,6 +35,7 @@ import { OutsideClickModule } from '../shared/directives/outside-click/outside-c
 import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.component';
 import { MenuModule } from 'headlessui-angular';
 import { NgIconsModule } from '@ng-icons/core';
+import { PortalModule } from '../components/portal/portal.module';
 
 const icons = {
   HeroMenuAlt2,
@@ -68,6 +69,7 @@ const components = [
   UserComponent,
   MobileMenuComponent,
 ];
+
 const layouts = [DefaultLayoutComponent];
 
 @NgModule({
@@ -78,6 +80,7 @@ const layouts = [DefaultLayoutComponent];
     ButtonModule,
     OutsideClickModule,
     MenuModule,
+    PortalModule,
     NgIconsModule.withIcons(icons),
   ],
 })
