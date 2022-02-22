@@ -12,7 +12,7 @@
     }
 
     &.submenu {
-      @apply border-none max-h-[40rem] overflow-y-auto divide-y divide-main-gray-dimed dark:divide-dark-300;
+      @apply border-none max-h-[45rem] overflow-y-auto divide-y divide-main-gray-dimed dark:divide-dark-300;
 
       .sub-item {
         .item {

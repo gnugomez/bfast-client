@@ -16,7 +16,9 @@ export class OrganizationSwapperComponent implements OnInit {
 
   public isOpen: boolean = false;
 
-  constructor(private organizationService: OrganizationService) {
+  constructor(private organizationService: OrganizationService) {}
+
+  ngOnInit(): void {
     this.organizationService.getOrganizations().subscribe((organizations) => {
       this.organizations = organizations;
     });
@@ -26,8 +28,6 @@ export class OrganizationSwapperComponent implements OnInit {
         this.activeOrganization = organization;
       });
   }
-
-  ngOnInit(): void {}
 
   public toggleDropdown() {
     this.isOpen = !this.isOpen;
