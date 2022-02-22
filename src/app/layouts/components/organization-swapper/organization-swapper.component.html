@@ -10,35 +10,31 @@
     </div>
   </div>
   <div @toggleAnimation *hlMenuItems class="submenu selector" unoutlined>
-    <div
-      *ngFor="
-        let organization of organizations;
-        let last = last;
-        let first = first
-      "
-      class="sub-item"
-    >
+    <div class="items">
       <div
-        *hlMenuItem="let item"
-        class="item"
-        [class.active]="item.active"
-        (click)="selectOrganization(organization)"
+        *ngFor="
+          let organization of organizations;
+          let last = last;
+          let first = first
+        "
+        class="sub-item"
       >
-        <span>{{ organization.name }}</span>
-        <div class="icon cog" *ngIf="first">
-          <ng-icon name="hero-cog" size="18"></ng-icon>
-        </div>
-      </div>
-      <div *ngIf="last">
         <div
           *hlMenuItem="let item"
-          class="item new"
+          class="item"
+          unoutlined
           [class.active]="item.active"
-          routerLink="/organization/new"
+          (click)="selectOrganization(organization)"
         >
-          <span>Crear nueva</span>
+          <span>{{ organization.name }}</span>
+          <div class="icon cog" *ngIf="first">
+            <ng-icon name="hero-cog" size="18"></ng-icon>
+          </div>
         </div>
       </div>
+    </div>
+    <div class="item new" unoutlined routerLink="/organization/new">
+      <span>Crear nueva</span>
     </div>
   </div>
 </div>

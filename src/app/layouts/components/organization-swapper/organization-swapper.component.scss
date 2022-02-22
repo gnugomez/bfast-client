@@ -12,16 +12,16 @@
     }
 
     &.submenu {
-      @apply border-none max-h-[45rem] overflow-y-auto divide-y divide-main-gray-dimed dark:divide-dark-300;
+      @apply border-none divide-y divide-main-gray-dimed dark:divide-dark-300;
+
+      .items {
+        @apply max-h-[25rem] overflow-y-auto;
+      }
 
       .sub-item {
         .item {
           padding-left: calc(0.75rem + 3px);
           padding-right: calc(0.75rem + 3px);
-
-          &.new {
-            @apply text-xs text-center px-3;
-          }
         }
 
         &:last-child {
@@ -41,6 +41,10 @@
     .item {
       @apply cursor-pointer overflow-hidden relative transition-all duration-300 max-h-20 flex items-center px-3;
 
+      &.new {
+        @apply text-xs text-center px-3;
+      }
+
       &.active {
         @apply bg-light-500 dark:bg-dark-300;
       }
@@ -50,7 +54,7 @@
       }
 
       .icon {
-        @apply transition-all duration-300 flex items-center justify-center px-2 relative;
+        @apply transition-all duration-300 flex items-center justify-center relative;
 
         &.cog {
           @apply hover:rotate-90;
