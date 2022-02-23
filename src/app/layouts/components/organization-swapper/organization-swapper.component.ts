@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { ModalService } from 'src/app/components/modal/modal.service';
 import { Organization } from 'src/app/shared/domain/Organization';
 import { OrganizationService } from 'src/app/shared/services/organization.service';
 import toggleAnimation from '../../animations/toggleAnimation';
+import { ActiveOrganizationDialogComponent } from '../active-organization-dialog/active-organization-dialog.component';
 
 @Component({
   selector: 'layout-organization-swapper',
@@ -16,7 +18,10 @@ export class OrganizationSwapperComponent implements OnInit {
 
   public isOpen: boolean = false;
 
-  constructor(private organizationService: OrganizationService) {}
+  constructor(
+    private organizationService: OrganizationService,
+    private modalService: ModalService
+  ) {}
 
   ngOnInit(): void {
     this.organizationService.getOrganizations().subscribe((organizations) => {
@@ -35,6 +40,10 @@ export class OrganizationSwapperComponent implements OnInit {
 
   public closeDropdown() {
     this.isOpen = false;
+  }
+
+  public openActiveOrganizationDialog() {
+    this.modalService.open(ActiveOrganizationDialogComponent);
   }
 
   // selects the organization and puts it the first in the list

@@ -1,6 +1,6 @@
 import { Attribute, Component, Input, TemplateRef } from '@angular/core';
 import { filter, map, Observable } from 'rxjs';
-import { PortalService } from 'src/app/shared/services/portal.service';
+import { PortalService } from 'src/app/components/portal/portal.service';
 
 @Component({
   selector: 'portal-target',

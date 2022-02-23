@@ -27,8 +27,13 @@
           (click)="selectOrganization(organization)"
         >
           <span>{{ organization.name }}</span>
-          <div class="icon cog" *ngIf="first">
-            <ng-icon name="hero-cog" size="18"></ng-icon>
+          <div
+            class="icon"
+            *ngIf="first"
+            (click)="openActiveOrganizationDialog()"
+            open-modal
+          >
+            <ng-icon name="hero-pencil-solid" size="18"></ng-icon>
           </div>
         </div>
       </div>

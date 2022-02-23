@@ -28,7 +28,7 @@ import {
   HeroShoppingBagSolid,
   HeroChartPieSolid,
   HeroClockSolid,
-  HeroCog,
+  HeroPencilSolid,
 } from '@ng-icons/heroicons';
 import { ButtonModule } from '../components/button/button.module';
 import { OutsideClickModule } from '../shared/directives/outside-click/outside-click.module';
@@ -36,6 +36,8 @@ import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.compon
 import { MenuModule } from 'headlessui-angular';
 import { NgIconsModule } from '@ng-icons/core';
 import { PortalModule } from '../components/portal/portal.module';
+import { ModalModule } from '../components/modal/modal.module';
+import { ActiveOrganizationDialogComponent } from './components/active-organization-dialog/active-organization-dialog.component';
 
 const icons = {
   HeroMenuAlt2,
@@ -54,7 +56,7 @@ const icons = {
   HeroShoppingBagSolid,
   HeroChartPieSolid,
   HeroClockSolid,
-  HeroCog,
+  HeroPencilSolid,
 };
 
 const components = [
@@ -68,6 +70,7 @@ const components = [
   NotificationsComponent,
   UserComponent,
   MobileMenuComponent,
+  ActiveOrganizationDialogComponent,
 ];
 
 const layouts = [DefaultLayoutComponent];
@@ -81,6 +84,7 @@ const layouts = [DefaultLayoutComponent];
     OutsideClickModule,
     MenuModule,
     PortalModule,
+    ModalModule,
     NgIconsModule.withIcons(icons),
   ],
 })

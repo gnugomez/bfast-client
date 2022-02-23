@@ -5,7 +5,7 @@ import {
   OnInit,
   TemplateRef,
 } from '@angular/core';
-import { PortalService } from 'src/app/shared/services/portal.service';
+import { PortalService } from 'src/app/components/portal/portal.service';
 
 @Directive({
   selector: 'ng-template[portal]',

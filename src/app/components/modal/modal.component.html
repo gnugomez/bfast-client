@@ -1,0 +1,19 @@
+<div class="wrapper" @modalEnter>
+  <app-card type="open" class="modal" (clrOutsideClick)="closeEvent($event)">
+    <div class="inner">
+      <div class="top">
+        <app-button
+          size="square-sm"
+          variant="light"
+          class="close"
+          (click)="closeModal()"
+        >
+          <ng-icon name="hero-x"></ng-icon>
+        </app-button>
+      </div>
+      <div class="content">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </app-card>
+</div>

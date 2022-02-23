@@ -1,4 +1,4 @@
-import { Injectable, TemplateRef } from '@angular/core';
+import { Injectable, TemplateRef, ViewContainerRef } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 export interface PortalInstance {
