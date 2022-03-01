@@ -8,8 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class DefaultLayoutComponent implements OnInit {
   public sidebarIsOpen = false;
 
-  constructor() {}
-
   ngOnInit(): void {}
 
   public openSidebar(): void {

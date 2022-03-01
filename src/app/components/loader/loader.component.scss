@@ -1,0 +1,10 @@
+.loader {
+  @apply w-7 h-7 border-4;
+  @apply animate-spin rounded-full;
+  @apply dark:border-white border-main-dark border-t-main-dark/20 dark:border-t-white/20;
+}
+.wrapper {
+  &.fullwindow {
+    @apply h-screen w-full flex items-center justify-center;
+  }
+}

@@ -38,6 +38,7 @@ import { NgIconsModule } from '@ng-icons/core';
 import { PortalModule } from '../components/portal/portal.module';
 import { ModalModule } from '../components/modal/modal.module';
 import { ActiveOrganizationDialogComponent } from './components/active-organization-dialog/active-organization-dialog.component';
+import { LoaderModule } from '../components/loader/loader.module';
 
 const icons = {
   HeroMenuAlt2,
