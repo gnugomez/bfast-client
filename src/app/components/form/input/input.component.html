@@ -1,0 +1,19 @@
+<div class="input-wrapper">
+  <input
+    [(ngModel)]="value"
+    (blur)="onTouched()"
+    [placeholder]="label"
+    [type]="type"
+    [ngClass]="{
+      'ng-invalid': control.invalid,
+      'ng-valid': control.valid,
+      'ng-touched': control.touched
+    }"
+  />
+  <div *ngIf="control.errors" class="errors">
+    <span *ngIf="control.errors.required"> Este campo es obligatorio </span>
+    <span *ngIf="control.errors.minlength">
+      Este campo debe tener al menos 3 caracteres
+    </span>
+  </div>
+</div>

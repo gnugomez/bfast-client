@@ -1,0 +1,8 @@
+input {
+  @apply w-full border-0 border-b-[3px] px-0 py-3;
+  @apply border-main-gray-dimed dark:border-gray-700 focus:ring-0 focus:border-primary bg-transparent;
+}
+
+.input-wrapper {
+  @apply flex flex-col relative;
+}

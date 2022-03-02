@@ -23,8 +23,6 @@ form {
   }
   .input-wrapper {
     input {
-      @apply border-0 border-b-[3px] border-main-gray-dimed dark:border-gray-700 px-0 py-3 ring-0 focus:border-primary bg-transparent;
-
       &.ng-touched.ng-invalid {
         @apply border-red-500 dark:border-red-500 #{!important};
       }
