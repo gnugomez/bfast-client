@@ -48,6 +48,10 @@ export class OrganizationSwapperComponent implements OnInit {
 
   // selects the organization and puts it the first in the list
   public selectOrganization(organization: Organization) {
-    this.organizationService.setActiveOrganization(organization);
+    if (this.activeOrganization?.id !== organization.id) {
+      console.log('selectOrganization', organization);
+
+      this.organizationService.setActiveOrganization(organization);
+    }
   }
 }

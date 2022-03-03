@@ -54,8 +54,8 @@ export class OrganizationService {
     );
   }
 
-  public getActiveOrganization(): Subject<Organization> {
-    return this.activeOrganization$;
+  public getActiveOrganization(): Observable<Organization> {
+    return this.activeOrganization$.asObservable();
   }
 
   public setActiveOrganization(organization: Organization): void {
@@ -97,5 +97,13 @@ export class OrganizationService {
       organization
     );
     return newOrganization;
+  }
+
+  public getMembersFromOrganization(
+    organization: Organization
+  ): Observable<any> {
+    return this.http.get(
+      API_URL + 'organizations/' + organization.id + '/members'
+    );
   }
 }

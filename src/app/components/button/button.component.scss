@@ -2,7 +2,7 @@
   @apply block transition-all duration-300 hover:shadow-app cursor-pointer text-center;
 
   span {
-    @apply flex items-center justify-center;
+    @apply flex items-center justify-center gap-2;
   }
 
   &.btn-size-md {
@@ -23,6 +23,15 @@
     &:hover,
     &:focus-within {
       @apply bg-white border-white text-main-dark;
+    }
+  }
+
+  &.btn-danger {
+    @apply font-bold rounded-full bg-red-300 border-red-300 dark:bg-rose-500 dark:border-red-500 text-white;
+
+    &:hover,
+    &:focus-within {
+      @apply bg-white border-white dark:bg-dark-100 dark:border-dark-100 text-main-dark dark:text-white;
     }
   }
 
@@ -59,7 +68,7 @@
 
     &:hover,
     &:focus {
-      @apply dark:bg-dark-100 dark:border-dark-100 border-white;
+      @apply dark:bg-dark-100 dark:border-dark-100 border-white text-main-dark dark:text-white;
     }
   }
 

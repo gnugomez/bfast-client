@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Organization } from 'src/app/shared/domain/Organization';
+import { User } from 'src/app/shared/domain/User';
+import { OrganizationService } from 'src/app/shared/services/organization.service';
 
 @Component({
   selector: 'app-active-organization-dialog',
@@ -6,17 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./active-organization-dialog.component.scss'],
 })
 export class ActiveOrganizationDialogComponent implements OnInit {
-  public isOpen = false;
+  public activeOrganization?: Organization;
+  public members?: User[];
 
-  constructor() {}
+  constructor(private organizationService: OrganizationService) {
+    this.organizationService
+      .getActiveOrganization()
+      .subscribe((organization) => {
+        this.activeOrganization = organization;
+
+        this.organizationService
+          .getMembersFromOrganization(this.activeOrganization)
+          .subscribe((members) => {
+            this.members = members;
+          });
+      });
+  }
 
   ngOnInit(): void {}
-
-  open() {
-    this.isOpen = true;
-    console.log(this.isOpen);
-  }
-  close() {
-    this.isOpen = false;
-  }
 }

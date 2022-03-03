@@ -29,6 +29,7 @@ import {
   HeroChartPieSolid,
   HeroClockSolid,
   HeroPencilSolid,
+  HeroTrash,
 } from '@ng-icons/heroicons';
 import { ButtonModule } from '../components/button/button.module';
 import { OutsideClickModule } from '../shared/directives/outside-click/outside-click.module';
@@ -58,6 +59,7 @@ const icons = {
   HeroChartPieSolid,
   HeroClockSolid,
   HeroPencilSolid,
+  HeroTrash,
 };
 
 const components = [

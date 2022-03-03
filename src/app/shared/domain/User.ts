@@ -1,3 +1,5 @@
+import { Pivot } from './Organization';
+
 export interface User {
   id: number;
   name: string;
@@ -8,4 +10,5 @@ export interface User {
   remember_token: null;
   created_at: string;
   updated_at: string;
+  pivot?: Pivot;
 }

@@ -1,3 +1,35 @@
 <app-modal>
-  <p>active-organization-dialog works!</p>
+  <div *ngIf="activeOrganization" class="space-y-8">
+    <h1>{{ activeOrganization.name }}</h1>
+    <div
+      *ngIf="activeOrganization.pivot?.role === 'owner' && members"
+      class="members"
+    >
+      <span>Miembros</span>
+      <div class="prose dark:prose-invert">
+        <table>
+          <tbody>
+            <tr>
+              <td>Nombre</td>
+              <td>Correo</td>
+              <td>Rol</td>
+            </tr>
+            <tr *ngFor="let member of members">
+              <td>{{ member.name }}</td>
+              <td>{{ member.email }}</td>
+              <td>{{ member.pivot?.role }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="grid gap-4">
+      <app-button variant="light">Salir</app-button>
+      <app-button
+        variant="danger"
+        *ngIf="activeOrganization.pivot?.role === 'owner'"
+        >Eliminar</app-button
+      >
+    </div>
+  </div>
 </app-modal>
