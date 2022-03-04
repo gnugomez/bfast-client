@@ -26,6 +26,8 @@
     <div class="grid gap-4">
       <app-button variant="light">Salir</app-button>
       <app-button
+        (click)="deleteOrganization()"
+        [loading]="loading.delete"
         variant="danger"
         *ngIf="activeOrganization.pivot?.role === 'owner'"
         >Eliminar</app-button

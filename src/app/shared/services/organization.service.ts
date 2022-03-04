@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, map, Observable, ReplaySubject, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Organization } from '../domain/Organization';
@@ -12,10 +13,16 @@ export class OrganizationService {
   private organizations?: Organization[];
 
   // Subjects
-  private organizations$ = new ReplaySubject<Organization[]>();
-  private activeOrganization$ = new ReplaySubject<Organization>();
+  private organizations$ = new BehaviorSubject<Organization[] | null>(null);
+  private activeOrganization$ = new BehaviorSubject<Organization | undefined>(
+    undefined
+  );
 
-  constructor(private http: HttpClient, private authService: AuthService) {
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.authService.listenEvent('logout', () => {
       this.clearActiveOrganization();
       this.organizations = undefined;
@@ -24,10 +31,8 @@ export class OrganizationService {
 
   public getOrganizations(
     params: { forceFetch: boolean } = { forceFetch: false }
-  ): Subject<Organization[]> {
+  ): Observable<Organization[] | null> {
     if (!this.organizations || params.forceFetch) {
-      this.organizations$ = new ReplaySubject<Organization[]>();
-
       this.http
         .get<Organization[]>(API_URL + 'organizations')
         .subscribe((organizations) => {
@@ -49,18 +54,20 @@ export class OrganizationService {
   }
 
   public haveOrganizations(): Observable<boolean> {
-    return this.getOrganizations({ forceFetch: true }).pipe(
-      map((organizations) => organizations.length > 0)
-    );
+    return new Observable<boolean>((observer) => {
+      this.getOrganizations().subscribe((organizations) => {
+        if (organizations) {
+          observer.next(organizations?.length > 0);
+        }
+      });
+    });
   }
 
-  public getActiveOrganization(): Observable<Organization> {
-    return this.activeOrganization$.asObservable();
+  public getActiveOrganization(): BehaviorSubject<Organization | undefined> {
+    return this.activeOrganization$;
   }
 
   public setActiveOrganization(organization: Organization): void {
-    this.activeOrganization$.next(organization);
-
     if (this.organizations) {
       this.organizations.sort((a, b) => {
         if (a.id === organization.id) {
@@ -74,7 +81,13 @@ export class OrganizationService {
       this.organizations$.next(this.organizations);
     }
 
-    localStorage.setItem('activeOrganization', JSON.stringify(organization));
+    if (organization) {
+      localStorage.setItem('activeOrganization', JSON.stringify(organization));
+      this.activeOrganization$.next(organization);
+    } else {
+      this.clearActiveOrganization();
+      this.router.navigate(['/organization/not-found']);
+    }
   }
 
   public clearActiveOrganization(): void {
@@ -99,11 +112,32 @@ export class OrganizationService {
     return newOrganization;
   }
 
+  public deleteOrganization(organization: Organization): Observable<any> {
+    return new Observable<void>((observer) => {
+      this.http
+        .delete(API_URL + 'organizations/' + organization.id)
+        .subscribe(() => {
+          this.organizations = this.organizations?.filter(
+            (org) => org.id !== organization.id
+          );
+          if (this.organizations) {
+            this.organizations$.next(this.organizations);
+            this.setActiveOrganization(this.organizations[0]);
+          }
+          observer.next();
+        });
+    });
+  }
+
   public getMembersFromOrganization(
-    organization: Organization
+    organization: Organization | undefined
   ): Observable<any> {
-    return this.http.get(
-      API_URL + 'organizations/' + organization.id + '/members'
-    );
+    if (organization) {
+      return this.http.get(
+        API_URL + 'organizations/' + organization.id + '/members'
+      );
+    } else {
+      return new Observable<any>();
+    }
   }
 }

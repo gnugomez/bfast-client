@@ -12,7 +12,7 @@ import { ActiveOrganizationDialogComponent } from '../active-organization-dialog
   styleUrls: ['./organization-swapper.component.scss'],
 })
 export class OrganizationSwapperComponent implements OnInit {
-  public organizations?: Organization[];
+  public organizations?: Organization[] | null;
 
   public activeOrganization?: Organization;
 
