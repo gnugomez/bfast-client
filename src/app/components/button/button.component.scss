@@ -38,16 +38,10 @@
   &.loading {
     @apply relative flex items-center justify-center;
     &::after {
-      @apply animate-spin border-4 dark:border-white border-main-dark;
       content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      border-top-color: rgba(34, 34, 34, 0.2);
-      @media (prefers-color-scheme: dark) {
-        border-top-color: rgba(255, 255, 255, 0.2);
-      }
+      @apply w-5 h-5 border-4 absolute;
+      @apply animate-spin rounded-full;
+      @apply border-main-dark/20 border-t-main-dark dark:border-t-white dark:border-white/20;
     }
     & > * {
       @apply opacity-0;
