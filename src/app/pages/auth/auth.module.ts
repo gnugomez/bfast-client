@@ -40,4 +40,4 @@ const icons = { HeroArrowSmLeft, HeroArrowSmRight, HeroEye, HeroEyeOff };
     ...components,
   ],
 })
-export class AuthViewModule {}
+export class AuthModule {}

@@ -15,24 +15,23 @@
       @apply border-none divide-y divide-main-gray-dimed dark:divide-dark-300;
 
       .items {
-        @apply max-h-[25rem] overflow-y-auto;
+        @apply max-h-[25rem] overflow-y-auto py-1 first:pt-0 last:pb-0;
+
+        &.other {
+          .item {
+            @apply text-xs px-3;
+
+            span {
+              @apply text-main-dark dark:text-white py-2;
+            }
+          }
+        }
       }
 
       .sub-item {
         .item {
-          padding-left: calc(0.75rem + 3px);
-          padding-right: calc(0.75rem + 3px);
-        }
-
-        &:last-child {
-          .item {
-            padding-bottom: 3px;
-          }
-        }
-
-        &:first-child {
-          .item {
-            padding-top: 3px;
+          &.active {
+            @apply bg-light-500 dark:bg-dark-300;
           }
         }
       }
@@ -40,14 +39,6 @@
 
     .item {
       @apply cursor-pointer overflow-hidden relative transition-all duration-300 max-h-20 flex items-center px-3;
-
-      &.new {
-        @apply text-xs text-center px-3;
-      }
-
-      &.active {
-        @apply bg-light-500 dark:bg-dark-300;
-      }
 
       span {
         @apply text-ellipsis overflow-hidden whitespace-nowrap w-full block py-4;

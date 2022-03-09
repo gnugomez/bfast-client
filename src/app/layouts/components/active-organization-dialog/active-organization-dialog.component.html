@@ -1,6 +1,9 @@
 <app-modal>
-  <div *ngIf="activeOrganization" class="space-y-8">
-    <h1>{{ activeOrganization.name }}</h1>
+  <div *ngIf="activeOrganization" class="wrapper">
+    <div class="top">
+      <h1>{{ activeOrganization?.name }}</h1>
+      <ng-icon name="hero-cog" size="22" class="settings"></ng-icon>
+    </div>
     <div
       *ngIf="activeOrganization.pivot?.role === 'owner' && members"
       class="members"
@@ -24,7 +27,7 @@
       </div>
     </div>
     <div class="grid gap-4">
-      <app-button variant="light">Salir</app-button>
+      <app-button variant="light">Dejar organización</app-button>
       <app-button
         (click)="deleteOrganization()"
         [loading]="loading.delete"

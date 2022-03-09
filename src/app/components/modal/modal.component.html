@@ -2,6 +2,7 @@
   <app-card type="open" class="modal" (clrOutsideClick)="closeEvent($event)">
     <div class="inner">
       <div class="top">
+        <h1 *ngIf="headTitle">{{ headTitle }}</h1>
         <app-button
           size="square-sm"
           variant="light"

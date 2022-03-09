@@ -1,5 +1,17 @@
 .members {
   span {
-    @apply font-semibold;
+    @apply font-semibold text-xs uppercase;
+  }
+}
+.wrapper {
+  @apply space-y-8;
+
+  .top {
+    @apply flex items-center space-x-3;
+
+    .settings {
+      @apply cursor-pointer hover:rotate-180;
+      @apply transition duration-300;
+    }
   }
 }

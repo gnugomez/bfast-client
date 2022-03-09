@@ -21,17 +21,12 @@ export class ActiveOrganizationDialogComponent implements OnInit, OnDestroy {
     private organizationService: OrganizationService,
     private modalService: ModalService
   ) {
+    this.activeOrganization =
+      this.organizationService.getActiveOrganization().value;
     this.organizationService
-      .getActiveOrganization()
-      .pipe(takeUntil(this.ngUnsubscribe))
-      .subscribe((organization) => {
-        this.activeOrganization = organization;
-
-        this.organizationService
-          .getMembersFromOrganization(this.activeOrganization)
-          .subscribe((members) => {
-            this.members = members;
-          });
+      .getMembersFromOrganization(this.activeOrganization)
+      .subscribe({
+        next: (members) => (this.members = members),
       });
   }
 

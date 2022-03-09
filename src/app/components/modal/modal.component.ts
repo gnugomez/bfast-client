@@ -40,6 +40,8 @@ import { ModalService } from './modal.service';
   ],
 })
 export class ModalComponent implements OnInit {
+  @Input() public headTitle?: string;
+
   constructor(private modalService: ModalService) {}
 
   ngOnInit(): void {}

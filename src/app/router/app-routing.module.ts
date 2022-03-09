@@ -20,7 +20,7 @@ const routes: Routes = [
     path: 'auth',
     canActivate: [NotLoggedGuard],
     loadChildren: () =>
-      import('../pages/auth/auth-view.module').then((m) => m.AuthViewModule),
+      import('../pages/auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: '',
@@ -42,6 +42,13 @@ const routes: Routes = [
       {
         path: 'history',
         component: HistoryViewComponent,
+      },
+      {
+        path: 'settings',
+        loadChildren: () =>
+          import('../pages/settings/settings.module').then(
+            (m) => m.SettingsModule
+          ),
       },
     ],
   },

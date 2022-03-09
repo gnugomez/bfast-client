@@ -28,8 +28,9 @@ import {
   HeroShoppingBagSolid,
   HeroChartPieSolid,
   HeroClockSolid,
-  HeroPencilSolid,
+  HeroDotsHorizontal,
   HeroTrash,
+  HeroCog,
 } from '@ng-icons/heroicons';
 import { ButtonModule } from '../components/button/button.module';
 import { OutsideClickModule } from '../shared/directives/outside-click/outside-click.module';
@@ -39,7 +40,6 @@ import { NgIconsModule } from '@ng-icons/core';
 import { PortalModule } from '../components/portal/portal.module';
 import { ModalModule } from '../components/modal/modal.module';
 import { ActiveOrganizationDialogComponent } from './components/active-organization-dialog/active-organization-dialog.component';
-import { LoaderModule } from '../components/loader/loader.module';
 
 const icons = {
   HeroMenuAlt2,
@@ -58,8 +58,9 @@ const icons = {
   HeroShoppingBagSolid,
   HeroChartPieSolid,
   HeroClockSolid,
-  HeroPencilSolid,
+  HeroDotsHorizontal,
   HeroTrash,
+  HeroCog,
 };
 
 const components = [

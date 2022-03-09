@@ -6,13 +6,17 @@
     @apply w-full max-w-lg relative origin-top;
 
     .inner {
-      @apply p-4 w-full h-full;
+      @apply w-full h-full relative;
 
       .top {
-        @apply flex justify-between items-start;
+        @apply absolute w-full flex justify-between items-start mb-4 pointer-events-none;
+
+        h1 {
+          @apply truncate;
+        }
 
         .close {
-          @apply ml-auto;
+          @apply ml-auto pointer-events-auto;
         }
       }
     }
