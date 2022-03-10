@@ -10,7 +10,12 @@
       </p>
     </div>
     <div class="py-1">
-      <a *hlMenuItem="let item" [class.active]="item.active" class="item">
+      <a
+        *hlMenuItem="let item"
+        [class.active]="item.active"
+        class="item"
+        routerLink="/settings/personal/account"
+      >
         Ajustes de cuenta
       </a>
 

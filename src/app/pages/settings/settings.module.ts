@@ -5,6 +5,7 @@ import { Route, RouterModule } from '@angular/router';
 import { MembersViewComponent } from './organization/members-view/members-view.component';
 import { LoaderModule } from 'src/app/components/loader/loader.module';
 import { ButtonModule } from 'src/app/components/button/button.module';
+import { AccountViewComponent } from './personal/account-view/account-view.component';
 
 const routes: Route[] = [
   {
@@ -20,12 +21,21 @@ const routes: Route[] = [
           },
         ],
       },
+      {
+        path: 'personal',
+        children: [
+          {
+            path: 'account',
+            component: AccountViewComponent,
+          },
+        ],
+      },
     ],
   },
 ];
 
 @NgModule({
-  declarations: [LayoutComponent, MembersViewComponent],
+  declarations: [LayoutComponent, MembersViewComponent, AccountViewComponent],
   imports: [
     CommonModule,
     LoaderModule,
