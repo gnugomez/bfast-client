@@ -39,7 +39,6 @@ import { MenuModule } from 'headlessui-angular';
 import { NgIconsModule } from '@ng-icons/core';
 import { PortalModule } from '../components/portal/portal.module';
 import { ModalModule } from '../components/modal/modal.module';
-import { ActiveOrganizationDialogComponent } from './components/active-organization-dialog/active-organization-dialog.component';
 
 const icons = {
   HeroMenuAlt2,
@@ -74,7 +73,6 @@ const components = [
   NotificationsComponent,
   UserComponent,
   MobileMenuComponent,
-  ActiveOrganizationDialogComponent,
 ];
 
 const layouts = [DefaultLayoutComponent];
