@@ -17,7 +17,7 @@
   @apply bg-white dark:bg-dark-900 divide-y divide-gray-100 dark:divide-dark-200;
 
   .item {
-    @apply flex justify-between w-full px-4 py-2 text-sm leading-5 text-left cursor-pointer;
+    @apply flex justify-between w-full px-4 py-2 text-sm leading-5 text-left cursor-default;
 
     &.active {
       @apply bg-light-400 dark:bg-dark-400;

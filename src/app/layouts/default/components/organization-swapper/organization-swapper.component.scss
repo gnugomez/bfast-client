@@ -38,7 +38,7 @@
     }
 
     .item {
-      @apply cursor-pointer overflow-hidden relative transition-all duration-300 max-h-20 flex items-center px-3;
+      @apply cursor-default overflow-hidden relative transition-all duration-300 max-h-20 flex items-center px-3;
 
       span {
         @apply text-ellipsis overflow-hidden whitespace-nowrap w-full block py-4;

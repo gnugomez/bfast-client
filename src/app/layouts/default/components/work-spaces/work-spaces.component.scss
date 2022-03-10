@@ -5,7 +5,7 @@
   @apply flex flex-col overflow-y-auto;
 
   .item {
-    @apply cursor-pointer flex items-center gap-4 px-4 py-[1.15rem];
+    @apply cursor-default flex items-center gap-4 px-4 py-[1.15rem];
 
     .bullet {
       @apply w-1 h-1 rounded-full bg-transparent transition-all duration-300;

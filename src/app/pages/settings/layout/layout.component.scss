@@ -9,7 +9,7 @@
   }
 
   .item {
-    @apply px-5 py-3 my-1 rounded-xl cursor-pointer;
+    @apply px-5 py-3 my-1 rounded-xl cursor-default;
 
     &:hover,
     &.active {
