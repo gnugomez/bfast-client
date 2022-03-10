@@ -10,7 +10,7 @@
   }
 
   &.btn-size-sm {
-    @apply px-2 h-9 flex items-center justify-center border-[3px];
+    @apply px-2 h-9 flex text-xs items-center justify-center border-[3px];
   }
 
   &.btn-size-square-sm {

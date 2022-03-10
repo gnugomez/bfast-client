@@ -1,1 +1,27 @@
-<p>layout works!</p>
+<div class="layout">
+  <div class="left">
+    <div class="settings-menu">
+      <span class="label">Personal</span>
+      <div class="item">
+        <span>Cuenta</span>
+      </div>
+      <div class="item">
+        <span>Contraseña y autenticación</span>
+      </div>
+      <span class="label">Organización</span>
+      <div class="item">
+        <span>Opciones</span>
+      </div>
+      <div
+        class="item"
+        routerLink="/settings/organization/members"
+        routerLinkActive="active"
+      >
+        <span>Miembros</span>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <router-outlet></router-outlet>
+  </div>
+</div>

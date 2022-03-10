@@ -1,0 +1,31 @@
+.title {
+  @apply mb-6;
+}
+.settings-menu {
+  @apply flex flex-col;
+
+  span.label {
+    @apply my-1 opacity-40 text-xs uppercase font-bold;
+  }
+
+  .item {
+    @apply px-5 py-3 my-1 rounded-xl cursor-pointer;
+
+    &:hover,
+    &.active {
+      @apply bg-light-400 dark:bg-dark-900;
+    }
+  }
+}
+
+.layout {
+  @apply flex gap-5;
+
+  .left {
+    @apply min-w-[15rem];
+  }
+
+  .right {
+    @apply flex-1;
+  }
+}

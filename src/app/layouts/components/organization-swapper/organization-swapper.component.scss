@@ -15,7 +15,7 @@
       @apply border-none divide-y divide-main-gray-dimed dark:divide-dark-300;
 
       .items {
-        @apply max-h-[25rem] overflow-y-auto py-1 first:pt-0 last:pb-0;
+        @apply max-h-[25rem] overflow-y-auto py-2 first:pt-0;
 
         &.other {
           .item {

@@ -1,0 +1,8 @@
+.members-list {
+  .head {
+    @apply text-sm opacity-50 border-t;
+  }
+}
+.add {
+  @apply flex py-3;
+}

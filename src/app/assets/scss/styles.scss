@@ -41,7 +41,7 @@ img.ghost-image {
 
 *[tabindex]:not([unoutlined]),
 button {
-  @apply outline-none ring-primary ring-opacity-40 transition-all duration-300 focus-within:ring-4;
+  @apply outline-none ring-primary ring-opacity-40 transition-[box-shadow] duration-300 focus-within:ring-4;
 }
 
 button[app-button] {
