@@ -1,6 +1,6 @@
 .notifications-wrapper {
   @apply h-full sm:relative;
-  @apply cursor-pointer;
+  @apply cursor-default;
 
   .box {
     @apply relative flex items-center justify-center h-10 w-10 rounded-full appearance-none;
