@@ -12,7 +12,9 @@ export class MembersViewComponent implements OnInit {
   public activeOrganization?: Organization;
   public organizationMembers?: User[];
 
-  constructor(private organizationService: OrganizationService) {
+  constructor(private organizationService: OrganizationService) {}
+
+  ngOnInit(): void {
     this.organizationService.getActiveOrganization().subscribe({
       next: (val) => {
         this.activeOrganization = val;
@@ -27,6 +29,4 @@ export class MembersViewComponent implements OnInit {
       },
     });
   }
-
-  ngOnInit(): void {}
 }
