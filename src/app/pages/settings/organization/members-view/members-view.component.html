@@ -1,7 +1,13 @@
 <div *ngIf="activeOrganization">
   <h1>Miembros de {{ activeOrganization.name }}</h1>
   <div class="add">
-    <app-button size="sm" variant="secondary">Añadir miembros</app-button>
+    <app-button
+      open-modal
+      size="sm"
+      variant="secondary"
+      (click)="addNewMember()"
+      >Añadir miembros</app-button
+    >
   </div>
   <div
     *ngIf="organizationMembers; else loader"

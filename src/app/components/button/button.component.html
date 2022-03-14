@@ -1,6 +1,5 @@
-<a
+<button
   tabindex="0"
-  [target]="target"
   [class]="
     classes +
     ' btn ' +
@@ -11,5 +10,7 @@
     size +
     (loading ? ' loading' : '')
   "
-  ><span><ng-content></ng-content></span>
-</a>
+  [type]="type"
+>
+  <span><ng-content></ng-content></span>
+</button>

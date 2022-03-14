@@ -17,7 +17,7 @@ export class FormInputComponent implements ControlValueAccessor {
   public touched = false;
 
   @Input() public label: string = '';
-  @Input() public type: string = 'text';
+  @Input() public inputType: string = 'text';
 
   public val: string = '';
 
@@ -26,8 +26,6 @@ export class FormInputComponent implements ControlValueAccessor {
   }
 
   set value(value: string) {
-    if (!value) return;
-
     this.markAsTouched();
 
     if (!this.disabled) {

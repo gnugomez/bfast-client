@@ -1,0 +1,22 @@
+<app-modal>
+  <div class="wrapper">
+    <h1 class="mb-6">Añadir miembro</h1>
+    <form
+      [formGroup]="newMemberForm"
+      (ngSubmit)="onSubmit()"
+      class="grid gap-6"
+    >
+      <app-form-input
+        label="Email del usuario"
+        inputType="email"
+        formControlName="email"
+      ></app-form-input>
+      <div class="grid grid-cols-2 gap-4">
+        <app-button variant="light" (click)="cancel()">Cancelar</app-button>
+        <app-button variant="secondary" type="submit" [loading]="loading"
+          >Añadir</app-button
+        >
+      </div>
+    </form>
+  </div>
+</app-modal>

@@ -6,6 +6,10 @@ import { MembersViewComponent } from './organization/members-view/members-view.c
 import { LoaderModule } from 'src/app/components/loader/loader.module';
 import { ButtonModule } from 'src/app/components/button/button.module';
 import { AccountViewComponent } from './personal/account-view/account-view.component';
+import { AddNewDialogComponent } from './organization/members-view/add-new-dialog/add-new-dialog.component';
+import { ModalModule } from 'src/app/components/modal/modal.module';
+import { FormModule } from 'src/app/components/form/form.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Route[] = [
   {
@@ -35,11 +39,19 @@ const routes: Route[] = [
 ];
 
 @NgModule({
-  declarations: [LayoutComponent, MembersViewComponent, AccountViewComponent],
+  declarations: [
+    LayoutComponent,
+    MembersViewComponent,
+    AccountViewComponent,
+    AddNewDialogComponent,
+  ],
   imports: [
     CommonModule,
     LoaderModule,
     ButtonModule,
+    ModalModule,
+    FormModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
   ],
 })

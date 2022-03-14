@@ -3,17 +3,15 @@
     [(ngModel)]="value"
     (blur)="onTouched()"
     [placeholder]="label"
-    [type]="type"
-    [ngClass]="{
-      'ng-invalid': control.invalid,
-      'ng-valid': control.valid,
-      'ng-touched': control.touched
-    }"
+    [type]="inputType"
   />
   <div *ngIf="control.errors" class="errors">
     <span *ngIf="control.errors.required"> Este campo es obligatorio </span>
     <span *ngIf="control.errors.minlength">
       Este campo debe tener al menos 3 caracteres
+    </span>
+    <span *ngIf="control.errors.email">
+      Introduce una dirección de correo válida
     </span>
   </div>
 </div>

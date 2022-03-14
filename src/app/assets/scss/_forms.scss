@@ -1,5 +1,7 @@
 input ~ .errors {
-  @apply transform w-full absolute bottom-0 translate-y-full flex flex-col opacity-0;
+  @apply transform-none w-full relative flex flex-col opacity-0 max-h-0 overflow-hidden;
+  @apply transition-all duration-300;
+
   span {
     @apply text-red-500 font-bold p-1 py-2 text-xs italic;
   }
@@ -7,37 +9,39 @@ input ~ .errors {
 
 form {
   &.ng-submitted.ng-invalid {
-    input {
-      &.ng-invalid {
+    input,
+    app-form-input {
+      &.ng-invalid,
+      &.ng-invalid input {
         @apply border-red-500 dark:border-red-500 #{!important};
-      }
 
-      &.ng-invalid ~ .toggle-pass {
-        @apply text-red-500;
-      }
+        & ~ .errors {
+          @apply opacity-100 max-h-7;
+        }
 
-      & ~ .errors {
-        @apply opacity-100;
+        &.ng-invalid ~ .toggle-pass {
+          @apply text-red-500;
+        }
       }
     }
   }
-  .input-wrapper {
-    input {
-      &.ng-touched.ng-invalid {
-        @apply border-red-500 dark:border-red-500 #{!important};
-      }
 
-      &.ng-touched.ng-invalid ~ .toggle-pass {
+  input,
+  app-form-input {
+    &.ng-touched.ng-invalid,
+    &.ng-touched.ng-invalid input {
+      @apply border-red-500 dark:border-red-500 #{!important};
+
+      & ~ .toggle-pass {
         @apply text-red-500;
       }
-
-      &.ng-touched ~ .errors {
-        @apply opacity-100;
+      & ~ .errors {
+        @apply opacity-100 max-h-7;
       }
+    }
 
-      &::placeholder {
-        @apply font-medium text-main-dark-dimed dark:text-gray-400;
-      }
+    &::placeholder {
+      @apply font-medium text-main-dark-dimed dark:text-gray-400;
     }
   }
 }
