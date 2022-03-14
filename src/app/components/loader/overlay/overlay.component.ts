@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {
   Router,
   Event as RouterEvent,
-  NavigationStart,
-  NavigationEnd,
-  NavigationCancel,
-  NavigationError,
+  GuardsCheckStart,
+  GuardsCheckEnd,
 } from '@angular/router';
 
 @Component({
@@ -25,18 +23,10 @@ export class LoaderOverlayComponent implements OnInit {
   ngOnInit(): void {}
 
   navigationInterceptor(event: RouterEvent): void {
-    if (event instanceof NavigationStart) {
+    if (event instanceof GuardsCheckStart) {
       this.showOverlay = true;
     }
-    if (event instanceof NavigationEnd) {
-      this.showOverlay = false;
-    }
-
-    // Set loading state to false in both of the below events to hide the spinner in case a request fails
-    if (event instanceof NavigationCancel) {
-      this.showOverlay = false;
-    }
-    if (event instanceof NavigationError) {
+    if (event instanceof GuardsCheckEnd) {
       this.showOverlay = false;
     }
   }
