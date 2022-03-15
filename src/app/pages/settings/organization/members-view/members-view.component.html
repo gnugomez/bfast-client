@@ -10,15 +10,14 @@
     >
   </div>
   <div
-    *ngIf="organizationMembers; else loader"
+    *ngIf="(organizationMembers | async)!.length > 0; else loader"
     class="prose dark:prose-invert max-w-none"
   >
     <table class="members-list">
       <tbody>
         <tr class="head">
           <td>Usuario</td>
-          <td>Nivel de acceso</td>
-          <td></td>
+          <td class="w-36">Nivel de acceso</td>
         </tr>
         <tr *ngFor="let member of organizationMembers | async">
           <td>

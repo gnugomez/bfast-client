@@ -29,6 +29,7 @@ export class MembersViewComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (val) => {
           this.activeOrganization = val;
+          this.organizationMembers.next([]);
           this.organizationService
             .getMembersFromOrganization(this.activeOrganization)
             .subscribe({

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit } from '@angular/core';
 import {
   trigger,
   state,
@@ -42,9 +42,9 @@ import { ModalService } from './modal.service';
 export class ModalComponent implements OnInit {
   @Input() public headTitle?: string;
 
-  constructor(private modalService: ModalService) {}
+  constructor(private modalService: ModalService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   public closeEvent(event: Event) {
     const closestOpenModal = (event.target as HTMLInputElement).closest(
@@ -59,4 +59,11 @@ export class ModalComponent implements OnInit {
   public closeModal() {
     this.modalService.close();
   }
+
+  @HostListener("window:keydown", ['$event']) onKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      this.modalService.close();
+    }
+  }
+
 }
