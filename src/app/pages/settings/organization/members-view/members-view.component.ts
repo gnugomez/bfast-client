@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { ModalService } from 'src/app/components/modal/modal.service';
 import { Organization } from 'src/app/shared/domain/Organization';
 import { User } from 'src/app/shared/domain/User';
@@ -15,12 +15,12 @@ export class MembersViewComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
 
   public activeOrganization?: Organization;
-  public organizationMembers?: User[];
+  public organizationMembers = new BehaviorSubject<User[]>([]);
 
   constructor(
     private organizationService: OrganizationService,
     private modalService: ModalService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.organizationService
@@ -33,7 +33,7 @@ export class MembersViewComponent implements OnInit, OnDestroy {
             .getMembersFromOrganization(this.activeOrganization)
             .subscribe({
               next: (members) => {
-                this.organizationMembers = members;
+                this.organizationMembers.next(members);
               },
             });
         },
@@ -41,7 +41,7 @@ export class MembersViewComponent implements OnInit, OnDestroy {
   }
 
   public addNewMember(): void {
-    this.modalService.open(AddNewDialogComponent);
+    this.modalService.open(AddNewDialogComponent, { members: this.organizationMembers, org: this.activeOrganization });
   }
 
   ngOnDestroy() {

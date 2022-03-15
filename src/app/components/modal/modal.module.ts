@@ -7,7 +7,7 @@ import { ButtonModule } from '../button/button.module';
 import { NgIconsModule } from '@ng-icons/core';
 import { HeroX } from '@ng-icons/heroicons';
 import { OutsideClickModule } from 'src/app/shared/directives/outside-click/outside-click.module';
-import { ModalOutletComponent } from './modal-outlet/modal-outlet.component';
+import { DATA, ModalOutletComponent } from './modal-outlet/modal-outlet.component';
 
 @NgModule({
   declarations: [ModalComponent, ModalOutletComponent],
@@ -21,6 +21,9 @@ import { ModalOutletComponent } from './modal-outlet/modal-outlet.component';
       HeroX,
     }),
   ],
+  providers: [
+    { provide: DATA, useValue: '' }
+  ],
   exports: [ModalComponent, ModalOutletComponent],
 })
-export class ModalModule {}
+export class ModalModule { }

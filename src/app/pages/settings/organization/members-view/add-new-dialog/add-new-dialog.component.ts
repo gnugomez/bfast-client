@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DATA } from 'src/app/components/modal/modal-outlet/modal-outlet.component';
 import { ModalService } from 'src/app/components/modal/modal.service';
 import { OrganizationService } from 'src/app/shared/services/organization.service';
 
@@ -17,16 +18,19 @@ export class AddNewDialogComponent implements OnInit {
 
   constructor(
     private modalService: ModalService,
-    public organizationService: OrganizationService
+    public organizationService: OrganizationService,
+    @Inject(DATA) private data: any
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   public cancel() {
     this.modalService.close();
   }
 
   public onSubmit() {
+
     if (this.newMemberForm.valid) {
       this.loading = true;
       this.organizationService
@@ -36,8 +40,13 @@ export class AddNewDialogComponent implements OnInit {
         )
         .subscribe({
           next: (res) => {
-            this.modalService.close();
-            this.loading = false;
+            this.organizationService.getMembersFromOrganization(this.data.org).subscribe({
+              next: (members) => {
+                this.data.members.next(members);
+                this.modalService.close();
+                this.loading = false;
+              },
+            });
           },
           error: (err) => {
             this.loading = false;

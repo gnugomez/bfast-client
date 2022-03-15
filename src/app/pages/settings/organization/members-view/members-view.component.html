@@ -18,8 +18,9 @@
         <tr class="head">
           <td>Usuario</td>
           <td>Nivel de acceso</td>
+          <td></td>
         </tr>
-        <tr *ngFor="let member of organizationMembers">
+        <tr *ngFor="let member of organizationMembers | async">
           <td>
             <span class="font-bold">{{ member.name }} {{ member.surname }}</span
             ><br /><span class="text-xs">{{ member.email }}</span>

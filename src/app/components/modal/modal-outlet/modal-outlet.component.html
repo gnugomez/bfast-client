@@ -1,1 +1,6 @@
-<div class="modal" *ngComponentOutlet="modal?.component"></div>
+<ng-container
+  class="modal"
+  *ngIf="data"
+  [ngComponentOutlet]="modal?.component"
+  [ngComponentOutletInjector]="data"
+></ng-container>
