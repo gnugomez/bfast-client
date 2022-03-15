@@ -1,5 +1,5 @@
 .btn {
-  @apply block w-full transition-all duration-300 hover:shadow-app cursor-pointer text-center;
+  @apply block w-full transition-all duration-300 hover:shadow-app cursor-pointer text-center appearance-none;
 
   span {
     @apply flex items-center justify-center gap-2;

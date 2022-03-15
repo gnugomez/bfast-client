@@ -35,6 +35,13 @@ app-button {
   @apply rounded-full;
 }
 
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  @apply appearance-none;
+}
+
 img.ghost-image {
   @apply select-none pointer-events-none;
 }
