@@ -1,6 +1,17 @@
 <app-modal>
   <div class="wrapper">
-    <h1 class="mb-6">Añadir miembro</h1>
+    <h1>Añadir miembro</h1>
+    <div class="errors">
+      <div class="invalid-notice" [class.open]="newMemberForm.errors?.notFound">
+        <span>Este correo no pertenece a ningún usuario</span>
+      </div>
+      <div
+        class="invalid-notice"
+        [class.open]="newMemberForm.errors?.duplicate"
+      >
+        <span>Este usuario ya está en la organización</span>
+      </div>
+    </div>
     <form
       [formGroup]="newMemberForm"
       (ngSubmit)="onSubmit()"

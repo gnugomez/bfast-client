@@ -31,7 +31,6 @@ export class FormInputComponent implements ControlValueAccessor {
     if (!this.disabled) {
       this.onChange(value);
       this.val = value;
-      console.log(this.control);
     }
   }
 

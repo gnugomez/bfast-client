@@ -140,4 +140,18 @@ export class OrganizationService {
       return new Observable<any>();
     }
   }
+
+  public addMemberToOrganization(
+    organization: Organization | undefined,
+    email: string
+  ): Observable<any> {
+    if (organization) {
+      return this.http.put(
+        API_URL + 'organizations/' + organization.id + '/members',
+        { user_email: email }
+      );
+    } else {
+      return new Observable<any>();
+    }
+  }
 }

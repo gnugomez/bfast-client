@@ -19,7 +19,7 @@
 }
 
 .sidebar-toggler {
-  @apply h-20 px-5 flex items-center lg:hidden absolute sm:fixed top-0 left-0;
+  @apply h-20 px-5 flex z-10 items-center lg:hidden absolute sm:fixed top-0 left-0;
 
   ng-icon {
     @apply text-xl;
