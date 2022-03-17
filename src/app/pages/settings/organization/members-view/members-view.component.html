@@ -17,14 +17,76 @@
       <tbody>
         <tr class="head">
           <td>Usuario</td>
-          <td class="w-36">Nivel de acceso</td>
+          <td class="text-right">Nivel de acceso</td>
         </tr>
         <tr *ngFor="let member of organizationMembers | async">
           <td>
             <span class="font-bold">{{ member.name }} {{ member.surname }}</span
             ><br /><span class="text-xs">{{ member.email }}</span>
           </td>
-          <td>{{ member.pivot?.role }}</td>
+          <td>
+            <div hlMenu class="role-dropdown">
+              <div class="button" hlMenuButton>
+                <span *ngIf="member.pivot?.role === 'owner'">Dueño</span>
+                <span *ngIf="member.pivot?.role === 'member'">Miembro</span>
+                <span *ngIf="member.pivot?.role === 'admin'">Admin</span>
+                <ng-icon name="hero-chevron-down"></ng-icon>
+              </div>
+              <div @toggleAnimation class="dropdown" *hlMenuItems unoutlined>
+                <div class="py-1">
+                  <div
+                    *hlMenuItem="let item"
+                    class="item"
+                    unoutlined
+                    [class.active]="item.active"
+                  >
+                    <ng-icon
+                      *ngIf="member.pivot?.role === 'owner'"
+                      name="hero-check"
+                      class="icon"
+                    ></ng-icon>
+                    <span> Dueño </span>
+                  </div>
+                  <div
+                    *hlMenuItem="let item"
+                    class="item"
+                    unoutlined
+                    [class.active]="item.active"
+                  >
+                    <ng-icon
+                      *ngIf="member.pivot?.role === 'admin'"
+                      name="hero-check"
+                      class="icon"
+                    ></ng-icon>
+                    <span> Admin </span>
+                  </div>
+                  <div
+                    *hlMenuItem="let item"
+                    class="item"
+                    unoutlined
+                    [class.active]="item.active"
+                  >
+                    <ng-icon
+                      *ngIf="member.pivot?.role === 'member'"
+                      name="hero-check"
+                      class="icon"
+                    ></ng-icon>
+                    <span> Miembro </span>
+                  </div>
+                </div>
+                <div class="py-1">
+                  <div
+                    *hlMenuItem="let item"
+                    class="item delete"
+                    unoutlined
+                    [class.active]="item.active"
+                  >
+                    <span> Eliminar </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
         </tr>
       </tbody>
     </table>

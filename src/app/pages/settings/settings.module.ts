@@ -10,6 +10,9 @@ import { AddNewDialogComponent } from './organization/members-view/add-new-dialo
 import { ModalModule } from 'src/app/components/modal/modal.module';
 import { FormModule } from 'src/app/components/form/form.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgIconsModule } from '@ng-icons/core';
+import { HeroChevronDown, HeroCheck } from '@ng-icons/heroicons';
+import { MenuModule } from 'headlessui-angular';
 
 const routes: Route[] = [
   {
@@ -52,7 +55,11 @@ const routes: Route[] = [
     ModalModule,
     FormModule,
     ReactiveFormsModule,
+    MenuModule,
+    NgIconsModule.withIcons({
+      HeroChevronDown, HeroCheck
+    }),
     RouterModule.forChild(routes),
   ],
 })
-export class SettingsModule {}
+export class SettingsModule { }

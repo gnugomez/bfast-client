@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { ModalService } from 'src/app/components/modal/modal.service';
+import toggleAnimation from 'src/app/layouts/default/animations/toggleAnimation';
 import { Organization } from 'src/app/shared/domain/Organization';
 import { User } from 'src/app/shared/domain/User';
 import { OrganizationService } from 'src/app/shared/services/organization.service';
@@ -10,6 +11,7 @@ import { AddNewDialogComponent } from './add-new-dialog/add-new-dialog.component
   selector: 'app-members-view',
   templateUrl: './members-view.component.html',
   styleUrls: ['./members-view.component.scss'],
+  animations: [toggleAnimation]
 })
 export class MembersViewComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject<void>();
