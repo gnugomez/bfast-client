@@ -7,9 +7,9 @@
     <layout-topbar (openSidebar)="openSidebar()"></layout-topbar>
     <main class="content">
       <router-outlet></router-outlet>
-      <div class="h-[300vh]"></div>
     </main>
     <layout-mobile-menu class="sm:hidden"></layout-mobile-menu>
+    <div class="overlay"></div>
   </div>
 </div>
 <portal-target name="modals"></portal-target>

@@ -13,6 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgIconsModule } from '@ng-icons/core';
 import { HeroChevronDown, HeroCheck } from '@ng-icons/heroicons';
 import { MenuModule } from 'headlessui-angular';
+import { OptionsViewComponent } from './organization/options-view/options-view.component';
+import { WorkspacesViewComponent } from './organization/workspaces-view/workspaces-view.component';
 
 const routes: Route[] = [
   {
@@ -25,6 +27,14 @@ const routes: Route[] = [
           {
             path: 'members',
             component: MembersViewComponent,
+          },
+          {
+            path: 'options',
+            component: OptionsViewComponent,
+          },
+          {
+            path: 'workspaces',
+            component: WorkspacesViewComponent,
           },
         ],
       },
@@ -47,6 +57,8 @@ const routes: Route[] = [
     MembersViewComponent,
     AccountViewComponent,
     AddNewDialogComponent,
+    OptionsViewComponent,
+    WorkspacesViewComponent,
   ],
   imports: [
     CommonModule,

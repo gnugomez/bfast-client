@@ -13,9 +13,14 @@
   .content-wrapper {
     @apply transition-[filter] duration-200;
 
+    .overlay {
+      @apply absolute inset-0 z-20 pointer-events-none;
+      @apply transition-all duration-300;
+    }
+
     @screen mlg {
-      &.collapsed {
-        @apply filter blur-sm;
+      &.collapsed .overlay {
+        @apply backdrop-blur-sm bg-primary/10;
       }
     }
   }
