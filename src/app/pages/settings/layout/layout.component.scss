@@ -22,7 +22,7 @@
   @apply flex gap-5;
 
   .left {
-    @apply min-w-[15rem];
+    @apply min-w-[15rem] mmd:hidden;
   }
 
   .right {
