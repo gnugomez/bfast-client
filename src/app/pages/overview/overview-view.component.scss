@@ -1,0 +1,27 @@
+.layout {
+  @apply grid grid-cols-12 gap-4 mt-4;
+
+  .shop-card {
+    @apply col-span-12 xl:col-span-4 md:col-span-6;
+
+    .inner {
+      @apply aspect-w-1 aspect-h-1;
+    }
+
+    .wrapper {
+      @apply flex flex-col;
+    }
+
+    .image {
+      @apply flex-1 items-center flex justify-center;
+
+      img {
+        @apply max-w-[50%];
+      }
+    }
+
+    .content {
+      @apply p-4;
+    }
+  }
+}

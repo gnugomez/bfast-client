@@ -1,1 +1,22 @@
-<p>overview-view works!</p>
+<div class="heading">
+  <h1>Hola, {{ user?.name }}</h1>
+  <p>Aquí tienes tu resumen</p>
+</div>
+<div class="layout">
+  <app-card class="shop-card">
+    <div class="inner">
+      <div class="wrapper">
+        <div class="image">
+          <img src="assets/img/overview/shop-icon.png" alt="" />
+        </div>
+        <div class="content">
+          <p>Visita la tienda de {{ activeOrganization?.name }}</p>
+          <h1><span class="text-primary">15</span> items nuevos</h1>
+        </div>
+        <app-button variant="light"
+          >Ir a la tienda <ng-icon name="hero-arrow-narrow-right"></ng-icon
+        ></app-button>
+      </div>
+    </div>
+  </app-card>
+</div>

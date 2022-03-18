@@ -9,6 +9,7 @@ import { NotFoundViewComponent } from '../pages/not-found/not-found-view.compone
 import { OverviewViewComponent } from '../pages/overview/overview-view.component';
 import { ShopViewComponent } from '../pages/shop/shop-view.component';
 import { HaveOrganizationGuard } from '../shared/guards/have-organization.guard';
+import { OverviewViewModule } from '../pages/overview/overview-view.module';
 
 const routes: Routes = [
   {
@@ -70,7 +71,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), OverviewViewModule],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
