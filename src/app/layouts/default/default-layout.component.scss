@@ -20,7 +20,7 @@
 
     @screen mlg {
       &.collapsed .overlay {
-        @apply backdrop-blur-sm bg-primary/10;
+        @apply backdrop-blur-sm bg-white/70 dark:bg-main-dark/70;
       }
     }
   }
