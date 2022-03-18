@@ -23,7 +23,7 @@
 }
 
 .submenu-wrapper {
-  @apply absolute right-0 sm:w-80 mt-2 origin-top-right rounded-xl shadow-app outline-none overflow-hidden;
+  @apply absolute z-20 right-0 sm:w-80 mt-2 origin-top-right rounded-xl shadow-app outline-none overflow-hidden;
   @apply bg-white dark:bg-dark-900 divide-y divide-gray-100 dark:divide-dark-200;
 
   @screen msm {
