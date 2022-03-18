@@ -31,6 +31,8 @@ import {
   HeroDotsHorizontal,
   HeroTrash,
   HeroCog,
+  HeroUsersSolid,
+  HeroPlusSolid,
 } from '@ng-icons/heroicons';
 import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.component';
 import { MenuModule } from 'headlessui-angular';
@@ -60,6 +62,8 @@ const icons = {
   HeroDotsHorizontal,
   HeroTrash,
   HeroCog,
+  HeroUsersSolid,
+  HeroPlusSolid
 };
 
 const components = [
@@ -90,4 +94,4 @@ const layouts = [DefaultLayoutComponent];
     NgIconsModule.withIcons(icons),
   ],
 })
-export class DefaultLayoutModule {}
+export class DefaultLayoutModule { }
