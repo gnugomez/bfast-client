@@ -1,9 +1,30 @@
 .layout {
-  @apply grid grid-cols-12 gap-4 mt-4;
+  @apply grid gap-4 mt-4;
+  @screen xl {
+    grid-template-columns: 25rem 1fr;
+  }
+
+  .sidebar {
+    @apply grid md:grid-cols-2 xl:grid-cols-1 mxl:row-start-2;
+  }
+
+  .hours {
+    .inner {
+      @apply grid gap-10 py-10 px-4;
+
+      .hour {
+        @apply grid gap-2;
+        .title {
+          @apply text-sm font-semibold;
+        }
+        .time {
+          @apply text-2xl font-semibold;
+        }
+      }
+    }
+  }
 
   .shop-card {
-    @apply col-span-12 xl:col-span-4 md:col-span-6;
-
     .inner {
       @apply aspect-w-1 aspect-h-1;
     }
@@ -22,6 +43,66 @@
 
     .content {
       @apply p-4;
+    }
+  }
+
+  .schedule {
+    .inner {
+      .top {
+        @apply grid gap-4 sm:grid-cols-2;
+
+        .actual {
+          @apply aspect-w-1 aspect-h-1 msm:row-start-2;
+
+          &.late {
+            @apply bg-red-600/10;
+          }
+
+          &.early {
+            @apply bg-green-50;
+          }
+
+          .content {
+            @apply flex flex-col gap-3 items-center justify-center;
+            @apply font-semibold;
+
+            .time {
+              @apply flex flex-col items-center justify-center;
+
+              .left {
+                @apply text-7xl;
+              }
+
+              .units {
+                @apply text-2xl;
+              }
+            }
+          }
+        }
+
+        .log {
+          @apply bg-light-200 dark:bg-dark-400 text-gray-400 text-2xl font-semibold cursor-pointer;
+          @apply transition duration-300;
+          @apply aspect-w-1 aspect-h-1;
+
+          .content {
+            @apply flex flex-col gap-4 items-center justify-center;
+
+            .flag {
+              @apply absolute text-main-dark dark:text-white m-4 rounded-full top-0 right-0 bg-light-600 dark:bg-dark-600;
+              @apply w-12 h-12 flex items-center justify-center;
+            }
+          }
+
+          &:hover {
+            @apply bg-light-300 dark:bg-dark-200 text-gray-600 dark:text-white;
+          }
+        }
+
+        & > * {
+          @apply rounded-[1.7rem] overflow-hidden;
+        }
+      }
     }
   }
 }

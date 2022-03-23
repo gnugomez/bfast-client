@@ -1,22 +1,66 @@
-<div class="heading">
-  <h1>Hola, {{ user?.name }}</h1>
-  <p>Aquí tienes tu resumen</p>
-</div>
-<div class="layout">
-  <app-card class="shop-card">
-    <div class="inner">
-      <div class="wrapper">
-        <div class="image">
-          <img src="assets/img/overview/shop-icon.png" alt="" />
+<div class="container mx-auto">
+  <div class="heading">
+    <h1>Hola, {{ user?.name }}</h1>
+    <p class="font-semibold">Aquí tienes tu resumen</p>
+  </div>
+  <div class="layout">
+    <div class="sidebar">
+      <app-card class="shop-card" border="slim">
+        <div class="inner">
+          <div class="wrapper">
+            <div class="image">
+              <img src="assets/img/overview/shop-icon.png" alt="" />
+            </div>
+            <div class="content">
+              <p>Visita la tienda de {{ activeOrganization?.name }}</p>
+              <h1><span class="text-primary">15</span> items nuevos</h1>
+            </div>
+            <app-button variant="light"
+              >Ir a la tienda
+              <ng-icon name="hero-arrow-narrow-right" size="24"></ng-icon
+            ></app-button>
+          </div>
         </div>
-        <div class="content">
-          <p>Visita la tienda de {{ activeOrganization?.name }}</p>
-          <h1><span class="text-primary">15</span> items nuevos</h1>
+      </app-card>
+      <app-card type="transparent" class="hours">
+        <div class="inner">
+          <div class="hour">
+            <div class="title">Registradas</div>
+            <div class="time">3 Horas hoy</div>
+          </div>
+          <div class="hour">
+            <div class="title">Aún te quedan</div>
+            <div class="time">20 minutos</div>
+          </div>
         </div>
-        <app-button variant="light"
-          >Ir a la tienda <ng-icon name="hero-arrow-narrow-right"></ng-icon
-        ></app-button>
-      </div>
+      </app-card>
     </div>
-  </app-card>
+    <div class="right">
+      <app-card border="slim" class="schedule">
+        <div class="inner">
+          <div class="top">
+            <div class="actual late">
+              <div class="content">
+                <span>Espacio de trabajo</span>
+                <div class="time">
+                  <div class="left">- 10</div>
+                  <div class="units">minutos</div>
+                </div>
+                <span>Llegas tarde 🙁</span>
+              </div>
+            </div>
+            <div class="log">
+              <div class="content">
+                <div class="flag">
+                  <ng-icon name="hero-flag"></ng-icon>
+                </div>
+                <ng-icon name="hero-qrcode" size="35"></ng-icon>
+                <span>Registrar entrada</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
+  </div>
 </div>

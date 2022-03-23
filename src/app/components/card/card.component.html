@@ -1,3 +1,13 @@
-<div class="wrapper" [class.open]="type == 'open'" [class]="classes">
+<div
+  class="wrapper"
+  [ngClass]="{
+    open: type === 'open',
+    transparent: type === 'transparent',
+    'border-slim': border === 'slim',
+    'border-medium': border === 'medium',
+    'border-thick': border === 'thick'
+  }"
+  [class]="classes"
+>
   <ng-content></ng-content>
 </div>

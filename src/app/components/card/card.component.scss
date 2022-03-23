@@ -1,9 +1,24 @@
 .wrapper {
-  @apply w-full h-full rounded-5xl border-4 border-gray-100 transition-all duration-300 ease-in-out bg-white dark:bg-dark-900 dark:border-dark-800;
+  @apply w-full h-full rounded-5xl border-gray-100 transition-all duration-300 ease-in-out bg-white dark:bg-dark-900 dark:border-dark-800;
   @apply p-4;
 
-  &:hover,
   &.open {
     @apply border-white dark:border-dark-900 shadow-2xl;
+  }
+
+  &.border {
+    &-slim {
+      @apply border-[3px];
+    }
+    &-medium {
+      @apply border-4;
+    }
+    &-thick {
+      @apply border-8;
+    }
+  }
+
+  &.transparent {
+    @apply bg-transparent border-transparent shadow-none;
   }
 }
