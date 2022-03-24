@@ -15,7 +15,7 @@
 
     .overlay {
       @apply absolute inset-0 z-20 pointer-events-none;
-      @apply transition-all duration-300;
+      @apply transition-all duration-500;
     }
 
     @screen mlg {
