@@ -15,6 +15,7 @@ import { HeroChevronDown, HeroCheck } from '@ng-icons/heroicons';
 import { MenuModule } from 'headlessui-angular';
 import { OptionsViewComponent } from './organization/options-view/options-view.component';
 import { WorkspacesViewComponent } from './organization/workspaces-view/workspaces-view.component';
+import { IsPriviledgedGuard } from 'src/app/shared/guards/is-priviledged.guard';
 
 const routes: Route[] = [
   {
@@ -26,6 +27,7 @@ const routes: Route[] = [
         children: [
           {
             path: 'members',
+            canActivate: [IsPriviledgedGuard],
             component: MembersViewComponent,
           },
           {

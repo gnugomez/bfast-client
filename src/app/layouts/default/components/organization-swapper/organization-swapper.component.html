@@ -30,7 +30,7 @@
         </div>
       </div>
     </div>
-    <div *ngIf="organizations" class="items other">
+    <div *ngIf="isPrivileged; else noPrivileged" class="items other">
       <div class="sub-item">
         <div
           *hlMenuItem="let item"
@@ -56,5 +56,33 @@
         </div>
       </div>
     </div>
+    <ng-template #noPrivileged>
+      <div class="items other">
+        <div class="sub-item">
+          <div
+            *hlMenuItem="let item"
+            [class.active]="item.active"
+            class="item"
+            unoutlined
+            routerLink="/settings/organization/options"
+          >
+            <ng-icon name="hero-cog-solid"></ng-icon>
+            <span>Opciones</span>
+          </div>
+        </div>
+        <div class="sub-item">
+          <div
+            *hlMenuItem="let item"
+            [class.active]="item.active"
+            class="item"
+            unoutlined
+            routerLink="/organization/new"
+          >
+            <ng-icon name="hero-plus-solid"></ng-icon>
+            <span>Crear nueva o unirte</span>
+          </div>
+        </div>
+      </div>
+    </ng-template>
   </div>
 </div>

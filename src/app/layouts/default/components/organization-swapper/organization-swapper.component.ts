@@ -12,6 +12,7 @@ import toggleAnimation from '../../animations/toggleAnimation';
 })
 export class OrganizationSwapperComponent implements OnInit {
   public organizations?: Organization[] | null;
+  public isPrivileged?: boolean;
 
   public activeOrganization?: Organization;
 
@@ -19,8 +20,11 @@ export class OrganizationSwapperComponent implements OnInit {
 
   constructor(
     private organizationService: OrganizationService,
-    private modalService: ModalService
-  ) {}
+  ) {
+    this.organizationService.isPrivileged().subscribe((isPrivileged) => {
+      this.isPrivileged = isPrivileged;
+    });
+  }
 
   ngOnInit(): void {
     this.organizationService.getOrganizations().subscribe((organizations) => {

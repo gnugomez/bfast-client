@@ -67,6 +67,14 @@ export class OrganizationService {
     return this.activeOrganization$;
   }
 
+  public isPrivileged(): Observable<boolean> {
+    return this.activeOrganization$.pipe(
+      map((organization) => {
+        return organization?.pivot?.role === 'admin' || organization?.pivot?.role === 'owner';
+      }
+      ));
+  }
+
   public setActiveOrganization(organization: Organization): void {
     if (this.organizations) {
       this.organizations.sort((a, b) => {

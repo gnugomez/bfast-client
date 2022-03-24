@@ -33,6 +33,7 @@ import {
   HeroCog,
   HeroUsersSolid,
   HeroPlusSolid,
+  HeroCogSolid
 } from '@ng-icons/heroicons';
 import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.component';
 import { MenuModule } from 'headlessui-angular';
@@ -63,7 +64,8 @@ const icons = {
   HeroTrash,
   HeroCog,
   HeroUsersSolid,
-  HeroPlusSolid
+  HeroPlusSolid,
+  HeroCogSolid
 };
 
 const components = [
