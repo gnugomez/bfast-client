@@ -1,5 +1,5 @@
 .layout {
-  @apply grid gap-4 mt-4;
+  @apply grid gap-4 mt-4 items-start;
   @screen xl {
     grid-template-columns: 25rem 1fr;
   }
@@ -101,6 +101,34 @@
 
         & > * {
           @apply rounded-[1.7rem] overflow-hidden;
+        }
+      }
+      .next {
+        @apply -mx-4 py-4 mt-4;
+
+        & > span {
+          @apply px-4 font-semibold opacity-40;
+        }
+
+        .entries {
+          @apply grid mt-5;
+
+          .entry {
+            @apply flex items-center justify-between px-4 py-6;
+
+            &:nth-child(odd) {
+              @apply bg-light-200 dark:bg-dark-200;
+            }
+
+            .time {
+              @apply flex gap-3 font-semibold items-center;
+
+              .from,
+              .to {
+                @apply bg-light-400 px-3 py-1 rounded-lg;
+              }
+            }
+          }
         }
       }
     }
