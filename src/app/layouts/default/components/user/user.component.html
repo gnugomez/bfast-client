@@ -16,14 +16,16 @@
         class="item"
         routerLink="/settings/personal/account"
       >
-        Ajustes de cuenta
+        Mi cuenta
       </a>
 
-      <a *hlMenuItem="let item" [class.active]="item.active" class="item">
-        Soporte
-      </a>
-      <a *hlMenuItem="let item" [class.active]="item.active" class="item">
-        Licencia
+      <a
+        *hlMenuItem="let item"
+        [class.active]="item.active"
+        class="item"
+        routerLink="/settings/"
+      >
+        Ajustes
       </a>
     </div>
     <div class="py-1">
