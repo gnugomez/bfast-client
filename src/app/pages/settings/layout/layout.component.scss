@@ -22,7 +22,11 @@
   @apply flex gap-5;
 
   .left {
-    @apply min-w-[15rem];
+    @apply sm:min-w-[15rem];
+
+    @screen msm {
+      flex: 0 0 100%;
+    }
   }
 
   .left:not(.is-settings) {
