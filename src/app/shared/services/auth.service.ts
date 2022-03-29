@@ -31,7 +31,7 @@ export class AuthService {
 
   redirectUrl = '';
 
-  constructor(private http: HttpClient, private tokenService: TokenService) {}
+  constructor(private http: HttpClient, private tokenService: TokenService) { }
 
   private static handleError(error: HttpErrorResponse): any {
     return throwError(() => error);
@@ -85,7 +85,7 @@ export class AuthService {
   }
 
   register(data: any): Observable<any> {
-    return this.http.put<any>(API_URL + 'users', data).pipe(
+    return this.http.post<any>(API_URL + 'users', data).pipe(
       tap((_) => AuthService.log('register')),
       catchError(AuthService.handleError)
     );

@@ -113,7 +113,7 @@ export class OrganizationService {
   }
 
   public createOrganization(organization: Organization): Observable<any> {
-    const newOrganization = this.http.put(
+    const newOrganization = this.http.post(
       API_URL + 'organizations',
       organization
     );
