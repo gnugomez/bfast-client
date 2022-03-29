@@ -5,6 +5,7 @@ import { CardModule } from 'src/app/components/card/card.module';
 import { ButtonModule } from 'src/app/components/button/button.module';
 import { NgIconsModule } from '@ng-icons/core';
 import { HeroArrowNarrowRight, HeroQrcode, HeroFlag } from '@ng-icons/heroicons';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -14,6 +15,7 @@ import { HeroArrowNarrowRight, HeroQrcode, HeroFlag } from '@ng-icons/heroicons'
   ],
   imports: [
     CommonModule,
+    RouterModule,
     CardModule,
     ButtonModule,
     NgIconsModule.withIcons({
