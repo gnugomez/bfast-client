@@ -68,11 +68,13 @@ export class OrganizationService {
   }
 
   public isPrivileged(): Observable<boolean> {
-    return this.activeOrganization$.pipe(
-      map((organization) => {
-        return organization?.pivot?.role === 'admin' || organization?.pivot?.role === 'owner';
-      }
-      ));
+    return new Observable<boolean>((observer) => {
+      this.getActiveOrganization().subscribe((organization) => {
+        if (organization) {
+          observer.next(organization?.pivot?.role === 'admin' || organization?.pivot?.role === 'owner');
+        }
+      });
+    });
   }
 
   public setActiveOrganization(organization: Organization): void {
