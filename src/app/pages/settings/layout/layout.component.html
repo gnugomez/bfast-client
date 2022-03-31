@@ -32,6 +32,7 @@
         class="item"
         routerLink="/settings/organization/workspaces"
         routerLinkActive="active"
+        *ngIf="isPrivileged"
       >
         <span>Espacios de trabajo</span>
       </div>
