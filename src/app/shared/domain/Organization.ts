@@ -11,6 +11,8 @@ export interface Organization {
   created_at?: string;
   updated_at?: string;
   pivot?: Pivot;
+  privileged?: boolean;
+  rank?: string;
 }
 
 export interface Pivot {

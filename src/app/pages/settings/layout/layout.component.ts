@@ -8,12 +8,12 @@ import { OrganizationService } from 'src/app/shared/services/organization.servic
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
-  public isPriviledged?: boolean;
+  public isPrivileged?: boolean;
   public isSettingsPage?: boolean;
 
   constructor(private organizationService: OrganizationService, private router: Router) {
-    this.organizationService.isPrivileged().subscribe((isPriviledged) => {
-      this.isPriviledged = isPriviledged;
+    this.organizationService.isPrivileged().subscribe((isPrivileged) => {
+      this.isPrivileged = isPrivileged;
     });
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {

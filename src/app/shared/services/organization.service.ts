@@ -71,9 +71,11 @@ export class OrganizationService {
     return new Observable<boolean>((observer) => {
       this.getActiveOrganization().subscribe((organization) => {
         if (organization) {
-          observer.next(organization?.pivot?.role === 'admin' || organization?.pivot?.role === 'owner');
+          const privileged = organization.privileged;
+          observer.next(privileged);
         }
-      });
+      }
+      );
     });
   }
 

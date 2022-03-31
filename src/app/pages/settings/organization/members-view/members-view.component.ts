@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { ModalService } from 'src/app/components/modal/modal.service';
 import toggleAnimation from 'src/app/layouts/default/animations/toggleAnimation';
@@ -21,7 +22,8 @@ export class MembersViewComponent implements OnInit, OnDestroy {
 
   constructor(
     private organizationService: OrganizationService,
-    private modalService: ModalService
+    private modalService: ModalService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -30,6 +32,10 @@ export class MembersViewComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
         next: (val) => {
+          if (!val?.privileged) {
+            this.router.navigate(['/settings']);
+          }
+
           this.activeOrganization = val;
           this.organizationMembers.next([]);
           this.organizationService

@@ -6,7 +6,7 @@ import { OrganizationService } from '../services/organization.service';
 @Injectable({
   providedIn: 'root'
 })
-export class IsPriviledgedGuard implements CanActivate {
+export class IsPrivilegedGuard implements CanActivate {
 
   constructor(private organizationService: OrganizationService, private router: Router) { }
 
