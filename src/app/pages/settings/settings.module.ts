@@ -11,11 +11,11 @@ import { ModalModule } from 'src/app/components/modal/modal.module';
 import { FormModule } from 'src/app/components/form/form.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgIconsModule } from '@ng-icons/core';
-import { HeroChevronDown, HeroCheck } from '@ng-icons/heroicons';
+import { HeroChevronDown, HeroCheck, HeroDotsHorizontal } from '@ng-icons/heroicons';
 import { MenuModule } from 'headlessui-angular';
 import { OptionsViewComponent } from './organization/options-view/options-view.component';
 import { WorkspacesViewComponent } from './organization/workspaces-view/workspaces-view.component';
-import { IsPrivilegedGuard } from 'src/app/shared/guards/is-Privileged.guard';
+import { IsPrivilegedGuard } from 'src/app/shared/guards/is-privileged.guard';
 
 const routes: Route[] = [
   {
@@ -71,7 +71,7 @@ const routes: Route[] = [
     ReactiveFormsModule,
     MenuModule,
     NgIconsModule.withIcons({
-      HeroChevronDown, HeroCheck
+      HeroChevronDown, HeroCheck, HeroDotsHorizontal
     }),
     RouterModule.forChild(routes),
   ],

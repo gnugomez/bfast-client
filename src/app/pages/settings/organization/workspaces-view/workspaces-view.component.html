@@ -1,1 +1,56 @@
-<p>workspaces-view works!</p>
+<div *ngIf="activeOrganization">
+  <h1>Espacios de trabajo de {{ activeOrganization.name }}</h1>
+  <div class="add">
+    <app-button
+      open-modal
+      size="sm"
+      variant="secondary"
+      (click)="addNewMember()"
+      >Crear espacio de trabajo</app-button
+    >
+  </div>
+  <div
+    *ngIf="(organizationMembers | async)!.length > 0; else loader"
+    class="prose dark:prose-invert max-w-none"
+  >
+    <table class="workspaces-list">
+      <tbody>
+        <tr class="head">
+          <td>Nombre</td>
+          <td class="text-right"></td>
+        </tr>
+        <tr *ngFor="let member of organizationMembers | async">
+          <td>
+            <span class="font-bold"
+              ># {{ member.name }} {{ member.surname }}</span
+            >
+          </td>
+          <td>
+            <div hlMenu class="role-dropdown">
+              <div class="button" hlMenuButton>
+                <ng-icon name="hero-dots-horizontal"></ng-icon>
+              </div>
+              <div @toggleAnimation class="dropdown" *hlMenuItems unoutlined>
+                <div class="py-1">
+                  <div
+                    *hlMenuItem="let item"
+                    class="item delete"
+                    unoutlined
+                    [class.active]="item.active"
+                  >
+                    <span> Eliminar </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #loader>
+    <div class="w-full py-12 flex justify-center items-center">
+      <app-loader></app-loader>
+    </div>
+  </ng-template>
+</div>
