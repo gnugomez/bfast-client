@@ -27,9 +27,9 @@
           <td>
             <div hlMenu class="role-dropdown">
               <div class="button" hlMenuButton>
-                <span *ngIf="member.pivot?.role === 'owner'">Dueño</span>
-                <span *ngIf="member.pivot?.role === 'member'">Miembro</span>
-                <span *ngIf="member.pivot?.role === 'admin'">Admin</span>
+                <span *ngIf="member.role === 'owner'">Dueño</span>
+                <span *ngIf="member.role === 'member'">Miembro</span>
+                <span *ngIf="member.role === 'admin'">Admin</span>
                 <ng-icon name="hero-chevron-down"></ng-icon>
               </div>
               <div @toggleAnimation class="dropdown" *hlMenuItems unoutlined>
@@ -41,7 +41,7 @@
                     [class.active]="item.active"
                   >
                     <ng-icon
-                      *ngIf="member.pivot?.role === 'owner'"
+                      *ngIf="member.role === 'owner'"
                       name="hero-check"
                       class="icon"
                     ></ng-icon>
@@ -54,7 +54,7 @@
                     [class.active]="item.active"
                   >
                     <ng-icon
-                      *ngIf="member.pivot?.role === 'admin'"
+                      *ngIf="member.role === 'admin'"
                       name="hero-check"
                       class="icon"
                     ></ng-icon>
@@ -67,7 +67,7 @@
                     [class.active]="item.active"
                   >
                     <ng-icon
-                      *ngIf="member.pivot?.role === 'member'"
+                      *ngIf="member.role === 'member'"
                       name="hero-check"
                       class="icon"
                     ></ng-icon>
