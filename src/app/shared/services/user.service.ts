@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../domain/User';
 import { AuthService } from './auth.service';
+import { TokenService } from './token.service';
 
 const API_URL = environment.API_URL;
 
@@ -13,7 +14,7 @@ const API_URL = environment.API_URL;
 export class UserService {
   private user?: User;
 
-  constructor(private http: HttpClient, private authService: AuthService) {
+  constructor(private http: HttpClient, private authService: AuthService, private tokenService: TokenService) {
     this.authService.listenEvent('logout', () => {
       this.clearUser();
     });
@@ -33,6 +34,18 @@ export class UserService {
         this.user = user;
       })
     );
+  }
+
+  isUserLoggedIn(): Observable<boolean> {
+    return new Observable<boolean>((observer) => {
+      if (!this.tokenService.getToken()) {
+        observer.next(false);
+      } else {
+        this.getMe().subscribe((user: User) => {
+          observer.next(true);
+        });
+      }
+    })
   }
 
   public clearUser(): void {

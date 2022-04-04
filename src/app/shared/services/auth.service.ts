@@ -6,11 +6,9 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, Subscription, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 import { TokenService } from './token.service';
 import { environment } from 'src/environments/environment';
-import { OrganizationService } from './organization.service';
-import { UserService } from './user.service';
 
 const OAUTH_CLIENT = environment.OAUTH_CLIENT;
 const OAUTH_SECRET = environment.OAUTH_SECRET;
@@ -95,10 +93,6 @@ export class AuthService {
     return this.http
       .get<any>(API_URL + 'secret')
       .pipe(catchError(AuthService.handleError));
-  }
-
-  isLoggedIn(): boolean {
-    return this.tokenService.getToken() ? true : false;
   }
 
   private triggerEvent(event: string): void {

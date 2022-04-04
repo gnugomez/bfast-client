@@ -5,28 +5,26 @@ import {
   Router,
   RouterStateSnapshot,
 } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { map, Observable } from 'rxjs';
+import { UserService } from '../services/user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NotLoggedGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): boolean {
-    if (this.authService.isLoggedIn()) {
-      const url: string = state.url;
-
-      this.authService.redirectUrl = url;
-
-      this.router.navigate(['/404']);
-
-      return false;
-    }
-
-    return true;
+  ): Observable<boolean> {
+    return this.userService.isUserLoggedIn().pipe(
+      map((isLoggedIn: boolean) => {
+        if (isLoggedIn) {
+          this.router.navigate(['/404']);
+        }
+        return !isLoggedIn;
+      })
+    );
   }
 }
