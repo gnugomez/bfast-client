@@ -9,11 +9,12 @@
       >Crear espacio de trabajo</app-button
     >
   </div>
-  <ng-container
-    *ngIf="organizationWorkspaces | async; then list; else loader"
-    class="prose dark:prose-invert max-w-none"
-  >
-  </ng-container>
+  <div class="list prose dark:prose-invert max-w-none">
+    <ng-container
+      *ngIf="organizationWorkspaces | async; then list; else loader"
+    >
+    </ng-container>
+  </div>
   <ng-template #list>
     <ng-container
       *ngIf="
@@ -29,13 +30,17 @@
       <thead>
         <tr>
           <td>Nombre</td>
+          <td>Usuarios</td>
           <td class="text-right"></td>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let member of organizationWorkspaces | async">
+        <tr *ngFor="let workspace of organizationWorkspaces | async">
           <td>
-            <span class="font-bold"># {{ member.name }}</span>
+            <span class="font-bold"># {{ workspace.name }}</span>
+          </td>
+          <td>
+            <span>{{ workspace.users.length }}</span>
           </td>
           <td>
             <div hlMenu class="role-dropdown">

@@ -4,11 +4,10 @@ import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { ModalService } from 'src/app/components/modal/modal.service';
 import toggleAnimation from 'src/app/layouts/default/animations/toggleAnimation';
 import { Organization } from 'src/app/shared/domain/Organization';
-import { User } from 'src/app/shared/domain/User';
 import { Workspace } from 'src/app/shared/domain/Workspace';
 import { OrganizationService } from 'src/app/shared/services/organization.service';
 import { WorkspaceService } from 'src/app/shared/services/workspace.service';
-import { AddNewDialogComponent } from '../members-view/add-new-dialog/add-new-dialog.component';
+import { CreateNewWorkspaceDialog } from './create-new-workspace-dialog/create-new-workspace-dialog.component';
 
 @Component({
   selector: 'app-workspaces-view',
@@ -45,7 +44,7 @@ export class WorkspacesViewComponent implements OnInit {
           this.organizationWorkspaces.next(null);
 
           if (active) {
-            this.workspaceService.getAllWorkspaces(active.id).subscribe({
+            this.workspaceService.getAllWorkspaces(active).subscribe({
               next: (workspaces) => {
                 this.organizationWorkspaces.next(workspaces);
               }
@@ -56,7 +55,7 @@ export class WorkspacesViewComponent implements OnInit {
   }
 
   public addNewMember(): void {
-    this.modalService.open(AddNewDialogComponent, { members: this.organizationWorkspaces, org: this.activeOrganization });
+    this.modalService.open(CreateNewWorkspaceDialog, { workspaces: this.organizationWorkspaces, org: this.activeOrganization });
   }
 
   ngOnDestroy() {

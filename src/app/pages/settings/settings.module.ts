@@ -6,7 +6,7 @@ import { MembersViewComponent } from './organization/members-view/members-view.c
 import { LoaderModule } from 'src/app/components/loader/loader.module';
 import { ButtonModule } from 'src/app/components/button/button.module';
 import { AccountViewComponent } from './personal/account-view/account-view.component';
-import { AddNewDialogComponent } from './organization/members-view/add-new-dialog/add-new-dialog.component';
+import { AddNewMemberDialogComponent } from './organization/members-view/add-new-member-dialog/add-new-member-dialog.component';
 import { ModalModule } from 'src/app/components/modal/modal.module';
 import { FormModule } from 'src/app/components/form/form.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -16,6 +16,7 @@ import { MenuModule } from 'headlessui-angular';
 import { OptionsViewComponent } from './organization/options-view/options-view.component';
 import { WorkspacesViewComponent } from './organization/workspaces-view/workspaces-view.component';
 import { IsPrivilegedGuard } from 'src/app/shared/guards/is-privileged.guard';
+import { CreateNewWorkspaceDialog } from './organization/workspaces-view/create-new-workspace-dialog/create-new-workspace-dialog.component';
 
 const routes: Route[] = [
   {
@@ -58,9 +59,10 @@ const routes: Route[] = [
     LayoutComponent,
     MembersViewComponent,
     AccountViewComponent,
-    AddNewDialogComponent,
+    AddNewMemberDialogComponent,
     OptionsViewComponent,
     WorkspacesViewComponent,
+    CreateNewWorkspaceDialog
   ],
   imports: [
     CommonModule,

@@ -6,7 +6,7 @@ import toggleAnimation from 'src/app/layouts/default/animations/toggleAnimation'
 import { Organization } from 'src/app/shared/domain/Organization';
 import { User } from 'src/app/shared/domain/User';
 import { OrganizationService } from 'src/app/shared/services/organization.service';
-import { AddNewDialogComponent } from './add-new-dialog/add-new-dialog.component';
+import { AddNewMemberDialogComponent } from './add-new-member-dialog/add-new-member-dialog.component';
 
 @Component({
   selector: 'app-members-view',
@@ -50,7 +50,7 @@ export class MembersViewComponent implements OnInit, OnDestroy {
   }
 
   public addNewMember(): void {
-    this.modalService.open(AddNewDialogComponent, { members: this.organizationMembers, org: this.activeOrganization });
+    this.modalService.open(AddNewMemberDialogComponent, { members: this.organizationMembers, org: this.activeOrganization });
   }
 
   ngOnDestroy() {

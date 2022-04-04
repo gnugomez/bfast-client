@@ -1,0 +1,36 @@
+<app-modal>
+  <div class="wrapper">
+    <h1>Crear espacio de trabajo</h1>
+    <div class="errors">
+      <div
+        class="invalid-notice"
+        [class.open]="newWorkspaceForm.errors?.notFound"
+      >
+        <span>Este correo no pertenece a ningún usuario</span>
+      </div>
+      <div
+        class="invalid-notice"
+        [class.open]="newWorkspaceForm.errors?.duplicate"
+      >
+        <span>Este usuario ya está en la organización</span>
+      </div>
+    </div>
+    <form
+      [formGroup]="newWorkspaceForm"
+      (ngSubmit)="onSubmit()"
+      class="grid gap-6"
+    >
+      <app-form-input
+        label="Nombre"
+        inputType="text"
+        formControlName="name"
+      ></app-form-input>
+      <div class="grid grid-cols-2 gap-4">
+        <app-button variant="light" (click)="cancel()">Cancelar</app-button>
+        <app-button variant="secondary" type="submit" [loading]="loading"
+          >Crear</app-button
+        >
+      </div>
+    </form>
+  </div>
+</app-modal>
