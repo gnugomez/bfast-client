@@ -5,7 +5,7 @@
       open-modal
       size="sm"
       variant="secondary"
-      (click)="addNewMember()"
+      (click)="createWorkspace()"
       >Crear espacio de trabajo</app-button
     >
   </div>
@@ -83,7 +83,24 @@
       </tbody>
     </table>
   </ng-template>
-  <ng-template #listEmpty> nomore </ng-template>
+  <ng-template #listEmpty>
+    <div
+      class="h-96 w-full flex flex-col gap-4 items-center justify-center text-center"
+    >
+      <img class="opacity-50 w-44" src="/assets/img/no-workspaces.svg" alt="" />
+      <span
+        >Parece que <b>{{ activeOrganization.name }}</b> no tiene ningún espacio
+        de trabajo.</span
+      >
+      <app-button
+        open-modal
+        size="sm"
+        variant="light"
+        (click)="createWorkspace()"
+        >Empieza a crear espacios de trabajo</app-button
+      >
+    </div>
+  </ng-template>
   <ng-template #loader>
     <div class="w-full py-12 flex justify-center items-center">
       <app-loader></app-loader>

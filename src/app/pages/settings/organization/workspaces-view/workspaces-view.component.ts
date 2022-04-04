@@ -54,7 +54,7 @@ export class WorkspacesViewComponent implements OnInit {
       });
   }
 
-  public addNewMember(): void {
+  public createWorkspace(): void {
     this.modalService.open(CreateNewWorkspaceDialog, { workspaces: this.organizationWorkspaces, org: this.activeOrganization });
   }
 
