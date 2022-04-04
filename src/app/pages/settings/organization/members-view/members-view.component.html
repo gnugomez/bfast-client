@@ -14,11 +14,13 @@
     class="prose dark:prose-invert max-w-none"
   >
     <table class="members-list">
-      <tbody>
-        <tr class="head">
+      <thead>
+        <tr>
           <td>Usuario</td>
           <td class="text-right">Nivel de acceso</td>
         </tr>
+      </thead>
+      <tbody>
         <tr *ngFor="let member of organizationMembers | async">
           <td>
             <span class="font-bold">{{ member.name }} {{ member.surname }}</span

@@ -5,7 +5,9 @@ import { ModalService } from 'src/app/components/modal/modal.service';
 import toggleAnimation from 'src/app/layouts/default/animations/toggleAnimation';
 import { Organization } from 'src/app/shared/domain/Organization';
 import { User } from 'src/app/shared/domain/User';
+import { Workspace } from 'src/app/shared/domain/Workspace';
 import { OrganizationService } from 'src/app/shared/services/organization.service';
+import { WorkspaceService } from 'src/app/shared/services/workspace.service';
 import { AddNewDialogComponent } from '../members-view/add-new-dialog/add-new-dialog.component';
 
 @Component({
@@ -20,10 +22,11 @@ export class WorkspacesViewComponent implements OnInit {
   private ngUnsubscribe = new Subject<void>();
 
   public activeOrganization?: Organization;
-  public organizationMembers = new BehaviorSubject<User[]>([]);
+  public organizationWorkspaces = new BehaviorSubject<Workspace[] | null>(null);
 
   constructor(
     private organizationService: OrganizationService,
+    private workspaceService: WorkspaceService,
     private modalService: ModalService,
     private router: Router
   ) { }
@@ -33,26 +36,27 @@ export class WorkspacesViewComponent implements OnInit {
       .getActiveOrganization()
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
-        next: (val) => {
-          if (!val?.privileged) {
+        next: (active) => {
+          if (!active?.privileged) {
             this.router.navigate(['/settings']);
           }
 
-          this.activeOrganization = val;
-          this.organizationMembers.next([]);
-          this.organizationService
-            .getMembersFromOrganization(this.activeOrganization)
-            .subscribe({
-              next: (members) => {
-                this.organizationMembers.next(members);
-              },
+          this.activeOrganization = active;
+          this.organizationWorkspaces.next(null);
+
+          if (active) {
+            this.workspaceService.getAllWorkspaces(active.id).subscribe({
+              next: (workspaces) => {
+                this.organizationWorkspaces.next(workspaces);
+              }
             });
+          }
         },
       });
   }
 
   public addNewMember(): void {
-    this.modalService.open(AddNewDialogComponent, { members: this.organizationMembers, org: this.activeOrganization });
+    this.modalService.open(AddNewDialogComponent, { members: this.organizationWorkspaces, org: this.activeOrganization });
   }
 
   ngOnDestroy() {

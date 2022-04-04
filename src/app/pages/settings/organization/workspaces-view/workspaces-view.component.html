@@ -9,28 +9,58 @@
       >Crear espacio de trabajo</app-button
     >
   </div>
-  <div
-    *ngIf="(organizationMembers | async)!.length > 0; else loader"
+  <ng-container
+    *ngIf="organizationWorkspaces | async; then list; else loader"
     class="prose dark:prose-invert max-w-none"
   >
+  </ng-container>
+  <ng-template #list>
+    <ng-container
+      *ngIf="
+        (organizationWorkspaces | async)?.length;
+        then listTable;
+        else listEmpty
+      "
+    >
+    </ng-container>
+  </ng-template>
+  <ng-template #listTable>
     <table class="workspaces-list">
-      <tbody>
-        <tr class="head">
+      <thead>
+        <tr>
           <td>Nombre</td>
           <td class="text-right"></td>
         </tr>
-        <tr *ngFor="let member of organizationMembers | async">
+      </thead>
+      <tbody>
+        <tr *ngFor="let member of organizationWorkspaces | async">
           <td>
-            <span class="font-bold"
-              ># {{ member.name }} {{ member.surname }}</span
-            >
+            <span class="font-bold"># {{ member.name }}</span>
           </td>
           <td>
             <div hlMenu class="role-dropdown">
               <div class="button" hlMenuButton>
-                <ng-icon name="hero-dots-horizontal"></ng-icon>
+                Opciones<ng-icon name="hero-chevron-down"></ng-icon>
               </div>
               <div @toggleAnimation class="dropdown" *hlMenuItems unoutlined>
+                <div class="py-1">
+                  <div
+                    *hlMenuItem="let item"
+                    class="item"
+                    unoutlined
+                    [class.active]="item.active"
+                  >
+                    <span> Detalles </span>
+                  </div>
+                  <div
+                    *hlMenuItem="let item"
+                    class="item"
+                    unoutlined
+                    [class.active]="item.active"
+                  >
+                    <span> Usuarios </span>
+                  </div>
+                </div>
                 <div class="py-1">
                   <div
                     *hlMenuItem="let item"
@@ -47,7 +77,8 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </ng-template>
+  <ng-template #listEmpty> nomore </ng-template>
   <ng-template #loader>
     <div class="w-full py-12 flex justify-center items-center">
       <app-loader></app-loader>
