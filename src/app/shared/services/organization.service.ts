@@ -40,7 +40,7 @@ export class OrganizationService {
           this.organizations = organizations;
 
           if (organizations.length > 0) {
-            const activeOrganization = this.checkActiveOrganization();
+            const activeOrganization = this.checkActiveOrganization(organizations);
 
             if (activeOrganization) {
               this.setActiveOrganization(activeOrganization);
@@ -94,7 +94,7 @@ export class OrganizationService {
     }
 
     if (organization) {
-      localStorage.setItem('activeOrganization', JSON.stringify(organization));
+      localStorage.setItem('activeOrganization', JSON.stringify(organization.id));
       this.activeOrganization$.next(organization);
     } else {
       this.clearActiveOrganization();
@@ -106,11 +106,12 @@ export class OrganizationService {
     localStorage.removeItem('activeOrganization');
   }
 
-  private checkActiveOrganization(): Organization | null {
+  private checkActiveOrganization(organizations: Organization[]): Organization | null {
     const activeOrganization = localStorage.getItem('activeOrganization');
 
     if (activeOrganization) {
-      return JSON.parse(activeOrganization);
+      const org = organizations.find((org) => org.id === Number(activeOrganization))
+      return org ? org : null;
     } else {
       return null;
     }
