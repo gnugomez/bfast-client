@@ -34,6 +34,7 @@ export class MembersViewComponent implements OnInit, OnDestroy {
         next: (val) => {
           if (!val?.privileged) {
             this.router.navigate(['/settings']);
+            return;
           }
 
           this.activeOrganization = val;

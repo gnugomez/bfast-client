@@ -39,6 +39,7 @@ export class WorkspacesViewComponent implements OnInit {
         next: (active) => {
           if (!active?.privileged) {
             this.router.navigate(['/settings']);
+            return;
           }
 
           this.activeOrganization = active;
