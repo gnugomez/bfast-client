@@ -41,10 +41,10 @@ export class DeleteWorkspaceDialog implements OnInit {
       if (this.deleteWorkspaceForm.value.name === this.workspace.name) {
         this.loading = true;
         this.workspaceService
-          .deleteWorkspace(this.workspace)
+          .delete(this.workspace)
           .subscribe({
             next: (res) => {
-              this.workspaceService.getAllWorkspaces().subscribe({
+              this.workspaceService.getAll().subscribe({
                 next: (workspaces) => {
                   this.data.workspaces.next(workspaces);
                   this.modalService.close();

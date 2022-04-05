@@ -46,7 +46,7 @@ export class WorkspacesViewComponent implements OnInit {
           this.organizationWorkspaces.next(null);
 
           if (active) {
-            this.workspaceService.getAllWorkspaces().subscribe({
+            this.workspaceService.getAll().subscribe({
               next: (workspaces) => {
                 this.organizationWorkspaces.next(workspaces);
               }
@@ -56,11 +56,11 @@ export class WorkspacesViewComponent implements OnInit {
       });
   }
 
-  public createWorkspace(): void {
+  public create(): void {
     this.modalService.open(CreateNewWorkspaceDialog, { workspaces: this.organizationWorkspaces, org: this.activeOrganization });
   }
 
-  public deleteWorkspace(workspace: Workspace): void {
+  public delete(workspace: Workspace): void {
     this.modalService.open(DeleteWorkspaceDialog, { workspace, org: this.activeOrganization, workspaces: this.organizationWorkspaces });
   }
 

@@ -34,12 +34,12 @@ export class CreateNewWorkspaceDialog implements OnInit {
     if (this.newWorkspaceForm.valid) {
       this.loading = true;
       this.workspaceService
-        .createWorkspace(
+        .create(
           this.newWorkspaceForm.value.name
         )
         .subscribe({
           next: (res) => {
-            this.workspaceService.getAllWorkspaces().subscribe({
+            this.workspaceService.getAll().subscribe({
               next: (workspaces) => {
                 this.data.workspaces.next(workspaces);
                 this.modalService.close();

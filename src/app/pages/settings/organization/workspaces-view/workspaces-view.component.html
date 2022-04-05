@@ -18,11 +18,7 @@
   </ng-template>
   <ng-template #listTable>
     <div class="add">
-      <app-button
-        open-modal
-        size="sm"
-        variant="secondary"
-        (click)="createWorkspace()"
+      <app-button open-modal size="sm" variant="secondary" (click)="create()"
         >Crear espacio de trabajo</app-button
       >
     </div>
@@ -74,7 +70,7 @@
                     class="item delete"
                     unoutlined
                     [class.active]="item.active"
-                    (click)="deleteWorkspace(workspace)"
+                    (click)="delete(workspace)"
                     open-modal
                   >
                     <span> Eliminar </span>
@@ -96,11 +92,7 @@
         >Parece que <b>{{ activeOrganization.name }}</b> no tiene ningún espacio
         de trabajo.</span
       >
-      <app-button
-        open-modal
-        size="sm"
-        variant="light"
-        (click)="createWorkspace()"
+      <app-button open-modal size="sm" variant="light" (click)="create()"
         >Empieza a crear espacios de trabajo</app-button
       >
     </div>
