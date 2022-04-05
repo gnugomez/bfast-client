@@ -37,7 +37,9 @@
       <tbody>
         <tr *ngFor="let workspace of organizationWorkspaces | async">
           <td>
-            <span class="font-bold"># {{ workspace.name }}</span>
+            <span class="font-bold"
+              ><span class="text-primary">#</span> {{ workspace.name }}</span
+            >
           </td>
           <td>
             <span>{{ workspace.users.length }}</span>

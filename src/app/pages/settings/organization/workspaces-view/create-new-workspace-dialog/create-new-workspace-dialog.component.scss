@@ -1,3 +1,7 @@
 .wrapper {
   @apply space-y-3;
+
+  h1 {
+    @apply pr-10;
+  }
 }
