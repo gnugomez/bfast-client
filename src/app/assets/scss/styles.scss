@@ -87,3 +87,7 @@ button[app-button] {
 .auth-icon {
   animation: fadeRight 0.8s;
 }
+
+.link {
+  @apply hover:underline cursor-pointer text-primary;
+}

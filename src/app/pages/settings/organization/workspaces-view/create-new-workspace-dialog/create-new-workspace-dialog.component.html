@@ -1,6 +1,10 @@
 <app-modal>
   <div class="wrapper">
     <h1>Crear espacio de trabajo</h1>
+    <div class="text-sm !mt-6">
+      Establece el nombre del espcaio de trabajo y empieza a añadir usuarios a
+      este.
+    </div>
     <div class="errors">
       <div
         class="invalid-notice"
@@ -21,7 +25,7 @@
       class="grid gap-6"
     >
       <app-form-input
-        label="Nombre"
+        label="Nombre *"
         inputType="text"
         formControlName="name"
       ></app-form-input>

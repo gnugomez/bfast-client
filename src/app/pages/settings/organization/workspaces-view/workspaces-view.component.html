@@ -1,14 +1,5 @@
 <div *ngIf="activeOrganization">
   <h1>Espacios de trabajo de {{ activeOrganization.name }}</h1>
-  <div class="add">
-    <app-button
-      open-modal
-      size="sm"
-      variant="secondary"
-      (click)="createWorkspace()"
-      >Crear espacio de trabajo</app-button
-    >
-  </div>
   <div class="list prose dark:prose-invert max-w-none">
     <ng-container
       *ngIf="organizationWorkspaces | async; then list; else loader"
@@ -26,6 +17,15 @@
     </ng-container>
   </ng-template>
   <ng-template #listTable>
+    <div class="add">
+      <app-button
+        open-modal
+        size="sm"
+        variant="secondary"
+        (click)="createWorkspace()"
+        >Crear espacio de trabajo</app-button
+      >
+    </div>
     <table class="workspaces-list">
       <thead>
         <tr>

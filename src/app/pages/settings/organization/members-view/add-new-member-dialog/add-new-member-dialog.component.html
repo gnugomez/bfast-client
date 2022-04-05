@@ -1,6 +1,11 @@
 <app-modal>
   <div class="wrapper">
     <h1>Añadir miembro</h1>
+    <div class="text-sm !mt-6">
+      Para añadir un nuevo miembro a tu organización debe estar registrado.
+      También puedes
+      <a class="link">crear un enlace de unión rápida</a>.
+    </div>
     <div class="errors">
       <div class="invalid-notice" [class.open]="newMemberForm.errors?.notFound">
         <span>Este correo no pertenece a ningún usuario</span>
@@ -18,7 +23,7 @@
       class="grid gap-6"
     >
       <app-form-input
-        label="Email del usuario"
+        label="Email del usuario *"
         inputType="email"
         formControlName="email"
       ></app-form-input>
