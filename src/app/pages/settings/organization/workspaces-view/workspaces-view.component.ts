@@ -8,6 +8,7 @@ import { Workspace } from 'src/app/shared/domain/Workspace';
 import { OrganizationService } from 'src/app/shared/services/organization.service';
 import { WorkspaceService } from 'src/app/shared/services/workspace.service';
 import { CreateNewWorkspaceDialog } from './create-new-workspace-dialog/create-new-workspace-dialog.component';
+import { DeleteWorkspaceDialog } from './delete-workspace-dialog/delete-workspace-dialog.component';
 
 @Component({
   selector: 'app-workspaces-view',
@@ -44,7 +45,7 @@ export class WorkspacesViewComponent implements OnInit {
           this.organizationWorkspaces.next(null);
 
           if (active) {
-            this.workspaceService.getAllWorkspaces(active).subscribe({
+            this.workspaceService.getAllWorkspaces().subscribe({
               next: (workspaces) => {
                 this.organizationWorkspaces.next(workspaces);
               }
@@ -56,6 +57,10 @@ export class WorkspacesViewComponent implements OnInit {
 
   public createWorkspace(): void {
     this.modalService.open(CreateNewWorkspaceDialog, { workspaces: this.organizationWorkspaces, org: this.activeOrganization });
+  }
+
+  public deleteWorkspace(workspace: Workspace): void {
+    this.modalService.open(DeleteWorkspaceDialog, { workspace, org: this.activeOrganization, workspaces: this.organizationWorkspaces });
   }
 
   ngOnDestroy() {

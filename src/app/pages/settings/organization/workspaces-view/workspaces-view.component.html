@@ -72,6 +72,8 @@
                     class="item delete"
                     unoutlined
                     [class.active]="item.active"
+                    (click)="deleteWorkspace(workspace)"
+                    open-modal
                   >
                     <span> Eliminar </span>
                   </div>

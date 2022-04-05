@@ -1,0 +1,29 @@
+<app-modal>
+  <div class="wrapper">
+    <h1>¿Estas absolutamente seguro?</h1>
+    <div class="text-sm">
+      Esta acción no se puede deshacer. Esto eliminará permanentemente el
+      espacio de trabajo {{ workspace.name }}, usuarios, datos, objetos y
+      eliminará todas las asociaciones a la organización.
+    </div>
+    <div class="text-sm">
+      Escriba <b>{{ workspace.name }}</b> para confirmar.
+    </div>
+    <form
+      [formGroup]="deleteWorkspaceForm"
+      (ngSubmit)="onSubmit()"
+      class="grid gap-6"
+    >
+      <app-form-input
+        label="Nombre *"
+        inputType="text"
+        formControlName="name"
+      ></app-form-input>
+      <div class="grid gap-4">
+        <app-button variant="danger" type="submit" [loading]="loading"
+          >Entiendo las consecuencias, eliminar</app-button
+        >
+      </div>
+    </form>
+  </div>
+</app-modal>
