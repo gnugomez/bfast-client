@@ -38,7 +38,7 @@ export class DeleteWorkspaceDialog implements OnInit {
 
     if (this.deleteWorkspaceForm.valid) {
 
-      if (this.deleteWorkspaceForm.value.name === this.workspace.name) {
+      if (this.deleteWorkspaceForm.value.name === this.workspace.slug) {
         this.loading = true;
         this.workspaceService
           .delete(this.workspace)
