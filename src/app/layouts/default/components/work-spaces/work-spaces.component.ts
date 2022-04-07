@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Workspace } from 'src/app/shared/domain/Workspace';
+import { WorkspaceService } from 'src/app/shared/services/workspace.service';
 import items from './workSpaces';
 
 @Component({
@@ -7,9 +9,15 @@ import items from './workSpaces';
   styleUrls: ['./work-spaces.component.scss'],
 })
 export class WorkSpacesComponent implements OnInit {
-  workspaces = items;
+  workspaces: Workspace[] | null = null;
 
-  constructor() {}
+  constructor(private workspaceService: WorkspaceService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.workspaceService.getSelf().subscribe({
+      next: (workspaces) => {
+        this.workspaces = workspaces;
+      },
+    });
+  }
 }

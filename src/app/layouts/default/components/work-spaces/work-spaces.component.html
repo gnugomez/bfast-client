@@ -1,11 +1,34 @@
 <h3 class="title">Espacios de trabajo</h3>
-<div class="wrapper">
-  <a
-    *ngFor="let item of workspaces"
-    [routerLink]="'/workspace/' + item.id"
-    class="item"
-    [title]="item.name"
-    ><span>#</span>
-    <div class="name">{{ item.name }}</div>
-  </a>
-</div>
+<ng-container *ngIf="workspaces; then list; else loader"></ng-container>
+<ng-template #list>
+  <ng-container
+    *ngIf="workspaces?.length; then workspacesList; else empty"
+  ></ng-container>
+</ng-template>
+<ng-template #workspacesList>
+  <div class="wrapper">
+    <a
+      *ngFor="let item of workspaces"
+      [routerLink]="'/workspace/' + item.slug"
+      class="item"
+      [title]="item.name"
+      ><span>#</span>
+      <div class="name">{{ item.name }}</div>
+    </a>
+  </div>
+</ng-template>
+<ng-template #empty>
+  <div
+    class="h-full w-full overflow-hidden flex flex-col gap-4 items-center justify-center text-center"
+  >
+    <img class="opacity-30 w-24" src="/assets/img/no-workspaces.svg" alt="" />
+    <span class="text-sm opacity-30 px-4"
+      >Parece que no perteneces a ningún espacio de trabajo.</span
+    >
+  </div>
+</ng-template>
+<ng-template #loader>
+  <div class="w-full h-full py-12 flex justify-center items-center">
+    <app-loader></app-loader>
+  </div>
+</ng-template>

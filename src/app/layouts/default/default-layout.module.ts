@@ -42,6 +42,7 @@ import { ButtonModule } from 'src/app/components/button/button.module';
 import { OutsideClickModule } from 'src/app/shared/directives/outside-click/outside-click.module';
 import { PortalModule } from 'src/app/components/portal/portal.module';
 import { ModalModule } from 'src/app/components/modal/modal.module';
+import { LoaderModule } from 'src/app/components/loader/loader.module';
 
 const icons = {
   HeroMenuAlt2,
@@ -93,6 +94,7 @@ const layouts = [DefaultLayoutComponent];
     MenuModule,
     PortalModule,
     ModalModule,
+    LoaderModule,
     NgIconsModule.withIcons(icons),
   ],
 })
