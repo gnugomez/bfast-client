@@ -16,25 +16,29 @@
           ></app-form-input>
           <app-form-input
             label="Dirección"
-            formControlName="website"
+            formControlName="address"
             [innerLabel]="false"
           ></app-form-input>
           <app-form-input
             label="Correo electrónico"
-            formControlName="website"
+            formControlName="email"
             [innerLabel]="false"
           ></app-form-input>
           <app-form-input
             label="Teléfono"
-            formControlName="website"
+            formControlName="phone"
             [innerLabel]="false"
           ></app-form-input>
           <app-form-text-area
             label="Descipción"
-            formControlName="website"
+            formControlName="description"
             [innerLabel]="false"
           ></app-form-text-area>
-          <app-button variant="secondary" class="mt-10"
+          <app-button
+            type="submit"
+            variant="secondary"
+            class="mt-10"
+            [disabled]="generalForm.disabled"
             >Actualizar perfil</app-button
           >
         </form>

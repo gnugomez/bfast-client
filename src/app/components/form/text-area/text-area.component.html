@@ -1,9 +1,10 @@
-<div class="input-wrapper">
+<div class="input-wrapper" [class.disabled]="control.disabled">
   <label *ngIf="!innerLabel" [for]="id">{{ label }}</label>
   <textarea
     [id]="id"
     [(ngModel)]="value"
     (blur)="onTouched()"
+    [disabled]="control.disabled ? true : false"
     [placeholder]="innerLabel ? label : ''"
   ></textarea>
   <div *ngIf="control && control.errors" class="errors">
