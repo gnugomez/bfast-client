@@ -125,7 +125,7 @@ export class OrganizationService {
     return newOrganization;
   }
 
-  public deleteOrganization(organization: Organization): Observable<any> {
+  public delete(organization: Organization): Observable<any> {
     return new Observable<void>((observer) => {
       this.http
         .delete(API_URL + 'organizations/' + organization.id)

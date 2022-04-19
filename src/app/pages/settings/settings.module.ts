@@ -18,6 +18,7 @@ import { WorkspacesViewComponent } from './organization/workspaces-view/workspac
 import { IsPrivilegedGuard } from 'src/app/shared/guards/is-privileged.guard';
 import { CreateNewWorkspaceDialog } from './organization/workspaces-view/create-new-workspace-dialog/create-new-workspace-dialog.component';
 import { DeleteWorkspaceDialog } from './organization/workspaces-view/delete-workspace-dialog/delete-workspace-dialog.component';
+import { DeleteOrganizationDialog } from './organization/options-view/delete-organization-dialog/delete-organization-dialog.component';
 
 const routes: Route[] = [
   {
@@ -64,7 +65,8 @@ const routes: Route[] = [
     OptionsViewComponent,
     WorkspacesViewComponent,
     CreateNewWorkspaceDialog,
-    DeleteWorkspaceDialog
+    DeleteWorkspaceDialog,
+    DeleteOrganizationDialog
   ],
   imports: [
     CommonModule,

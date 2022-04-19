@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ModalService } from 'src/app/components/modal/modal.service';
 import { Organization } from 'src/app/shared/domain/Organization';
 import { OrganizationService } from 'src/app/shared/services/organization.service';
+import { DeleteOrganizationDialog } from './delete-organization-dialog/delete-organization-dialog.component';
 
 @Component({
   selector: 'app-options-view',
@@ -20,7 +22,7 @@ export class OptionsViewComponent implements OnInit {
     description: new FormControl(''),
   });
 
-  constructor(private organizationService: OrganizationService) {
+  constructor(private organizationService: OrganizationService, private modalService: ModalService) {
     this.organizationService.getActiveOrganization().subscribe((organization) => {
       this.activeOrganization = organization;
 
@@ -42,6 +44,10 @@ export class OptionsViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  public delete(): void {
+    this.modalService.open(DeleteOrganizationDialog, { org: this.activeOrganization });
   }
 
 }
