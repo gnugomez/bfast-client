@@ -1,9 +1,9 @@
-input {
+textarea {
   @apply w-full border-0 border-b-[3px] px-0 py-3;
   @apply border-main-gray-dimed dark:border-gray-700 focus:ring-0 focus:border-primary bg-transparent;
 }
 
-label{
+label {
   @apply block text-sm font-medium leading-5 text-gray-700 dark:text-gray-300;
 }
 

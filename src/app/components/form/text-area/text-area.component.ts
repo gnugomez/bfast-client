@@ -6,18 +6,18 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-form-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss'],
+  selector: 'app-form-text-area',
+  templateUrl: './text-area.component.html',
+  styleUrls: ['./text-area.component.scss'],
 })
-export class FormInputComponent implements ControlValueAccessor {
+
+export class FormTextAreaComponent implements ControlValueAccessor {
   public onChange: any = (value: string) => { };
   public onTouched: any = () => { };
   public disabled = false;
   public touched = false;
 
   @Input() public label: string = '';
-  @Input() public inputType: string = 'text';
   @Input() public innerLabel: boolean = true;
   @Input() public id: string = this.label + Math.floor(Math.random() * 100);
 

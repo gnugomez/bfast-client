@@ -27,11 +27,10 @@
   }
 
   &.btn-danger {
-    @apply font-bold rounded-full bg-red-300 border-red-300 dark:bg-rose-500 dark:border-red-500 text-white;
-
+    @apply font-bold rounded-full text-red-500 bg-main-gray-dimed dark:bg-dark-300 dark:border-dark-300 border-main-gray-dimed;
     &:hover,
     &:focus-within {
-      @apply bg-white border-white dark:bg-dark-100 dark:border-dark-100 text-main-dark dark:text-white;
+      @apply bg-red-500 border-red-500 text-white;
     }
   }
 

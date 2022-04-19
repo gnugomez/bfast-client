@@ -1,0 +1,47 @@
+.wrapper {
+  @apply space-y-12;
+
+  form {
+    @apply grid gap-6;
+  }
+
+  .profile {
+    @apply grid gap-6;
+
+    .options {
+      @apply grid sm:grid-cols-2 gap-4;
+    }
+  }
+
+  .avatar {
+    @apply bg-light-400 dark:bg-dark-300 rounded-lg aspect-w-1 aspect-h-1;
+  }
+
+  .two-cols {
+    @apply grid grid-cols-2 gap-4;
+  }
+
+  .danger {
+    @apply grid gap-6;
+
+    .options {
+      @apply grid border border-red-500 rounded-4xl divide-y dark:divide-dark-800;
+
+      .option {
+        @apply flex items-center justify-between p-8;
+
+        h3 {
+          @apply font-semibold text-lg;
+        }
+
+        span {
+          @apply text-xs;
+        }
+
+        .content {
+          @apply flex-1;
+        }
+      }
+    }
+  }
+}

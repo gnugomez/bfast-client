@@ -1,1 +1,75 @@
-<p>options-view works!</p>
+<div class="wrapper">
+  <div class="profile">
+    <h1>General</h1>
+    <div class="options">
+      <div class="left">
+        <form [formGroup]="generalForm">
+          <app-form-input
+            label="Nombre visible"
+            formControlName="name"
+            [innerLabel]="false"
+          ></app-form-input>
+          <app-form-input
+            label="Página web"
+            formControlName="website"
+            [innerLabel]="false"
+          ></app-form-input>
+          <app-form-input
+            label="Dirección"
+            formControlName="website"
+            [innerLabel]="false"
+          ></app-form-input>
+          <app-form-input
+            label="Correo electrónico"
+            formControlName="website"
+            [innerLabel]="false"
+          ></app-form-input>
+          <app-form-input
+            label="Teléfono"
+            formControlName="website"
+            [innerLabel]="false"
+          ></app-form-input>
+          <app-form-text-area
+            label="Descipción"
+            formControlName="website"
+            [innerLabel]="false"
+          ></app-form-text-area>
+          <app-button variant="secondary" class="mt-10"
+            >Actualizar perfil</app-button
+          >
+        </form>
+      </div>
+      <div class="right">
+        <div class="inner max-w-xs mx-auto">
+          <div class="avatar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="danger">
+    <h1 class="text-red-500">Zona peligrosa</h1>
+    <div class="options">
+      <div class="option">
+        <div class="content">
+          <h3>Eliminar organización</h3>
+          <span
+            >Esta acción no se puede revertir, y eliminará todos los datos
+            vinculados con la misma</span
+          >
+        </div>
+        <app-button variant="danger">Eliminar organización</app-button>
+      </div>
+      <div class="option">
+        <div class="content">
+          <h3>Dejar organización</h3>
+          <span
+            >Esta acción no se puede revertir, y eliminará todos los datos
+            vinculados con tu cuenta en
+            <b>{{ activeOrganization?.name }}</b></span
+          >
+        </div>
+        <app-button variant="danger">Dejar organización</app-button>
+      </div>
+    </div>
+  </div>
+</div>

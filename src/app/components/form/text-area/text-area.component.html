@@ -1,12 +1,11 @@
 <div class="input-wrapper">
   <label *ngIf="!innerLabel" [for]="id">{{ label }}</label>
-  <input
+  <textarea
     [id]="id"
     [(ngModel)]="value"
     (blur)="onTouched()"
     [placeholder]="innerLabel ? label : ''"
-    [type]="inputType"
-  />
+  ></textarea>
   <div *ngIf="control && control.errors" class="errors">
     <span *ngIf="control.errors.required"> Este campo es obligatorio </span>
     <span *ngIf="control.errors.minlength">

@@ -74,6 +74,7 @@ const routes: Route[] = [
     FormModule,
     ReactiveFormsModule,
     MenuModule,
+    FormModule,
     NgIconsModule.withIcons({
       HeroChevronDown, HeroCheck, HeroDotsHorizontal
     }),
