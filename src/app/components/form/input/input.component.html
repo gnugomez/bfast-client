@@ -5,6 +5,7 @@
     [(ngModel)]="value"
     (blur)="onTouched()"
     [placeholder]="innerLabel ? label : ''"
+    [disabled]="control.disabled ? true : false"
     [type]="inputType"
   />
   <div *ngIf="control && control.errors" class="errors">

@@ -13,17 +13,27 @@ export class OptionsViewComponent implements OnInit {
   public privileged = false;
   public generalForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
-    website: new FormControl('',),
+    website: new FormControl(''),
   });
 
   constructor(private organizationService: OrganizationService) {
     this.organizationService.getActiveOrganization().subscribe((organization) => {
       this.activeOrganization = organization;
+
       this.privileged = organization?.privileged ? true : false;
+
+      this.generalForm.enable();
+
       this.generalForm.patchValue({
         name: organization?.name,
         website: organization?.website,
       })
+
+      if (!this.privileged) {
+        this.generalForm.disable();
+      } else {
+        this.generalForm.enable();
+      }
     });
   }
 

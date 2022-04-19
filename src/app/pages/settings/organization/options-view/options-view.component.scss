@@ -28,7 +28,7 @@
       @apply grid border border-red-500 rounded-4xl divide-y dark:divide-dark-800;
 
       .option {
-        @apply flex items-center justify-between p-8;
+        @apply flex items-center gap-6 justify-between p-8;
 
         h3 {
           @apply font-semibold text-lg;

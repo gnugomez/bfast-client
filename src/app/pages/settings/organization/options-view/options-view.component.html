@@ -49,7 +49,7 @@
   <div class="danger">
     <h1 class="text-red-500">Zona peligrosa</h1>
     <div class="options">
-      <div class="option">
+      <div class="option" *ngIf="privileged">
         <div class="content">
           <h3>Eliminar organización</h3>
           <span
