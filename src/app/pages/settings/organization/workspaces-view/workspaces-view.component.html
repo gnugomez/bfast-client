@@ -33,8 +33,12 @@
       <tbody>
         <tr *ngFor="let workspace of organizationWorkspaces | async">
           <td>
-            <span class="font-bold"
-              ><span class="text-primary">#</span> {{ workspace.name }}</span
+            <a
+              [routerLink]="['/workspace', workspace.slug]"
+              class="no-underline"
+              ><span class="font-bold cursor-pointer">
+                <span class="text-primary">#</span> {{ workspace.name }}</span
+              ></a
             >
           </td>
           <td>

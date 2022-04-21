@@ -51,6 +51,13 @@ const routes: Routes = [
             (m) => m.SettingsModule
           ),
       },
+      {
+        path: 'workspace/:slug',
+        loadChildren: () =>
+          import('../pages/workspace/workspace.module').then(
+            (m) => m.WorkspaceModule
+          ),
+      },
     ],
   },
   {
