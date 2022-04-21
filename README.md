@@ -8,5 +8,5 @@ Demo here: [bfast-client.vercel.app](https://bfast-client.vercel.app/)
 Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ```
-⚠️ First you need to configure the .env file. Rename env.sample and fill the variables with the expected data.
+❗️ First you need to configure the .env file. Rename env.sample and fill the variables with the expected data.
 ```
