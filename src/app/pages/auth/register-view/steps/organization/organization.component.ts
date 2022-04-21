@@ -23,7 +23,7 @@ export class OrganizationComponent implements OnInit {
     private auth: AuthService,
     private organizationService: OrganizationService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.organizationForm.valueChanges.subscribe(() => {
@@ -45,11 +45,11 @@ export class OrganizationComponent implements OnInit {
       this.loading = true;
 
       this.organizationService
-        .createOrganization(this.organizationForm.value)
+        .create(this.organizationForm.value)
         .subscribe({
           next: (res) => {
             this.organizationService
-              .getOrganizations({ forceFetch: true })
+              .getAll({ forceFetch: true })
               .subscribe((res) => {
                 this.loading = false;
                 this.router.navigate(['/overview']);

@@ -19,9 +19,9 @@ export class NewViewComponent implements OnInit {
   constructor(
     private organizationService: OrganizationService,
     private router: Router
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   public goBack(): void {
     history.back();
@@ -32,15 +32,15 @@ export class NewViewComponent implements OnInit {
       this.loading = true;
 
       this.organizationService
-        .createOrganization(this.organizationForm.value)
+        .create(this.organizationForm.value)
         .subscribe({
           next: (res) => {
-            this.organizationService.setActiveOrganization(
+            this.organizationService.setActive(
               res.data as Organization
             );
 
             this.organizationService
-              .getOrganizations({ forceFetch: true })
+              .getAll({ forceFetch: true })
               .subscribe((res) => {
                 this.loading = false;
                 this.router.navigate(['/overview']);

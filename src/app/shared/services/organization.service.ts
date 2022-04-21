@@ -24,12 +24,12 @@ export class OrganizationService {
     private router: Router
   ) {
     this.authService.listenEvent('logout', () => {
-      this.clearActiveOrganization();
+      this.clearActive();
       this.organizations = undefined;
     });
   }
 
-  public getOrganizations(
+  public getAll(
     params: { forceFetch: boolean } = { forceFetch: false }
   ): Observable<Organization[] | null> {
     if (!this.organizations || params.forceFetch) {
@@ -40,12 +40,12 @@ export class OrganizationService {
           this.organizations = organizations;
 
           if (organizations.length > 0) {
-            const activeOrganization = this.checkActiveOrganization(organizations);
+            const activeOrganization = this.checkActive();
 
             if (activeOrganization) {
-              this.setActiveOrganization(activeOrganization);
+              this.setActive(activeOrganization);
             } else {
-              this.setActiveOrganization(organizations[0]);
+              this.setActive(organizations[0]);
             }
           }
         });
@@ -55,7 +55,7 @@ export class OrganizationService {
 
   public haveOrganizations(): Observable<boolean> {
     return new Observable<boolean>((observer) => {
-      this.getOrganizations().subscribe((organizations) => {
+      this.getAll().subscribe((organizations) => {
         if (organizations) {
           observer.next(organizations?.length > 0);
         }
@@ -63,13 +63,25 @@ export class OrganizationService {
     });
   }
 
-  public getActiveOrganization(): BehaviorSubject<Organization | undefined> {
+  /**
+   * It returns a BehaviorSubject that emits the current active organization
+   * @returns BehaviorSubject<Organization | undefined>
+   */
+  public getActive(): BehaviorSubject<Organization | undefined> {
     return this.activeOrganization$;
   }
 
+
+  /**
+   * "If the user is logged in, return the value of the 'privileged' property of the active
+   * organization."
+   * 
+   * The function isPrivileged() returns an Observable<boolean> which is a stream of boolean values
+   * @returns Observable<boolean>
+   */
   public isPrivileged(): Observable<boolean> {
     return new Observable<boolean>((observer) => {
-      this.getActiveOrganization().subscribe((organization) => {
+      this.getActive().subscribe((organization) => {
         if (organization) {
           const privileged = organization.privileged;
           observer.next(privileged);
@@ -79,7 +91,12 @@ export class OrganizationService {
     });
   }
 
-  public setActiveOrganization(organization: Organization): void {
+  /**
+   * It sorts the organizations array by the active organization, then sets the active organization in
+   * local storage and in the activeOrganization$ BehaviorSubject
+   * @param {Organization} organization - Organization - The organization to set as active
+   */
+  public setActive(organization: Organization): void {
     if (this.organizations) {
       this.organizations.sort((a, b) => {
         if (a.id === organization.id) {
@@ -97,27 +114,40 @@ export class OrganizationService {
       localStorage.setItem('activeOrganization', JSON.stringify(organization.id));
       this.activeOrganization$.next(organization);
     } else {
-      this.clearActiveOrganization();
+      this.clearActive();
       this.router.navigate(['/organization/not-found']);
     }
   }
 
-  public clearActiveOrganization(): void {
+  /**
+   * It removes the activeOrganization from localStorage
+   */
+  public clearActive(): void {
     localStorage.removeItem('activeOrganization');
   }
 
-  private checkActiveOrganization(organizations: Organization[]): Organization | null {
+  /**
+   * If there is an active organization in local storage, return it, otherwise return null
+   * @returns The active organization or null
+   */
+  private checkActive(): Organization | null {
     const activeOrganization = localStorage.getItem('activeOrganization');
 
     if (activeOrganization) {
-      const org = organizations.find((org) => org.id === Number(activeOrganization))
+      const org = this.organizations?.find((org) => org.id === Number(activeOrganization))
       return org ? org : null;
     } else {
       return null;
     }
   }
 
-  public createOrganization(organization: Organization): Observable<any> {
+  /**
+   * This function takes an Organization object as a parameter, and returns an Observable of type any
+   * @param {Organization} organization - Organization - this is the object that we're passing in to
+   * the function.
+   * @returns Observable<any>
+   */
+  public create(organization: Organization): Observable<any> {
     const newOrganization = this.http.post(
       API_URL + 'organizations',
       organization
@@ -125,6 +155,14 @@ export class OrganizationService {
     return newOrganization;
   }
 
+  /**
+   * It makes a DELETE request to the API, and if the request is successful, it removes the
+   * organization from the list of organizations and sets the first organization in the list as the
+   * active organization
+   * @param {Organization} organization - Organization - this is the organization object that we want
+   * to delete.
+   * @returns An observable of void
+   */
   public delete(organization: Organization): Observable<any> {
     return new Observable<void>((observer) => {
       this.http
@@ -135,13 +173,18 @@ export class OrganizationService {
           );
           if (this.organizations) {
             this.organizations$.next(this.organizations);
-            this.setActiveOrganization(this.organizations[0]);
+            this.setActive(this.organizations[0]);
           }
           observer.next();
         });
     });
   }
 
+  /**
+   * It returns an observable of the members of an organization
+   * @param {Organization | undefined} organization - Organization | undefined
+   * @returns An observable of any type.
+   */
   public getMembersFromOrganization(
     organization: Organization | undefined
   ): Observable<any> {
@@ -154,6 +197,15 @@ export class OrganizationService {
     }
   }
 
+  /**
+   * "If the organization is defined, then add the user to the organization."
+   * 
+   * The function takes two parameters: an organization and an email. The function returns an
+   * Observable of any type
+   * @param {Organization | undefined} organization - Organization | undefined
+   * @param {string} email - The email of the user you want to add to the organization.
+   * @returns An observable of any type.
+   */
   public addMemberToOrganization(
     organization: Organization | undefined,
     email: string

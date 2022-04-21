@@ -23,7 +23,7 @@ export class OptionsViewComponent implements OnInit {
   });
 
   constructor(private organizationService: OrganizationService, private modalService: ModalService) {
-    this.organizationService.getActiveOrganization().subscribe((organization) => {
+    this.organizationService.getActive().subscribe((organization) => {
       this.activeOrganization = organization;
 
       this.privileged = organization?.privileged ? true : false;

@@ -28,7 +28,7 @@ export class MembersViewComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.organizationService
-      .getActiveOrganization()
+      .getActive()
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
         next: (val) => {

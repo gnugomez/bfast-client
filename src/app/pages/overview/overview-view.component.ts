@@ -17,7 +17,7 @@ export class OverviewViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getMe().subscribe(user => this.user = user);
-    this.organizationService.getActiveOrganization().subscribe(organization => this.activeOrganization = organization);
+    this.organizationService.getActive().subscribe(organization => this.activeOrganization = organization);
   }
 
 }

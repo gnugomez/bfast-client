@@ -35,7 +35,7 @@ export class AddNewMemberDialogComponent implements OnInit {
       this.loading = true;
       this.organizationService
         .addMemberToOrganization(
-          this.organizationService.getActiveOrganization().value,
+          this.organizationService.getActive().value,
           this.newMemberForm.value.email
         )
         .subscribe({

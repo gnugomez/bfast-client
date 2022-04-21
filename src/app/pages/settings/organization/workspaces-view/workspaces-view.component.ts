@@ -33,7 +33,7 @@ export class WorkspacesViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.organizationService
-      .getActiveOrganization()
+      .getActive()
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
         next: (active) => {

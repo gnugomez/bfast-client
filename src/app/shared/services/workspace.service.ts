@@ -15,7 +15,7 @@ export class WorkspaceService {
   private organization?: Organization;
 
   constructor(private http: HttpClient, private organizationService: OrganizationService) {
-    this.organizationService.getActiveOrganization().subscribe((organization) => {
+    this.organizationService.getActive().subscribe((organization) => {
       this.organization = organization;
     });
   }

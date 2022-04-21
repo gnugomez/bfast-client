@@ -27,11 +27,11 @@ export class OrganizationSwapperComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.organizationService.getOrganizations().subscribe((organizations) => {
+    this.organizationService.getAll().subscribe((organizations) => {
       this.organizations = organizations;
     });
     this.organizationService
-      .getActiveOrganization()
+      .getActive()
       .subscribe((organization) => {
         this.activeOrganization = organization;
       });
@@ -48,7 +48,7 @@ export class OrganizationSwapperComponent implements OnInit {
   // selects the organization and puts it the first in the list
   public selectOrganization(organization: Organization) {
     if (this.activeOrganization?.id !== organization.id) {
-      this.organizationService.setActiveOrganization(organization);
+      this.organizationService.setActive(organization);
     }
   }
 }
