@@ -12,7 +12,7 @@ import { WorkspaceService } from 'src/app/shared/services/workspace.service';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
-  public workspace = new BehaviorSubject<Workspace | null | undefined>(null)
+  public workspace = new BehaviorSubject<Workspace | null | undefined>(undefined)
   public activeOrganization?: Organization
 
   constructor(private workspaceService: WorkspaceService,
