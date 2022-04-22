@@ -1,0 +1,20 @@
+.wrapper {
+  @apply grid gap-5;
+
+  .tabs {
+    @apply flex gap-2 overflow-y-auto;
+
+    &::-webkit-scrollbar {
+      @apply hidden;
+    }
+
+    .tab {
+      @apply px-5 py-3 rounded-xl cursor-default relative;
+
+      &:hover,
+      &.active {
+        @apply bg-light-400 dark:bg-dark-900;
+      }
+    }
+  }
+}

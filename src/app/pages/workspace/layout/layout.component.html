@@ -1,0 +1,48 @@
+<ng-container
+  *ngIf="workspace | async; then single; else noWorkspace"
+></ng-container>
+<ng-template #single>
+  <div class="wrapper">
+    <h1 class="title">
+      <span>{{ (workspace | async)?.name }}</span>
+    </h1>
+    <div class="tabs">
+      <a
+        class="tab"
+        routerLink="."
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Resumen
+      </a>
+      <a class="tab" routerLinkActive="active"> Histórico </a>
+      <a class="tab" routerLink="./settings" routerLinkActive="active">
+        Detalles
+      </a>
+      <a class="tab" routerLink="./users" routerLinkActive="active">
+        Participantes
+      </a>
+    </div>
+    <div class="content">
+      <router-outlet (activate)="onOutletLoaded($event)"></router-outlet>
+    </div>
+  </div>
+</ng-template>
+<ng-template #noWorkspace>
+  <ng-container
+    *ngIf="(workspace | async) === null; then notFound; else loader"
+  ></ng-container>
+</ng-template>
+<ng-template #notFound>
+  <div
+    class="h-96 w-full flex flex-col gap-4 items-center justify-center text-center prose dark:prose-invert max-w-none"
+  >
+    <img class="opacity-50 w-44" src="/assets/img/not-found.svg" alt="" />
+    <span> No se ha encontrado el espacio de trabajo solicitado.</span>
+  </div>
+</ng-template>
+<ng-template #loader>
+  <div class="w-full flex h-44 items-center justify-center">
+    <app-loader></app-loader>
+  </div>
+</ng-template>
