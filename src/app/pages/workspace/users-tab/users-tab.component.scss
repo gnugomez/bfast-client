@@ -1,0 +1,45 @@
+.wrapper {
+  @apply grid gap-5;
+
+  .add {
+    @apply flex;
+  }
+
+  td {
+    @apply align-middle;
+  }
+
+  .role-dropdown {
+    @apply relative;
+
+    .button {
+      @apply flex items-center gap-2 justify-end;
+      @apply cursor-pointer;
+    }
+
+    .dropdown {
+      @apply absolute z-10 right-0 w-56 mt-2 origin-top-right rounded-xl shadow-app outline-none overflow-hidden;
+      @apply bg-white dark:bg-dark-900 divide-y divide-gray-100 dark:divide-dark-200;
+
+      .item {
+        @apply flex items-center w-full px-4 py-2 text-sm leading-5 text-left cursor-default;
+
+        & > span {
+          @apply ml-6;
+        }
+
+        .icon {
+          @apply absolute;
+        }
+
+        &.delete {
+          @apply text-red-600;
+        }
+
+        &.active {
+          @apply bg-light-400 dark:bg-dark-400;
+        }
+      }
+    }
+  }
+}

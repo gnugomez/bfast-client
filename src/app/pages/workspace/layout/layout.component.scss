@@ -1,8 +1,8 @@
 .wrapper {
-  @apply grid gap-5;
+  @apply grid;
 
   .tabs {
-    @apply flex gap-2 overflow-y-auto;
+    @apply flex gap-2 overflow-y-auto py-5;
 
     &::-webkit-scrollbar {
       @apply hidden;
@@ -14,6 +14,14 @@
       &:hover,
       &.active {
         @apply bg-light-400 dark:bg-dark-900;
+      }
+
+      &.active {
+        &::after {
+          content: "";
+          @apply absolute left-1/2 -translate-x-1/2 -bottom-2.5 h-1
+            w-3/4 rounded-full bg-primary;
+        }
       }
     }
   }

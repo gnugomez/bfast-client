@@ -1,1 +1,74 @@
-<p>users-tab works!</p>
+<div class="wrapper">
+  <div class="add">
+    <app-button open-modal size="sm" variant="secondary">
+      Añadir participante
+    </app-button>
+  </div>
+  <div class="prose dark:prose-invert max-w-none">
+    <table class="members-list">
+      <thead>
+        <tr>
+          <td>Usuario</td>
+          <td class="text-right">Nivel de acceso</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let member of (workspace | async)?.users">
+          <td>
+            <span class="font-bold">{{ member.name }} {{ member.surname }}</span
+            ><br /><span class="text-xs">{{ member.email }}</span>
+          </td>
+          <td>
+            <div hlMenu class="role-dropdown">
+              <div class="button" hlMenuButton>
+                <span *ngIf="member.role === 'manager'">Supervisor</span>
+                <span *ngIf="member.role === 'member'">Miembro</span>
+                <ng-icon name="hero-chevron-down"></ng-icon>
+              </div>
+              <div @toggleAnimation class="dropdown" *hlMenuItems unoutlined>
+                <div class="py-1">
+                  <div
+                    *hlMenuItem="let item"
+                    class="item"
+                    unoutlined
+                    [class.active]="item.active"
+                  >
+                    <ng-icon
+                      *ngIf="member.role === 'manager'"
+                      name="hero-check"
+                      class="icon"
+                    ></ng-icon>
+                    <span> Manager </span>
+                  </div>
+                  <div
+                    *hlMenuItem="let item"
+                    class="item"
+                    unoutlined
+                    [class.active]="item.active"
+                  >
+                    <ng-icon
+                      *ngIf="member.role === 'member'"
+                      name="hero-check"
+                      class="icon"
+                    ></ng-icon>
+                    <span> Miembro </span>
+                  </div>
+                </div>
+                <div class="py-1">
+                  <div
+                    *hlMenuItem="let item"
+                    class="item delete"
+                    unoutlined
+                    [class.active]="item.active"
+                  >
+                    <span> Eliminar </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

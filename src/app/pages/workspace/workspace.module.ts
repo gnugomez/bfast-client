@@ -6,6 +6,10 @@ import { LoaderModule } from 'src/app/components/loader/loader.module';
 import { UsersTabComponent } from './users-tab/users-tab.component';
 import { SettingsTabComponent } from './settings-tab/settings-tab.component';
 import { OverviewTabComponent } from './overview-tab/overview-tab.component';
+import { ButtonModule } from 'src/app/components/button/button.module';
+import { NgIconsModule } from '@ng-icons/core';
+import { HeroCheck, HeroChevronDown, HeroDotsHorizontal } from '@ng-icons/heroicons';
+import { MenuModule } from 'headlessui-angular';
 
 const routes: Route[] = [
   {
@@ -38,7 +42,12 @@ const routes: Route[] = [
   imports: [
     CommonModule,
     LoaderModule,
-    RouterModule.forChild(routes)
+    ButtonModule,
+    MenuModule,
+    RouterModule.forChild(routes),
+    NgIconsModule.withIcons({
+      HeroChevronDown, HeroCheck, HeroDotsHorizontal
+    })
   ]
 })
 export class WorkspaceModule { }
