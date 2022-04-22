@@ -2,40 +2,40 @@
   <div class="left" [ngClass]="{ 'is-settings': isSettingsPage }">
     <div class="settings-menu">
       <span class="label">Personal</span>
-      <div
+      <a
         class="item"
         routerLink="/settings/personal/account"
         routerLinkActive="active"
       >
         <span>Cuenta</span>
-      </div>
-      <div class="item">
+      </a>
+      <a class="item">
         <span>Contraseña y autenticación</span>
-      </div>
+      </a>
       <span class="label">Organización</span>
-      <div
+      <a
         class="item"
         routerLink="/settings/organization/options"
         routerLinkActive="active"
       >
         <span>Opciones</span>
-      </div>
-      <div
+      </a>
+      <a
         class="item"
         routerLink="/settings/organization/members"
         routerLinkActive="active"
         *ngIf="isPrivileged"
       >
         <span>Miembros</span>
-      </div>
-      <div
+      </a>
+      <a
         class="item"
         routerLink="/settings/organization/workspaces"
         routerLinkActive="active"
         *ngIf="isPrivileged"
       >
         <span>Espacios de trabajo</span>
-      </div>
+      </a>
     </div>
   </div>
   <div class="right">
