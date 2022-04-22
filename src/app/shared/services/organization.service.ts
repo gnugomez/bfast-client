@@ -185,7 +185,7 @@ export class OrganizationService {
    * @param {Organization | undefined} organization - Organization | undefined
    * @returns An observable of any type.
    */
-  public getMembersFromOrganization(
+  public getMembers(
     organization: Organization | undefined
   ): Observable<any> {
     if (organization) {
@@ -206,7 +206,7 @@ export class OrganizationService {
    * @param {string} email - The email of the user you want to add to the organization.
    * @returns An observable of any type.
    */
-  public addMemberToOrganization(
+  public addMember(
     organization: Organization | undefined,
     email: string
   ): Observable<any> {

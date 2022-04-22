@@ -1,6 +1,11 @@
 <div class="wrapper">
   <div class="add">
-    <app-button open-modal size="sm" variant="secondary">
+    <app-button
+      open-modal
+      size="sm"
+      variant="secondary"
+      (click)="addNewMember()"
+    >
       Añadir participante
     </app-button>
   </div>
@@ -9,7 +14,7 @@
       <thead>
         <tr>
           <td>Usuario</td>
-          <td class="text-right">Nivel de acceso</td>
+          <td class="text-right">Rol</td>
         </tr>
       </thead>
       <tbody>

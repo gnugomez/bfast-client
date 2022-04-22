@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DATA } from 'src/app/components/modal/modal-outlet/modal-outlet.component';
 import { ModalService } from 'src/app/components/modal/modal.service';
-import { OrganizationService } from 'src/app/shared/services/organization.service';
+import { WorkspaceService } from 'src/app/shared/services/workspace.service';
 
 @Component({
   selector: 'app-add-new-member-dialog',
@@ -18,7 +18,7 @@ export class AddNewMemberDialogComponent implements OnInit {
 
   constructor(
     private modalService: ModalService,
-    public organizationService: OrganizationService,
+    private workspaceService: WorkspaceService,
     @Inject(DATA) private data: any
   ) { }
 
@@ -33,35 +33,28 @@ export class AddNewMemberDialogComponent implements OnInit {
 
     if (this.newMemberForm.valid) {
       this.loading = true;
-      this.organizationService
-        .addMember(
-          this.organizationService.getActive().value,
-          this.newMemberForm.value.email
-        )
-        .subscribe({
-          next: (res) => {
-            this.organizationService.getMembers(this.data.org).subscribe({
-              next: (members) => {
-                this.data.members.next(members);
-                this.modalService.close();
-                this.loading = false;
-              },
-            });
-          },
-          error: (err) => {
+      this.workspaceService.addMember(this.data.workspace.value, this.newMemberForm.value.email).subscribe({
+        next: () => {
+          this.modalService.close();
+          this.workspaceService.getSingle(this.data.workspace.value.slug).subscribe((workspace) => {
+            this.data.workspace.next(workspace);
             this.loading = false;
-            if (err.status === 409) {
-              this.newMemberForm.setErrors({
-                duplicate: true,
-              });
-            }
-            if (err.status === 404) {
-              this.newMemberForm.setErrors({
-                notFound: true,
-              });
-            }
-          },
-        });
+          });
+        },
+        error: (err) => {
+          this.loading = false;
+          if (err.status === 409) {
+            this.newMemberForm.setErrors({
+              duplicate: true,
+            });
+          }
+          if (err.status === 404) {
+            this.newMemberForm.setErrors({
+              notFound: true,
+            });
+          }
+        },
+      });
     }
   }
 }

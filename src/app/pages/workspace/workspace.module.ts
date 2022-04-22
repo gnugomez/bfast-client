@@ -10,6 +10,10 @@ import { ButtonModule } from 'src/app/components/button/button.module';
 import { NgIconsModule } from '@ng-icons/core';
 import { HeroCheck, HeroChevronDown, HeroDotsHorizontal } from '@ng-icons/heroicons';
 import { MenuModule } from 'headlessui-angular';
+import { AddNewMemberDialogComponent } from './users-tab/add-new-member-dialog/add-new-member-dialog.component';
+import { FormModule } from 'src/app/components/form/form.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ModalModule } from 'src/app/components/modal/modal.module';
 
 const routes: Route[] = [
   {
@@ -37,13 +41,17 @@ const routes: Route[] = [
     LayoutComponent,
     UsersTabComponent,
     SettingsTabComponent,
-    OverviewTabComponent
+    OverviewTabComponent,
+    AddNewMemberDialogComponent
   ],
   imports: [
     CommonModule,
     LoaderModule,
     ButtonModule,
     MenuModule,
+    FormModule,
+    ReactiveFormsModule,
+    ModalModule,
     RouterModule.forChild(routes),
     NgIconsModule.withIcons({
       HeroChevronDown, HeroCheck, HeroDotsHorizontal

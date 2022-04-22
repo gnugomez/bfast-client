@@ -1,0 +1,37 @@
+<app-modal>
+  <div class="wrapper">
+    <h1>Añadir participante</h1>
+    <div class="text-sm !mt-6">
+      Para añadir un nuevo miembro a este espacio de trabajo debe estar dentro
+      de la organización.
+    </div>
+    <div class="errors">
+      <div class="invalid-notice" [class.open]="newMemberForm.errors?.notFound">
+        <span>Este correo no pertenece a ningún usuario</span>
+      </div>
+      <div
+        class="invalid-notice"
+        [class.open]="newMemberForm.errors?.duplicate"
+      >
+        <span>Este usuario ya está en la organización</span>
+      </div>
+    </div>
+    <form
+      [formGroup]="newMemberForm"
+      (ngSubmit)="onSubmit()"
+      class="grid gap-6"
+    >
+      <app-form-input
+        label="Email del usuario *"
+        inputType="email"
+        formControlName="email"
+      ></app-form-input>
+      <div class="grid grid-cols-2 gap-4">
+        <app-button variant="light" (click)="cancel()">Cancelar</app-button>
+        <app-button variant="secondary" type="submit" [loading]="loading"
+          >Añadir</app-button
+        >
+      </div>
+    </form>
+  </div>
+</app-modal>

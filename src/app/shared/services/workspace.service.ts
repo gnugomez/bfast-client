@@ -66,4 +66,8 @@ export class WorkspaceService {
     return this.http.get<Workspace>(`${API_URL}organizations/${this.organization?.id}/workspaces/${workspaceSlug}`);
   }
 
+  public addMember(workspace: Workspace, userEmail: string): Observable<any> {
+    return this.http.put(`${API_URL}organizations/${this.organization?.id}/workspaces/${workspace.id}/members`, { user_email: userEmail });
+  }
+
 }
