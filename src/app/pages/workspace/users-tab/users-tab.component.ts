@@ -24,8 +24,6 @@ export class UsersTabComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.workspace?.value);
-
   }
 
 }
