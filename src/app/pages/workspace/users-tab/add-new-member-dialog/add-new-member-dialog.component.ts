@@ -38,6 +38,7 @@ export class AddNewMemberDialogComponent implements OnInit {
           this.modalService.close();
           this.workspaceService.getSingle(this.data.workspace.value.slug).subscribe((workspace) => {
             this.data.workspace.next(workspace);
+            this.workspaceService.loadSelf();
             this.loading = false;
           });
         },
