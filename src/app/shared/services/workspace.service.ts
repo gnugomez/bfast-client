@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Organization } from '../domain/Organization';
 import { Workspace } from '../domain/Workspace';
@@ -13,6 +13,7 @@ const API_URL = environment.API_URL;
 })
 export class WorkspaceService {
   private organization?: Organization;
+  private selfWorkspaces = new BehaviorSubject<Workspace[] | null>(null);
 
   constructor(private http: HttpClient, private organizationService: OrganizationService) {
     this.organizationService.getActive().subscribe((organization) => {
@@ -21,11 +22,26 @@ export class WorkspaceService {
   }
 
   /**
+   * If the user has not yet loaded their workspaces, load them and then return the workspaces
+   * @returns A BehaviorSubject that is either null or an array of Workspaces.
+   */
+  get workspaces$(): BehaviorSubject<Workspace[] | null> {
+    this.loadSelf();
+    return this.selfWorkspaces;
+  }
+
+  public loadSelf(): void {
+    this.getSelf().subscribe((workspaces) => {
+      this.selfWorkspaces.next(workspaces);
+    });
+  }
+
+  /**
    * It returns an observable of an array of Workspaces
    * @returns An observable of an array of Workspaces
    */
   public getAll(): Observable<Workspace[]> {
-    return this.http.get<Workspace[]>(`${API_URL}organizations/${this.organization?.id}/workspaces`);
+    return this.http.get<Workspace[]>(`${API_URL}organizations/${this.organization?.id}/workspaces`)
   }
 
   /**
@@ -33,7 +49,7 @@ export class WorkspaceService {
    * @returns An observable of an array of Workspaces
    */
   public getSelf(): Observable<Workspace[]> {
-    return this.http.get<Workspace[]>(`${API_URL}organizations/${this.organization?.id}/workspaces/self`);
+    return this.http.get<Workspace[]>(`${API_URL}organizations/${this.organization?.id}/workspaces/self`)
   }
 
   /**
