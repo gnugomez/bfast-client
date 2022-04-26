@@ -39,9 +39,9 @@ export class RegisterViewComponent implements OnInit {
     ]),
   });
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   public nextStep(): void {
     if (this.currentStep < this.totalSteps) {
