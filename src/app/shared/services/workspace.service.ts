@@ -4,6 +4,7 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Organization } from '../domain/Organization';
 import { Workspace } from '../domain/Workspace';
+import { AuthService } from './auth.service';
 import { OrganizationService } from './organization.service';
 
 const API_URL = environment.API_URL;
@@ -15,9 +16,17 @@ export class WorkspaceService {
   private organization?: Organization;
   private selfWorkspaces = new BehaviorSubject<Workspace[] | null>(null);
 
-  constructor(private http: HttpClient, private organizationService: OrganizationService) {
+  constructor(
+    private http: HttpClient,
+    private organizationService: OrganizationService,
+    private authService: AuthService
+  ) {
     this.organizationService.getActive().subscribe((organization) => {
       this.organization = organization;
+    });
+
+    this.authService.listenEvent('logout', () => {
+      this.selfWorkspaces.next(null);
     });
   }
 
@@ -30,6 +39,10 @@ export class WorkspaceService {
     return this.selfWorkspaces;
   }
 
+  /**
+   * It subscribes to the observable returned by the getSelf() function, and when the observable emits
+   * a value, it updates the selfWorkspaces subject with the value
+   */
   public loadSelf(): void {
     this.getSelf().subscribe((workspaces) => {
       this.selfWorkspaces.next(workspaces);

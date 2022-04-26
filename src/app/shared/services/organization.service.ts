@@ -26,6 +26,7 @@ export class OrganizationService {
     this.authService.listenEvent('logout', () => {
       this.clearActive();
       this.organizations = undefined;
+      this.organizations$.next(null);
     });
   }
 
@@ -123,6 +124,7 @@ export class OrganizationService {
    * It removes the activeOrganization from localStorage
    */
   public clearActive(): void {
+    this.activeOrganization$.next(undefined);
     localStorage.removeItem('activeOrganization');
   }
 
