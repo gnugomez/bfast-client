@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Organization } from '../domain/Organization';
+import { User } from '../domain/User';
 import { Workspace } from '../domain/Workspace';
 import { AuthService } from './auth.service';
 import { OrganizationService } from './organization.service';
@@ -95,8 +96,20 @@ export class WorkspaceService {
     return this.http.get<Workspace>(`${API_URL}organizations/${this.organization?.id}/workspaces/${workspaceSlug}`);
   }
 
+  /**
+   * It makes a PUT request to the API to add a member to a workspace
+   * @param {Workspace} workspace - Workspace, userEmail: string
+   * @param {string} userEmail - The email of the user you want to add to the workspace.
+   * @returns Observable<any>
+   */
   public addMember(workspace: Workspace, userEmail: string): Observable<any> {
     return this.http.put(`${API_URL}organizations/${this.organization?.id}/workspaces/${workspace.id}/members`, { user_email: userEmail });
   }
+
+  public updateUserRole(workspace: Workspace, user: User, role: "manager" | "member"): Observable<any> {
+    return this.http.patch(`${API_URL}organizations/${this.organization?.id}/workspaces/${workspace.id}/members/${user.id}`, { role });
+  }
+
+
 
 }
