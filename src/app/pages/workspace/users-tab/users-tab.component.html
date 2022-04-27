@@ -6,7 +6,7 @@
     </ng-container>
   </div>
   <ng-template #list>
-    <div class="add">
+    <div class="add" *ngIf="activeOrganization?.privileged">
       <app-button
         open-modal
         size="sm"
@@ -31,9 +31,18 @@
           </td>
           <td>
             <workspace-role-dropdown
+              *ngIf="activeOrganization?.privileged; else role"
               [user]="member"
               [workspace]="workspace"
             ></workspace-role-dropdown>
+            <ng-template #role>
+              <div class="text-right" *ngIf="member.role === 'member'">
+                Miembro
+              </div>
+              <div class="text-right" *ngIf="member.role === 'manager'">
+                Supervisor
+              </div>
+            </ng-template>
           </td>
         </tr>
       </tbody>
@@ -48,7 +57,12 @@
         >Parece que <b>{{ (workspace | async)?.name }}</b> no tiene ningún
         participante 😔.</span
       >
-      <app-button open-modal size="sm" variant="light" (click)="addNewMember()"
+      <app-button
+        *ngIf="activeOrganization?.privileged"
+        open-modal
+        size="sm"
+        variant="light"
+        (click)="addNewMember()"
         >Añadir uno ahora</app-button
       >
     </div>
