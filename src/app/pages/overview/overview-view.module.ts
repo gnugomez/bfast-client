@@ -4,7 +4,7 @@ import { OverviewViewComponent } from './overview-view.component';
 import { CardModule } from 'src/app/components/card/card.module';
 import { ButtonModule } from 'src/app/components/button/button.module';
 import { NgIconsModule } from '@ng-icons/core';
-import { HeroArrowNarrowRight, HeroQrcode, HeroFlag } from '@ng-icons/heroicons';
+import { HeroArrowNarrowRight, HeroQrcode, HeroCamera } from '@ng-icons/heroicons';
 import { RouterModule } from '@angular/router';
 
 
@@ -21,7 +21,7 @@ import { RouterModule } from '@angular/router';
     NgIconsModule.withIcons({
       HeroArrowNarrowRight,
       HeroQrcode,
-      HeroFlag
+      HeroCamera
     })
   ],
   exports: [

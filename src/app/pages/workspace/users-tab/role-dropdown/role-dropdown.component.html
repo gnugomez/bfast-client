@@ -1,0 +1,55 @@
+<div hlMenu class="role-dropdown">
+  <app-button
+    variant="light"
+    class="button"
+    size="sm"
+    [loading]="loading"
+    hlMenuButton
+  >
+    <span *ngIf="user.role === 'manager'">Supervisor</span>
+    <span *ngIf="user.role === 'member'">Miembro</span>
+    <ng-icon name="hero-chevron-down"></ng-icon>
+  </app-button>
+  <div @toggleAnimation class="dropdown" *hlMenuItems unoutlined>
+    <div class="py-1">
+      <div
+        *hlMenuItem="let item"
+        class="item"
+        unoutlined
+        (click)="updateRole('manager')"
+        [class.active]="item.active"
+      >
+        <ng-icon
+          *ngIf="user.role === 'manager'"
+          name="hero-check"
+          class="icon"
+        ></ng-icon>
+        <span> Supervisor </span>
+      </div>
+      <div
+        *hlMenuItem="let item"
+        class="item"
+        unoutlined
+        (click)="updateRole('member')"
+        [class.active]="item.active"
+      >
+        <ng-icon
+          *ngIf="user.role === 'member'"
+          name="hero-check"
+          class="icon"
+        ></ng-icon>
+        <span> Miembro </span>
+      </div>
+    </div>
+    <div class="py-1">
+      <div
+        *hlMenuItem="let item"
+        class="item delete"
+        unoutlined
+        [class.active]="item.active"
+      >
+        <span> Eliminar </span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -14,6 +14,7 @@ import { AddNewMemberDialogComponent } from './users-tab/add-new-member-dialog/a
 import { FormModule } from 'src/app/components/form/form.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'src/app/components/modal/modal.module';
+import { RoleDropdownComponent } from './users-tab/role-dropdown/role-dropdown.component';
 
 const routes: Route[] = [
   {
@@ -42,7 +43,8 @@ const routes: Route[] = [
     UsersTabComponent,
     SettingsTabComponent,
     OverviewTabComponent,
-    AddNewMemberDialogComponent
+    AddNewMemberDialogComponent,
+    RoleDropdownComponent
   ],
   imports: [
     CommonModule,
