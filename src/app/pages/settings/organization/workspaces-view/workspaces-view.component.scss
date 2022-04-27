@@ -12,11 +12,10 @@
   }
 
   .role-dropdown {
-    @apply relative;
+    @apply relative float-right;
 
     .button {
-      @apply flex items-center gap-2 justify-end;
-      @apply cursor-pointer;
+      @apply inline-block;
     }
 
     .dropdown {
