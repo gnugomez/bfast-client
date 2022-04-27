@@ -106,10 +106,8 @@ export class WorkspaceService {
     return this.http.put(`${API_URL}organizations/${this.organization?.id}/workspaces/${workspace.id}/members`, { user_email: userEmail });
   }
 
-  public updateUserRole(workspace: Workspace, user: User, role: "manager" | "member"): Observable<any> {
+  public updateUserRole(workspace: Workspace, user: User, role: string): Observable<any> {
     return this.http.patch(`${API_URL}organizations/${this.organization?.id}/workspaces/${workspace.id}/members/${user.id}`, { role });
   }
-
-
 
 }
