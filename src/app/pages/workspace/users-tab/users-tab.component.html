@@ -1,15 +1,21 @@
 <div class="wrapper">
-  <div class="add">
-    <app-button
-      open-modal
-      size="sm"
-      variant="secondary"
-      (click)="addNewMember()"
+  <div class="list prose dark:prose-invert max-w-none">
+    <ng-container
+      *ngIf="(workspace | async)?.users?.length; then list; else listEmpty"
     >
-      Añadir participante
-    </app-button>
+    </ng-container>
   </div>
-  <div class="prose dark:prose-invert max-w-none">
+  <ng-template #list>
+    <div class="add">
+      <app-button
+        open-modal
+        size="sm"
+        variant="secondary"
+        (click)="addNewMember()"
+      >
+        Añadir participante
+      </app-button>
+    </div>
     <table class="members-list">
       <thead>
         <tr>
@@ -32,5 +38,19 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </ng-template>
+  <ng-template #listEmpty>
+    <div
+      class="h-96 w-full flex flex-col gap-4 items-center justify-center text-center"
+    >
+      <img class="opacity-50 w-44" src="/assets/img/no-user.svg" alt="" />
+      <span
+        >Parece que <b>{{ (workspace | async)?.name }}</b> no tiene ningún
+        participante 😔.</span
+      >
+      <app-button open-modal size="sm" variant="light" (click)="addNewMember()"
+        >Añadir uno ahora</app-button
+      >
+    </div>
+  </ng-template>
 </div>
