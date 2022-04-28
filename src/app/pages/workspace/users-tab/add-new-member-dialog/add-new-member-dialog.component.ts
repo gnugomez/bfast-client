@@ -36,7 +36,7 @@ export class AddNewMemberDialogComponent implements OnInit {
       this.workspaceService.addMember(this.data.workspace.value, this.newMemberForm.value.email).subscribe({
         next: () => {
           this.modalService.close();
-          this.workspaceService.getSingle(this.data.workspace.value.slug).subscribe((workspace) => {
+          this.workspaceService.getSingleBySlug(this.data.workspace.value.slug).subscribe((workspace) => {
             this.data.workspace.next(workspace);
             this.workspaceService.loadSelf();
             this.loading = false;

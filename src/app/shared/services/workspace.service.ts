@@ -92,7 +92,7 @@ export class WorkspaceService {
    * @param {string} workspaceSlug - The slug of the workspace you want to get.
    * @returns An observable of type Workspace
    */
-  public getSingle(workspaceSlug: string): Observable<Workspace> {
+  public getSingleBySlug(workspaceSlug: string): Observable<Workspace> {
     return this.http.get<Workspace>(`${API_URL}organizations/${this.organization?.id}/workspaces/${workspaceSlug}`);
   }
 
@@ -110,4 +110,7 @@ export class WorkspaceService {
     return this.http.patch(`${API_URL}organizations/${this.organization?.id}/workspaces/${workspace.id}/members/${user.id}`, { role });
   }
 
+  public removeMember(workspace: Workspace, user: User): Observable<any> {
+    return this.http.delete(`${API_URL}organizations/${this.organization?.id}/workspaces/${workspace.id}/members/${user.id}`);
+  }
 }

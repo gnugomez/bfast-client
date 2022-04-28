@@ -42,4 +42,26 @@ export class RoleDropdownComponent implements OnInit {
     }
   }
 
+  public removeUser(): void {
+    if (this.workspace.value) {
+      this.loading = true
+
+      this.workspaceService.removeMember(this.workspace.value, this.user).subscribe(
+        {
+          next: () => {
+            this.workspaceService.getSingleBySlug(this.workspace.value!.slug).subscribe({
+              next: (workspace) => {
+                this.workspace.next(workspace)
+                this.loading = false;
+              }
+            })
+          },
+          error: () => {
+            this.loading = false;
+          }
+        }
+      )
+    }
+  }
+
 }
