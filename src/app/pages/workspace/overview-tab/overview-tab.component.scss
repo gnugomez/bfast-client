@@ -1,0 +1,95 @@
+.wrapper {
+  @apply mt-5;
+
+  .layout {
+    @apply grid 2xl:grid-cols-2 gap-5 items-start;
+
+    .schedule {
+      .inner {
+        @apply grid gap-4 items-start;
+
+        .actions {
+          @apply grid gap-4 md:grid-cols-2;
+
+          .actual {
+            @apply aspect-w-1 aspect-h-1 mmd:row-start-2;
+
+            &.late {
+              @apply bg-red-600/10;
+            }
+
+            &.early {
+              @apply bg-green-50;
+            }
+
+            .content {
+              @apply flex flex-col gap-3 items-center justify-center;
+              @apply font-semibold;
+
+              .time {
+                @apply flex flex-col items-center justify-center;
+
+                .left {
+                  @apply text-7xl;
+                }
+
+                .units {
+                  @apply text-2xl;
+                }
+              }
+            }
+          }
+
+          .log {
+            @apply bg-light-200 dark:bg-dark-400 text-gray-400 text-2xl font-semibold cursor-pointer;
+            @apply transition duration-300;
+            @apply aspect-w-1 aspect-h-1;
+
+            .content {
+              @apply flex flex-col gap-4 items-center justify-center;
+
+              .flag {
+                @apply absolute text-main-dark dark:text-white m-4 rounded-full top-0 right-0 bg-light-600 dark:bg-dark-600;
+                @apply w-12 h-12 flex items-center justify-center;
+              }
+            }
+
+            &:hover {
+              @apply bg-light-300 dark:bg-dark-200 text-gray-600 dark:text-white;
+            }
+          }
+
+          & > * {
+            @apply rounded-[1.7rem] overflow-hidden;
+          }
+        }
+        .next {
+          @apply py-4 mt-4;
+
+          & > span {
+            @apply px-4 font-semibold opacity-40;
+          }
+
+          .entries {
+            @apply grid mt-5;
+
+            .entry {
+              @apply flex items-center justify-between px-4 py-6;
+
+              .time {
+                @apply flex gap-3 font-semibold items-center;
+
+                .label {
+                  @apply bg-light-400 dark:bg-dark-400 px-3 py-1 rounded-lg;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .ranking {
+    }
+  }
+}

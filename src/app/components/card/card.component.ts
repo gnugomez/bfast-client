@@ -7,7 +7,6 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
   @Input() type: 'default' | 'open' | 'transparent' = 'default';
-  @Input() classes = '';
   @Input() border: 'slim' | 'medium' | 'thick' = 'medium';
 
   constructor() { }

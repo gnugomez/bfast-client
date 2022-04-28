@@ -15,6 +15,7 @@ import { FormModule } from 'src/app/components/form/form.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'src/app/components/modal/modal.module';
 import { RoleDropdownComponent } from './users-tab/role-dropdown/role-dropdown.component';
+import { CardModule } from 'src/app/components/card/card.module';
 
 const routes: Route[] = [
   {
@@ -54,6 +55,7 @@ const routes: Route[] = [
     FormModule,
     ReactiveFormsModule,
     ModalModule,
+    CardModule,
     RouterModule.forChild(routes),
     NgIconsModule.withIcons({
       HeroChevronDown, HeroCheck, HeroDotsHorizontal
