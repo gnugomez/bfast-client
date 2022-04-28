@@ -27,6 +27,8 @@ export class LayoutComponent implements OnInit {
     this.organizationService.getActive().subscribe(organization => {
       this.activeOrganization = organization
 
+      this.workspace.next(undefined)
+
       this.route.params.subscribe((params) => {
         this.workspaceService.getSingleBySlug(params.slug).subscribe({
           next: (workspace) => {

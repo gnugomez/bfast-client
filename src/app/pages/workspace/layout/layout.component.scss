@@ -2,7 +2,9 @@
   @apply grid;
 
   .tabs {
-    @apply flex gap-2 overflow-y-auto py-5;
+    @apply flex gap-2 overflow-y-auto py-5 -mx-5 px-5;
+    @apply sm:sticky msm:relative sm:top-20 z-20;
+    @apply bg-white/70 dark:bg-black/70 backdrop-filter backdrop-blur-lg backdrop-saturate-200;
 
     &::-webkit-scrollbar {
       @apply hidden;
