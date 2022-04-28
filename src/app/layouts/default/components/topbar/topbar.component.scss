@@ -1,7 +1,7 @@
 .topbar-container {
   @apply bg-white/70 dark:bg-black/70 backdrop-filter backdrop-blur-lg backdrop-saturate-200 p-5;
   @apply sm:sticky msm:relative top-0;
-  @apply flex items-center h-20 z-10;
+  @apply flex items-center h-20 z-40;
 
   .right {
     @apply flex items-center gap-5 ml-auto h-full;

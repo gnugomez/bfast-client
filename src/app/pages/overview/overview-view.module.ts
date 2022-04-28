@@ -6,6 +6,7 @@ import { ButtonModule } from 'src/app/components/button/button.module';
 import { NgIconsModule } from '@ng-icons/core';
 import { HeroArrowNarrowRight, HeroQrcode, HeroCamera } from '@ng-icons/heroicons';
 import { RouterModule } from '@angular/router';
+import { LogModule } from 'src/app/components/log/log.module';
 
 
 
@@ -18,6 +19,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     CardModule,
     ButtonModule,
+    LogModule,
     NgIconsModule.withIcons({
       HeroArrowNarrowRight,
       HeroQrcode,
