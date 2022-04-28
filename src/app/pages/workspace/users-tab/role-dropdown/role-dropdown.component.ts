@@ -52,6 +52,7 @@ export class RoleDropdownComponent implements OnInit {
             this.workspaceService.getSingleBySlug(this.workspace.value!.slug).subscribe({
               next: (workspace) => {
                 this.workspace.next(workspace)
+                this.workspaceService.loadSelf();
                 this.loading = false;
               }
             })
