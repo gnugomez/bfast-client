@@ -37,6 +37,7 @@ export class WorkspaceService {
    */
   get workspaces$(): BehaviorSubject<Workspace[] | null> {
     this.loadSelf();
+    this.selfWorkspaces.next(null)
     return this.selfWorkspaces;
   }
 

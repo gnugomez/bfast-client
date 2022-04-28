@@ -45,7 +45,7 @@
           }
         }
         .next {
-          @apply py-4 mt-4;
+          @apply -mx-4 py-4 mt-4;
 
           & > span {
             @apply px-4 font-semibold opacity-40;
@@ -57,10 +57,15 @@
             .entry {
               @apply flex items-center justify-between px-4 py-6;
 
+              &:nth-child(odd) {
+                @apply bg-light-200 dark:bg-dark-800;
+              }
+
               .time {
                 @apply flex gap-3 font-semibold items-center;
 
-                .label {
+                .from,
+                .to {
                   @apply bg-light-400 dark:bg-dark-400 px-3 py-1 rounded-lg;
                 }
               }
