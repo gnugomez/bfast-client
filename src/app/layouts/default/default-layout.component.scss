@@ -27,5 +27,6 @@
 }
 
 #inset-mobile {
+  @apply box-content;
   padding-bottom: env(safe-area-inset-bottom);
 }

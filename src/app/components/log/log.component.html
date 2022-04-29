@@ -12,6 +12,7 @@
       (autostarting)="setStarting($event)"
       (permissionResponse)="setPermissions($event)"
       (scanSuccess)="scanSuccess($event)"
+      [formats]="allowedFormats"
     ></zxing-scanner>
     <div class="no-permissions" *ngIf="!havePermissions">
       Parece que has denegado el acceso a la cámara 🙁.

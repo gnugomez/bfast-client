@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { BarcodeFormat } from '@zxing/library';
 
 @Component({
   selector: 'app-log',
@@ -9,6 +10,8 @@ export class LogComponent implements OnInit {
   public openScanner: boolean = false;
   public isLoading = false;
   public havePermissions = true;
+  public allowedFormats = [BarcodeFormat.QR_CODE];
+
 
   constructor(private cdr: ChangeDetectorRef) { }
 
