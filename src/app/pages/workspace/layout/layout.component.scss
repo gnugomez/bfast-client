@@ -1,6 +1,10 @@
 .wrapper {
   @apply grid;
 
+  .content {
+    @apply mt-3;
+  }
+
   .tabs {
     @apply flex gap-2 overflow-y-auto py-5 -mx-5 px-5;
     @apply sm:sticky msm:relative sm:top-20 z-10;
