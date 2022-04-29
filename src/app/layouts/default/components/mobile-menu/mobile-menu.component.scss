@@ -1,6 +1,11 @@
 .menu {
-  @apply fixed bottom-0 z-20 inset-x-0 py-3 px-5 bg-light-200/80 dark:bg-dark-900/80 backdrop-filter backdrop-blur-lg backdrop-saturate-200;
-  @apply flex justify-between;
+  @apply bg-light-200/80 dark:bg-dark-900/80 backdrop-filter backdrop-blur-lg backdrop-saturate-200;
+  padding-bottom: env(safe-area-inset-bottom);
+
+  .wrapper {
+    @apply fixed bottom-0 z-20 inset-x-0 py-3 px-5;
+    @apply flex justify-between;
+  }
 
   .item {
     @apply flex items-center justify-center transition-all duration-300 rounded-xl ease-in-out shadow-none transform;
