@@ -100,7 +100,7 @@
         }
 
         & > * {
-          @apply rounded-[1.7rem] overflow-hidden;
+          @apply rounded-[1.7rem] overflow-hidden translate-x-0;
         }
       }
       .next {
