@@ -1,24 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { QrBlockComponent } from './log.component';
+import { LogComponent } from './log.component';
 import { NgIconsModule } from '@ng-icons/core';
-import { HeroCamera, HeroQrcode } from '@ng-icons/heroicons';
+import { HeroCamera, HeroQrcode, HeroX } from '@ng-icons/heroicons';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { LoaderModule } from '../loader/loader.module';
 
 
 
 @NgModule({
   declarations: [
-    QrBlockComponent
+    LogComponent
   ],
   imports: [
+    ZXingScannerModule,
     CommonModule,
+    LoaderModule,
     NgIconsModule.withIcons({
       HeroQrcode,
-      HeroCamera
+      HeroCamera,
+      HeroX
     })
   ],
   exports: [
-    QrBlockComponent
+    LogComponent
   ]
 })
 export class LogModule { }

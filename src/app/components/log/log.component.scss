@@ -6,13 +6,26 @@
   .content {
     @apply flex flex-col gap-4 items-center justify-center;
 
-    .flag {
-      @apply absolute text-main-dark dark:text-white m-4 rounded-full top-0 right-0 bg-light-600 dark:bg-dark-600;
+    .camera {
+      @apply absolute z-10 text-main-dark dark:text-white m-4 rounded-full top-0 right-0 bg-light-600/70 dark:bg-dark-600/70 backdrop-blur-sm backdrop-saturate-200;
       @apply w-12 h-12 flex items-center justify-center;
     }
   }
 
-  &:hover {
+  &:hover,
+  .scanner {
     @apply bg-light-300 dark:bg-dark-200 text-gray-600 dark:text-white;
+  }
+
+  .scanner {
+    @apply absolute bg-light-200 dark:bg-dark-400 inset-0;
+
+    app-loader {
+      @apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2;
+    }
+
+    .no-permissions {
+      @apply absolute top-1/2 -translate-y-1/2 w-full p-4 text-lg text-center;
+    }
   }
 }

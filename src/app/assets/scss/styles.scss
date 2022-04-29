@@ -91,3 +91,11 @@ button[app-button] {
 .link {
   @apply hover:underline cursor-pointer text-primary;
 }
+
+.log zxing-scanner {
+  @apply h-full;
+
+  video {
+    height: 100% !important;
+  }
+}

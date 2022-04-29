@@ -1,9 +1,20 @@
 <div class="log">
   <div class="content">
-    <div class="flag">
-      <ng-icon name="hero-camera"></ng-icon>
+    <div class="camera" (click)="toggleScanner()">
+      <ng-icon [name]="openScanner ? 'hero-x' : 'hero-camera'"></ng-icon>
     </div>
     <ng-icon name="hero-qrcode" size="35"></ng-icon>
     <span>Registrar entrada</span>
+  </div>
+  <div class="scanner" *ngIf="openScanner">
+    <app-loader *ngIf="isLoading"></app-loader>
+    <zxing-scanner
+      (autostarting)="setStarting($event)"
+      (permissionResponse)="setPermissions($event)"
+      (scanSuccess)="scanSuccess($event)"
+    ></zxing-scanner>
+    <div class="no-permissions" *ngIf="!havePermissions">
+      Parece que has denegado el acceso a la cámara 🙁.
+    </div>
   </div>
 </div>
