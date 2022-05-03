@@ -17,6 +17,8 @@ import { ModalModule } from 'src/app/components/modal/modal.module';
 import { RoleDropdownComponent } from './users-tab/role-dropdown/role-dropdown.component';
 import { CardModule } from 'src/app/components/card/card.module';
 import { LogModule } from 'src/app/components/log/log.module';
+import { SchedulesTabComponent } from './schedules-tab/schedules-tab.component';
+import { HistoryTabComponent } from './history-tab/history-tab.component';
 
 const routes: Route[] = [
   {
@@ -35,6 +37,14 @@ const routes: Route[] = [
         path: 'settings',
         component: SettingsTabComponent,
       },
+      {
+        path: 'schedules',
+        component: SchedulesTabComponent,
+      },
+      {
+        path: 'history',
+        component: HistoryTabComponent,
+      }
     ]
   }
 ]
@@ -46,7 +56,9 @@ const routes: Route[] = [
     SettingsTabComponent,
     OverviewTabComponent,
     AddNewMemberDialogComponent,
-    RoleDropdownComponent
+    RoleDropdownComponent,
+    SchedulesTabComponent,
+    HistoryTabComponent
   ],
   imports: [
     CommonModule,

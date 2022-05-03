@@ -80,25 +80,6 @@
           }
         }
 
-        .log {
-          @apply bg-light-200 dark:bg-dark-400 text-gray-400 text-2xl font-semibold cursor-pointer;
-          @apply transition duration-300;
-          @apply aspect-w-1 aspect-h-1;
-
-          .content {
-            @apply flex flex-col gap-4 items-center justify-center;
-
-            .flag {
-              @apply absolute text-main-dark dark:text-white m-4 rounded-full top-0 right-0 bg-light-600 dark:bg-dark-600;
-              @apply w-12 h-12 flex items-center justify-center;
-            }
-          }
-
-          &:hover {
-            @apply bg-light-300 dark:bg-dark-200 text-gray-600 dark:text-white;
-          }
-        }
-
         & > * {
           @apply rounded-[1.7rem] overflow-hidden translate-x-0;
         }
