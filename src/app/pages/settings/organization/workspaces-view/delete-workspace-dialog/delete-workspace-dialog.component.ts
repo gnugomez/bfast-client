@@ -48,6 +48,7 @@ export class DeleteWorkspaceDialog implements OnInit {
                 next: (workspaces) => {
                   this.data.workspaces.next(workspaces);
                   this.modalService.close();
+                  this.workspaceService.loadSelf();
                   this.loading = false;
                 },
               });
