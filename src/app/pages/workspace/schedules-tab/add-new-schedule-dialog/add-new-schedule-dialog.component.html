@@ -1,0 +1,51 @@
+<app-modal>
+  <div class="wrapper">
+    <h1>Añadir Horario</h1>
+    <div class="text-sm !mt-6">
+      Especifica un día y un rango de horas (no pueden entrar en conflicto con
+      otros ya creados).
+    </div>
+    <div class="errors">
+      <div class="invalid-notice" [class.open]="newMemberForm.errors?.notFound">
+        <span>Este correo no pertenece a ningún usuario</span>
+      </div>
+      <div
+        class="invalid-notice"
+        [class.open]="newMemberForm.errors?.duplicate"
+      >
+        <span>Este usuario ya está en la organización</span>
+      </div>
+    </div>
+    <form
+      [formGroup]="newMemberForm"
+      (ngSubmit)="onSubmit()"
+      class="grid gap-6"
+    >
+      <select formControlName="weekDay" name="" id="">
+        <option value="0">Lunes</option>
+        <option value="1">Martes</option>
+        <option value="2">Miércoles</option>
+        <option value="3">Jueves</option>
+        <option value="4">Viernes</option>
+        <option value="5">Sábado</option>
+        <option value="6">Domingo</option>
+      </select>
+      <div class="grid grid-cols-2 gap-3">
+        <div class="input-wrapper">
+          <label for="init">Hora de inicio</label>
+          <input id="init" type="time" formControlName="startTime" />
+        </div>
+        <div class="input-wrapper">
+          <label for="end">Hora de fin</label>
+          <input id="end" type="time" formControlName="endTime" />
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <app-button variant="light" (click)="cancel()">Cancelar</app-button>
+        <app-button variant="secondary" type="submit" [loading]="loading"
+          >Añadir</app-button
+        >
+      </div>
+    </form>
+  </div>
+</app-modal>

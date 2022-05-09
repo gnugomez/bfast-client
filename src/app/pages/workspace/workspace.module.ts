@@ -19,6 +19,7 @@ import { CardModule } from 'src/app/components/card/card.module';
 import { LogModule } from 'src/app/components/log/log.module';
 import { SchedulesTabComponent } from './schedules-tab/schedules-tab.component';
 import { HistoryTabComponent } from './history-tab/history-tab.component';
+import { AddNewScheduleDialogComponent } from './schedules-tab/add-new-schedule-dialog/add-new-schedule-dialog.component';
 
 const routes: Route[] = [
   {
@@ -58,6 +59,7 @@ const routes: Route[] = [
     AddNewMemberDialogComponent,
     RoleDropdownComponent,
     SchedulesTabComponent,
+    AddNewScheduleDialogComponent,
     HistoryTabComponent
   ],
   imports: [
