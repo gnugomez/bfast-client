@@ -6,18 +6,21 @@
       otros ya creados).
     </div>
     <div class="errors">
-      <div class="invalid-notice" [class.open]="newMemberForm.errors?.notFound">
+      <div
+        class="invalid-notice"
+        [class.open]="newScheduleForm.errors?.notFound"
+      >
         <span>Este correo no pertenece a ningún usuario</span>
       </div>
       <div
         class="invalid-notice"
-        [class.open]="newMemberForm.errors?.duplicate"
+        [class.open]="newScheduleForm.errors?.conflict"
       >
-        <span>Este usuario ya está en la organización</span>
+        <span>Este rango de horas entra en conflicto con otro</span>
       </div>
     </div>
     <form
-      [formGroup]="newMemberForm"
+      [formGroup]="newScheduleForm"
       (ngSubmit)="onSubmit()"
       class="grid gap-6"
     >

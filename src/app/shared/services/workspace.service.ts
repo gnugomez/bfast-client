@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Organization } from '../domain/Organization';
+import { Schedule } from '../domain/Schedule';
 import { User } from '../domain/User';
 import { Workspace } from '../domain/Workspace';
 import { AuthService } from './auth.service';
@@ -113,5 +114,13 @@ export class WorkspaceService {
 
   public removeMember(workspace: Workspace, user: User): Observable<any> {
     return this.http.delete(`${API_URL}organizations/${this.organization?.id}/workspaces/${workspace.id}/members/${user.id}`);
+  }
+
+  public addSchedule(workspace: Workspace, schedule: Schedule): Observable<any> {
+    return this.http.post(`${API_URL}organizations/${this.organization?.id}/workspaces/${workspace.id}/schedules`, schedule);
+  }
+
+  public removeSchedule(workspace: Workspace, schedule: Schedule): Observable<any> {
+    return this.http.delete(`${API_URL}organizations/${this.organization?.id}/workspaces/${workspace.id}/schedules/${schedule.id}`);
   }
 }

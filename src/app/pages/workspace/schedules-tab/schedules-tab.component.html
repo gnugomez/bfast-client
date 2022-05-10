@@ -28,15 +28,22 @@
       <tbody>
         <tr *ngFor="let time of (workspace | async)?.schedules">
           <td>
-            <span class="font-bold">{{ time.weekday }}</span
+            <span class="font-bold">{{ weekDayToString(time.weekday) }}</span
             ><br /><span class="text-xs"
-              >desde las <span class="label">{{ time.start_time }}</span> hasta
-              las <span class="label">{{ time.end_time }}</span></span
+              >desde las
+              <span class="label">{{ minutesToString(time.start_time) }}</span>
+              hasta las
+              <span class="label">{{
+                minutesToString(time.end_time)
+              }}</span></span
             >
           </td>
           <td *ngIf="activeOrganization?.privileged">
             <div class="float-right">
-              <app-button variant="danger" size="sm">Eliminar</app-button>
+              <workspace-schedule-delete-button
+                [schedule]="time"
+                [workspace]="workspace"
+              ></workspace-schedule-delete-button>
             </div>
           </td>
         </tr>
