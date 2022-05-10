@@ -30,7 +30,7 @@
 
     &.active {
       span {
-        @apply text-primary;
+        @apply text-primary font-semibold;
       }
       .bullet {
         @apply bg-primary;
