@@ -33,33 +33,4 @@ export class SchedulesTabComponent implements OnInit {
     this.modalService.open(AddNewScheduleDialogComponent, { workspace: this.workspace });
   }
 
-  public weekDayToString(weekDay: number): string {
-    switch (weekDay) {
-      case 0:
-        return 'Lunes'
-      case 1:
-        return 'Martes'
-      case 2:
-        return 'Miércoles'
-      case 3:
-        return 'Jueves'
-      case 4:
-        return 'Viernes'
-      case 5:
-        return 'Sábado'
-      case 6:
-        return 'Domingo'
-      default:
-        return 'Unknown'
-    }
-  }
-
-  public minutesToString(minutes: number): string {
-    const hours = Math.floor(minutes / 60)
-    const minutesLeft = minutes % 60
-    const amPm = hours > 12 ? 'PM' : 'AM'
-    return `${hours > 12 ? hours - 12 : hours}:${minutesLeft < 10 ? '0' : ''}${minutesLeft} ${amPm}`
-  }
-
-
 }

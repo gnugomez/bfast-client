@@ -21,6 +21,7 @@ import { SchedulesTabComponent } from './schedules-tab/schedules-tab.component';
 import { HistoryTabComponent } from './history-tab/history-tab.component';
 import { AddNewScheduleDialogComponent } from './schedules-tab/add-new-schedule-dialog/add-new-schedule-dialog.component';
 import { DeleteButtonComponent } from './schedules-tab/delete-button/delete-button.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const routes: Route[] = [
   {
@@ -74,6 +75,7 @@ const routes: Route[] = [
     ModalModule,
     CardModule,
     LogModule,
+    SharedModule,
     RouterModule.forChild(routes),
     NgIconsModule.withIcons({
       HeroChevronDown, HeroCheck, HeroDotsHorizontal

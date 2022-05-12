@@ -28,13 +28,13 @@
       <tbody>
         <tr *ngFor="let time of (workspace | async)?.schedules">
           <td>
-            <span class="font-bold">{{ weekDayToString(time.weekday) }}</span
+            <span class="font-bold">{{ time.weekday | weekDayToString }}</span
             ><br /><span class="text-xs"
               >desde las
-              <span class="label">{{ minutesToString(time.start_time) }}</span>
+              <span class="label">{{ time.start_time | minutesToString }}</span>
               hasta las
               <span class="label">{{
-                minutesToString(time.end_time)
+                time.end_time | minutesToString
               }}</span></span
             >
           </td>

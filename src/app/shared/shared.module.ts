@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { WeekDayToStringPipe } from './pipes/week-day-to-string.pipe';
+import { MinutesToStringPipe } from './pipes/minutes-to-string.pipe';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    WeekDayToStringPipe,
+    MinutesToStringPipe
+  ],
   imports: [CommonModule],
-  exports: [],
+  exports: [WeekDayToStringPipe, MinutesToStringPipe],
 })
-export class SharedModule {}
+export class SharedModule { }
