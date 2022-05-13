@@ -4,11 +4,18 @@
   "scripts": {
     "ng": "ng",
     "config": "ts-node ./scripts/setenv.ts",
-    "start": "npm run config -- --environment=dev && ng serve",
+    "start": "npm run config -- --environment=dev && npm-run-all -p electron:serve ng:serve",
+    "ng:serve": "ng serve -o",
     "build": "npm run config -- --environment=prod && ng build",
     "watch": "ng build --watch --configuration development",
+    "electron": "electron",
+    "electron:serve-tsc": "tsc -p tsconfig.serve.json",
+    "electron:serve": "wait-on tcp:4200 && npm run electron:serve-tsc && electron . --serve",
+    "electron:local": "npm run build && electron .",
+    "electron:build": "npm run build && electron-builder build --publish=never",
     "test": "ng test"
   },
+  "main": "app/main.js",
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.2.3",
@@ -40,15 +47,21 @@
     "@tailwindcss/typography": "latest",
     "@types/jasmine": "~3.10.2",
     "dotenv": "^11.0.0",
+    "electron": "^18.2.3",
+    "electron-builder": "23.0.2",
+    "electron-debug": "3.2.0",
+    "electron-reloader": "1.2.3",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.16",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "npm-run-all": "^4.1.5",
     "tailwindcss": "^3.0.2",
     "ts-node": "^10.4.0",
     "typescript": "~4.5.5",
+    "wait-on": "^6.0.1",
     "yargs": "^17.3.0"
   }
 }

@@ -2,7 +2,7 @@
   *ngIf="workspace | async; then single; else noWorkspace"
 ></ng-container>
 <ng-template #single>
-  <div class="wrapper">
+  <div class="wrapper" [class.inset]="coreService.isElectron">
     <h1 class="title">
       <span>{{ (workspace | async)?.name }}</span>
     </h1>

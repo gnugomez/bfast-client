@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
+import { CoreService } from 'src/app/shared/core/core.service';
 import { Organization } from 'src/app/shared/domain/Organization';
 import { Workspace } from 'src/app/shared/domain/Workspace';
 import { OrganizationService } from 'src/app/shared/services/organization.service';
@@ -17,7 +18,9 @@ export class LayoutComponent implements OnInit, OnDestroy {
   public workspace = new BehaviorSubject<Workspace | null | undefined>(undefined)
   public activeOrganization?: Organization
 
-  constructor(private workspaceService: WorkspaceService,
+  constructor(
+    public coreService: CoreService,
+    private workspaceService: WorkspaceService,
     private organizationService: OrganizationService,
     private route: ActivatedRoute) { }
 

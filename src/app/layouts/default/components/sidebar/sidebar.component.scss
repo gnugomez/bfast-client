@@ -21,6 +21,10 @@
   .top-wrapper {
     @apply px-5;
 
+    &.inset {
+      @apply pt-10;
+    }
+
     .top {
       @apply flex justify-between items-center h-20;
 

@@ -1,4 +1,4 @@
-<div class="topbar-container">
+<div class="topbar-container" [class.inset]="coreService.isElectron">
   <layout-search></layout-search>
   <div class="right">
     <layout-coins class="mlg:!hidden"></layout-coins>

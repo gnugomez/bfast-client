@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/bfast-client",
+            "outputPath": "dist",
             "index": "src/static/index.html",
             "main": "src/main.ts",
             "polyfills": "src/static/polyfills.ts",

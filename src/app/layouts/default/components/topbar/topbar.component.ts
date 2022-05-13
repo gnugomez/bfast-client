@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { CoreService } from 'src/app/shared/core/core.service';
 
 @Component({
   selector: 'layout-topbar',
@@ -8,9 +9,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class TopbarComponent implements OnInit {
   @Output() openSidebar = new EventEmitter();
 
-  constructor() {}
+  constructor(public coreService: CoreService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   public toggle(): void {
     this.openSidebar.emit();

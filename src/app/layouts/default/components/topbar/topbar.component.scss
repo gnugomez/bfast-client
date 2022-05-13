@@ -1,6 +1,9 @@
 .topbar-container {
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
+
   @apply bg-white/70 dark:bg-black/70 backdrop-filter backdrop-blur-lg backdrop-saturate-200 p-5;
-  @apply sm:sticky msm:relative top-0;
+  @apply sticky top-0;
   @apply flex items-center h-20 z-40;
 
   .right {
@@ -8,6 +11,15 @@
 
     & > * {
       @apply h-full flex items-center;
+    }
+  }
+
+  &.inset {
+    @screen mlg {
+      @apply pt-[3.75rem] h-[7.5rem];
+      & + .sidebar-toggler {
+        @apply top-10;
+      }
     }
   }
 }
@@ -19,7 +31,7 @@
 }
 
 .sidebar-toggler {
-  @apply h-20 px-5 flex z-40 items-center lg:hidden absolute sm:fixed top-0 left-0;
+  @apply h-20 px-5 flex z-40 items-center lg:hidden fixed top-0 left-0;
 
   ng-icon {
     @apply text-xl;

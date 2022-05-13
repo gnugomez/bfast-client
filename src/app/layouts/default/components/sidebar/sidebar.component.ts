@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CoreService } from 'src/app/shared/core/core.service';
 
 @Component({
   selector: 'layout-sidebar',
@@ -9,9 +10,9 @@ export class SidebarComponent implements OnInit {
   @Input() isOpen = false;
   @Output() closeSidebar = new EventEmitter();
 
-  constructor() {}
+  constructor(public coreService: CoreService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   public clickOutsideClose(event: MouseEvent): void {
     const closestOpenSidebarButton = (event.target as HTMLInputElement).closest(
