@@ -22,6 +22,7 @@ import { HistoryTabComponent } from './history-tab/history-tab.component';
 import { AddNewScheduleDialogComponent } from './schedules-tab/add-new-schedule-dialog/add-new-schedule-dialog.component';
 import { DeleteButtonComponent } from './schedules-tab/delete-button/delete-button.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ScheduleBlockComponent } from './overview-tab/schedule-block/schedule-block.component';
 
 const routes: Route[] = [
   {
@@ -63,7 +64,8 @@ const routes: Route[] = [
     SchedulesTabComponent,
     AddNewScheduleDialogComponent,
     HistoryTabComponent,
-    DeleteButtonComponent
+    DeleteButtonComponent,
+    ScheduleBlockComponent
   ],
   imports: [
     CommonModule,

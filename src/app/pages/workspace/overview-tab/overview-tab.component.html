@@ -1,34 +1,8 @@
 <div class="wrapper">
   <div class="layout">
-    <app-card border="slim" class="schedule">
-      <div class="inner">
-        <div class="actions">
-          <div class="actual early">
-            <div class="content">
-              <div class="time">
-                <div class="left">13</div>
-                <div class="units">minutos</div>
-              </div>
-              <span>¡Llegas pronto! 🎉</span>
-            </div>
-          </div>
-          <app-log></app-log>
-        </div>
-        <div class="next">
-          <span>Próximamente hoy</span>
-          <div class="entries">
-            <div class="entry" *ngFor="let item of [].constructor(3)">
-              <div class="time">
-                Empiezas a
-                <div class="label">16:00</div>
-                hasta las
-                <div class="label">18:00</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </app-card>
+    <workspace-schedule-block
+      [workspace]="workspace"
+    ></workspace-schedule-block>
     <app-card border="slim" class="ranking">
       <div class="aspect-w-9 aspect-h-14">
         <div class="inner space-y-4">

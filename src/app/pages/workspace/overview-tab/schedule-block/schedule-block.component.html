@@ -1,0 +1,46 @@
+<app-card border="slim" class="schedule">
+  <div class="inner">
+    <div class="actions">
+      <div class="actual early">
+        <div class="content">
+          <div class="time">
+            <div class="left">13</div>
+            <div class="units">minutos</div>
+          </div>
+          <span>¡Llegas pronto! 🎉</span>
+        </div>
+      </div>
+      <app-log></app-log>
+    </div>
+    <div class="next">
+      <span>Próximamente hoy</span>
+      <div
+        class="entries"
+        *ngIf="(workspace | async)?.schedules?.length; else listEmpty"
+      >
+        <div
+          class="entry"
+          *ngFor="let schedule of (workspace | async)?.schedules"
+        >
+          <div class="time">
+            Desde las
+            <div class="label">
+              {{ schedule.start_time | minutesToString }}
+            </div>
+            hasta las
+            <div class="label">
+              {{ schedule.end_time | minutesToString }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #listEmpty>
+        <div
+          class="h-48 flex flex-col gap-7 items-center justify-center text-center"
+        >
+          <span>Todo listo por hoy ✨.</span>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</app-card>
