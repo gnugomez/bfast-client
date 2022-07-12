@@ -26,7 +26,7 @@
     "@zxing/library": "^0.19.1",
     "@zxing/ngx-scanner": "^3.5.0",
     "headlessui-angular": "0.0.5",
-    "rxjs": "~7.5.1",
+    "rxjs": "~7.5.6",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
